@@ -1,6 +1,6 @@
 export const AUDIENCE_OPTIONS = [
   { value: "myself", label: "For myself" },
-  { value: "loved-one", label: "For a parent or loved one" },
+  { value: "loved-one", label: "For a loved one" },
   { value: "both", label: "For both of us" },
 ] as const;
 

@@ -29,7 +29,8 @@ export function Header() {
           href="/#waitlist"
           className="inline-flex min-h-12 items-center rounded-full bg-moss px-5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-moss-deep"
         >
-          Join the waitlist
+          <span className="sm:hidden">Join waitlist</span>
+          <span className="hidden sm:inline">Join the waitlist</span>
         </Link>
       </div>
     </header>

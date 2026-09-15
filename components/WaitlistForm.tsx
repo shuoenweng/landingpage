@@ -142,7 +142,7 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
           <legend className="text-base font-semibold text-ink">
             Who is this for?
           </legend>
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid gap-3">
             {AUDIENCE_OPTIONS.map((option) => {
               const optionId = `${idPrefix}-${option.value}`;
               const selected = audience === option.value;
@@ -151,7 +151,7 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
                 <label
                   key={option.value}
                   htmlFor={optionId}
-                  className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 text-base font-medium transition-colors ${
+                  className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 text-lg font-medium transition-colors ${
                     selected
                       ? "border-moss bg-leaf/70 text-ink"
                       : "border-pearl bg-white text-stone hover:border-silver"
@@ -183,11 +183,11 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
           </p>
         )}
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="flex flex-col items-start gap-3">
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="inline-flex min-h-14 items-center justify-center rounded-full bg-moss px-8 text-lg font-semibold text-white shadow-sm transition-colors hover:bg-moss-deep disabled:cursor-wait disabled:opacity-80"
+            className="inline-flex min-h-14 items-center justify-center whitespace-nowrap rounded-full bg-moss px-8 text-lg font-semibold text-white shadow-sm transition-colors hover:bg-moss-deep disabled:cursor-wait disabled:opacity-80"
           >
             {status === "submitting" ? "Joining…" : "Reserve a place"}
           </button>

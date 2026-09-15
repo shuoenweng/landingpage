@@ -33,6 +33,11 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id],
+#main {
+  scroll-margin-top: 5.75rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
