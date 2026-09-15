@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { useI18n } from "@/lib/i18n/provider";
 import {
-  AUDIENCE_OPTIONS,
   submitWaitlist,
   validateWaitlist,
   type Audience,
+  type AudienceErrorKey,
+  type EmailErrorKey,
   type WaitlistPayload,
 } from "@/lib/waitlist";
 
@@ -14,14 +16,15 @@ type WaitlistFormProps = {
 };
 
 export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
+  const { copy, interpolate, locale } = useI18n();
   const liveId = useId();
   const successRef = useRef<HTMLDivElement>(null);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [audience, setAudience] = useState<Audience>("myself");
-  const [errors, setErrors] = useState<Partial<Record<"email" | "audience", string>>>(
-    {},
-  );
+  const [errors, setErrors] = useState<
+    Partial<Record<"email", EmailErrorKey> & Record<"audience", AudienceErrorKey>>
+  >({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">(
     "idle",
   );
@@ -31,6 +34,12 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
   const nameId = `${idPrefix}-name`;
   const emailErrorId = `${idPrefix}-email-error`;
   const formErrorId = `${idPrefix}-form-error`;
+
+  const audienceOptions: { value: Audience; label: string }[] = [
+    { value: "myself", label: copy.waitlist.audienceMyself },
+    { value: "loved-one", label: copy.waitlist.audienceLovedOne },
+    { value: "both", label: copy.waitlist.audienceBoth },
+  ];
 
   useEffect(() => {
     if (status === "success") {
@@ -58,13 +67,17 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
       setStatus("success");
     } catch {
       setStatus("error");
-      setFormError(
-        "We could not join the waitlist just now. Please try again in a moment.",
-      );
+      setFormError(copy.waitlist.submitFailed);
     }
   }
 
   if (status === "success") {
+    const name = firstName.trim()
+      ? locale === "zh"
+        ? `，${firstName.trim()}`
+        : `, ${firstName.trim()}`
+      : "";
+
     return (
       <div
         ref={successRef}
@@ -73,10 +86,11 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
         aria-live="polite"
         tabIndex={-1}
       >
-        <p className="font-serif text-3xl font-semibold text-ink">You are on the list.</p>
+        <p className="font-serif text-3xl font-semibold text-ink">
+          {copy.waitlist.successTitle}
+        </p>
         <p className="mt-3 max-w-md text-lg text-stone">
-          Thank you{firstName.trim() ? `, ${firstName.trim()}` : ""}. We will write when
-          the first collection is ready — calmly, and only about Liora.
+          {interpolate(copy.waitlist.successBody, { name })}
         </p>
       </div>
     );
@@ -93,8 +107,8 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="grid gap-2">
             <label htmlFor={nameId} className="text-base font-semibold text-ink">
-              First name{" "}
-              <span className="font-normal text-stone">(optional)</span>
+              {copy.waitlist.firstName}{" "}
+              <span className="font-normal text-stone">{copy.waitlist.optional}</span>
             </label>
             <input
               id={nameId}
@@ -104,12 +118,12 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
               value={firstName}
               onChange={(event) => setFirstName(event.target.value)}
               className="min-h-14 rounded-2xl border border-pearl bg-white px-4 text-lg text-ink shadow-sm placeholder:text-silver"
-              placeholder="Alex"
+              placeholder={copy.waitlist.firstNamePlaceholder}
             />
           </div>
           <div className="grid gap-2">
             <label htmlFor={emailId} className="text-base font-semibold text-ink">
-              Email address
+              {copy.waitlist.email}
             </label>
             <input
               id={emailId}
@@ -128,11 +142,11 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? emailErrorId : undefined}
               className="min-h-14 rounded-2xl border border-pearl bg-white px-4 text-lg text-ink shadow-sm placeholder:text-silver aria-invalid:border-red-700 aria-invalid:ring-2 aria-invalid:ring-red-700/20"
-              placeholder="you@example.com"
+              placeholder={copy.waitlist.emailPlaceholder}
             />
             {errors.email ? (
               <p id={emailErrorId} className="text-base font-medium text-red-800" role="alert">
-                {errors.email}
+                {copy.waitlist[errors.email]}
               </p>
             ) : null}
           </div>
@@ -140,10 +154,10 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
 
         <fieldset className="grid gap-3">
           <legend className="text-base font-semibold text-ink">
-            Who is this for?
+            {copy.waitlist.audienceLegend}
           </legend>
           <div className="grid gap-3">
-            {AUDIENCE_OPTIONS.map((option) => {
+            {audienceOptions.map((option) => {
               const optionId = `${idPrefix}-${option.value}`;
               const selected = audience === option.value;
 
@@ -179,7 +193,7 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
           </p>
         ) : (
           <p id={liveId} className="sr-only" aria-live="polite">
-            {status === "submitting" ? "Sending your request." : ""}
+            {status === "submitting" ? copy.waitlist.sending : ""}
           </p>
         )}
 
@@ -189,11 +203,9 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
             disabled={status === "submitting"}
             className="inline-flex min-h-14 items-center justify-center whitespace-nowrap rounded-full bg-moss px-8 text-lg font-semibold text-white shadow-sm transition-colors hover:bg-moss-deep disabled:cursor-wait disabled:opacity-80"
           >
-            {status === "submitting" ? "Joining…" : "Reserve a place"}
+            {status === "submitting" ? copy.waitlist.submitting : copy.waitlist.submit}
           </button>
-          <p className="text-base text-stone">
-            We only use your email for launch notes. No ads, no clutter.
-          </p>
+          <p className="text-base text-stone">{copy.waitlist.privacyNote}</p>
         </div>
       </div>
     </form>

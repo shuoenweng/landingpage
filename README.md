@@ -81,6 +81,14 @@ npm start
 
 Serve on the port your host expects (`PORT` is read by Next.js).
 
+## Languages
+
+The site is bilingual: **English** and **Simplified Chinese**. Use the **EN | 中文** control in the header (visible on mobile). The choice is stored in `localStorage` (`liora-locale`) and restored on reload.
+
+- Default: English
+- First visit with no saved choice: Simplified Chinese if the browser language starts with `zh`, otherwise English
+- Copy lives in [`lib/i18n/messages.ts`](lib/i18n/messages.ts). Keep the wordmark **Liora** untranslated.
+
 ## Accessibility notes
 
 The layout is written for older visitors and family members:
@@ -93,4 +101,4 @@ The layout is written for older visitors and family members:
 
 ## Replace the brand
 
-Search the repo for `Liora`, `wearliora`, and `liora` after you choose a final name. Keep the cream / moss / silver palette unless brand guidelines change.
+Search the repo for `Liora`, `wearliora`, and `liora` after you choose a final name, including both English and Chinese strings in [`lib/i18n/messages.ts`](lib/i18n/messages.ts). Keep the cream / moss / silver palette unless brand guidelines change.

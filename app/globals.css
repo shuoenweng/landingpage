@@ -15,8 +15,8 @@
 }
 
 @theme inline {
-  --font-serif: var(--font-cormorant);
-  --font-sans: var(--font-source-sans);
+  --font-serif: var(--font-cormorant), var(--font-noto-serif-sc);
+  --font-sans: var(--font-source-sans), var(--font-noto-sans-sc);
   --color-ivory: var(--ivory);
   --color-cream: var(--cream);
   --color-sand: var(--sand);
@@ -55,9 +55,20 @@ section[id],
 body {
   background: var(--ivory);
   color: var(--ink);
-  font-family: var(--font-source-sans), "Source Sans 3", "Segoe UI", sans-serif;
+  font-family: var(--font-source-sans), "Source Sans 3", var(--font-noto-sans-sc),
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
   font-size: 1.125rem;
   line-height: 1.7;
+}
+
+html[lang="zh-CN"] body {
+  font-family: var(--font-noto-sans-sc), "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", var(--font-source-sans), sans-serif;
+}
+
+html[lang="zh-CN"] .font-serif {
+  font-family: var(--font-noto-serif-sc), "Songti SC", "Noto Serif SC",
+    var(--font-cormorant), serif;
 }
 
 ::selection {

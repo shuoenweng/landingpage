@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import { Cormorant_Garamond, Noto_Sans_SC, Noto_Serif_SC, Source_Sans_3 } from "next/font/google";
+import { I18nProvider } from "@/lib/i18n/provider";
+import { SkipLink } from "@/components/SkipLink";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -14,6 +16,22 @@ const sourceSans = Source_Sans_3({
   weight: ["400", "500", "600", "700"],
   variable: "--font-source-sans",
   display: "swap",
+});
+
+const notoSansSC = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-noto-sans-sc",
+  display: "swap",
+  preload: false,
+});
+
+const notoSerifSC = Noto_Serif_SC({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-noto-serif-sc",
+  display: "swap",
+  preload: false,
 });
 
 const title = "Liora — Quiet jewelry for everyday independence";
@@ -66,13 +84,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${sourceSans.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${sourceSans.variable} ${notoSansSC.variable} ${notoSerifSC.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-ivory font-sans text-ink">
-        <a className="skip-link" href="#main">
-          Skip to main content
-        </a>
-        {children}
+        <I18nProvider>
+          <SkipLink />
+          {children}
+        </I18nProvider>
       </body>
     </html>
   );
