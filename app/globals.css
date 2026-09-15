@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --ivory: #fbf7f0;
+  --cream: #f3ede3;
+  --sand: #e7ddce;
+  --moss: #3c5841;
+  --moss-deep: #2f4634;
+  --leaf: #d7e3d3;
+  --ink: #241f1a;
+  --stone: #534e47;
+  --silver: #8a8680;
+  --pearl: #cfc9bf;
+}
+
+@theme inline {
+  --font-serif: var(--font-cormorant), var(--font-noto-serif-sc);
+  --font-sans: var(--font-source-sans), var(--font-noto-sans-sc);
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-sand: var(--sand);
+  --color-moss: var(--moss);
+  --color-moss-deep: var(--moss-deep);
+  --color-leaf: var(--leaf);
+  --color-ink: var(--ink);
+  --color-stone: var(--stone);
+  --color-silver: var(--silver);
+  --color-pearl: var(--pearl);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id],
+#main {
+  scroll-margin-top: 5.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-source-sans), "Source Sans 3", var(--font-noto-sans-sc),
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+html[lang="zh-CN"] body {
+  font-family: var(--font-noto-sans-sc), "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", var(--font-source-sans), sans-serif;
+}
+
+html[lang="zh-CN"] .font-serif {
+  font-family: var(--font-noto-serif-sc), "Songti SC", "Noto Serif SC",
+    var(--font-cormorant), serif;
+}
+
+::selection {
+  background: var(--leaf);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--moss);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  border-radius: 999px;
+  background: var(--moss);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
