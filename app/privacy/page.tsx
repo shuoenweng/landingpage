@@ -4,8 +4,8 @@ import { Header } from "@/components/Header";
 import { PrivacyContent } from "@/components/PrivacyContent";
 
 export const metadata: Metadata = {
-  title: "Privacy — Liora",
-  description: "How Liora uses waitlist emails before launch.",
+  title: "Privacy — QiLyra",
+  description: "How QiLyra uses waitlist emails before launch.",
 };
 
 export default function PrivacyPage() {

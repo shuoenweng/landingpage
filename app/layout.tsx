@@ -34,9 +34,9 @@ const notoSerifSC = Noto_Serif_SC({
   preload: false,
 });
 
-const title = "Liora — Quiet jewelry for everyday independence";
+const title = "QiLyra — Quiet jewelry for everyday independence";
 const description =
-  "A jewelry-first smart bracelet for older adults and their families. Elegant moss-green stones and a matte silver bar — with discreet fall and wellbeing care, designed to preserve dignity.";
+  "A jewelry-first smart bracelet for older adults and their families. Elegant moss-green stones and a matte silver bar — with discreet fall, location, and wellbeing care, designed to preserve dignity.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   title,
   description,
   keywords: [
-    "Liora",
+    "QiLyra",
     "smart bracelet",
     "jewelry",
     "older adults",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     "family peace of mind",
     "discreet wearable",
   ],
-  authors: [{ name: "Liora" }],
+  authors: [{ name: "QiLyra" }],
   openGraph: {
     title,
     description,
@@ -61,10 +61,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/assets/liora-bracelet.jpg",
+        url: "/assets/qilyra-bracelet.jpg",
         width: 1086,
         height: 1448,
-        alt: "Liora bracelet with moss-green stones and a matte silver bar on cream silk",
+        alt: "QiLyra bracelet with moss-green stones and a matte silver bar on cream silk",
       },
     ],
   },
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/assets/liora-bracelet.jpg"],
+    images: ["/assets/qilyra-bracelet.jpg"],
   },
   robots: {
     index: true,

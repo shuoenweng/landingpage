@@ -2,6 +2,7 @@
 
 import { Logo } from "@/components/Logo";
 import { useI18n } from "@/lib/i18n/provider";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export function PrivacyContent() {
   const { copy } = useI18n();
@@ -25,8 +26,8 @@ export function PrivacyContent() {
         <p>{copy.privacy.p4}</p>
         <p>
           {copy.privacy.p5Before}{" "}
-          <a className="font-medium text-moss underline" href="mailto:hello@wearliora.com">
-            hello@wearliora.com
+          <a className="font-medium text-moss underline" href={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
           </a>
           {copy.privacy.p5After}
         </p>

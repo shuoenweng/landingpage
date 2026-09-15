@@ -8,6 +8,7 @@ import { useI18n } from "@/lib/i18n/provider";
 export function Header() {
   const { copy } = useI18n();
   const links = [
+    { href: "/features", label: copy.header.features },
     { href: "/#how-it-helps", label: copy.header.howItHelps },
     { href: "/#jewelry", label: copy.header.thePiece },
     { href: "/#families", label: copy.header.forFamilies },
@@ -16,10 +17,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-sand/80 bg-ivory/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-8 sm:py-3.5">
-        <Link href="/" className="rounded-lg" aria-label={copy.header.homeAria}>
-          <Logo />
-        </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-5">
+          <Link href="/" className="rounded-lg" aria-label={copy.header.homeAria}>
+            <Logo />
+          </Link>
+          <Link
+            href="/features"
+            className="text-base font-medium text-stone transition-colors hover:text-ink md:hidden"
+          >
+            {copy.header.features}
+          </Link>
+        </div>
+        <nav aria-label="Primary" className="hidden items-center gap-5 lg:gap-8 md:flex">
           {links.map((link) => (
             <Link
               key={link.href}

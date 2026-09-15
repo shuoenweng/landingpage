@@ -1,3 +1,5 @@
+import { WAITLIST_STORAGE_KEY } from "@/lib/site";
+
 export const AUDIENCE_VALUES = ["myself", "loved-one", "both"] as const;
 
 export type Audience = (typeof AUDIENCE_VALUES)[number];
@@ -65,7 +67,7 @@ export async function submitWaitlist(payload: WaitlistPayload): Promise<void> {
     email: payload.email.trim(),
     firstName: payload.firstName.trim(),
     audience: payload.audience,
-    source: "liora-landing",
+    source: "qilyra-landing",
   };
 
   if (endpoint) {
@@ -89,10 +91,9 @@ export async function submitWaitlist(payload: WaitlistPayload): Promise<void> {
   await new Promise((resolve) => setTimeout(resolve, 650));
 
   if (typeof window !== "undefined") {
-    const key = "liora-waitlist";
-    const existing = safeParseList(window.localStorage.getItem(key));
+    const existing = safeParseList(window.localStorage.getItem(WAITLIST_STORAGE_KEY));
     existing.push({ ...body, savedAt: new Date().toISOString() });
-    window.localStorage.setItem(key, JSON.stringify(existing));
+    window.localStorage.setItem(WAITLIST_STORAGE_KEY, JSON.stringify(existing));
   }
 }
 

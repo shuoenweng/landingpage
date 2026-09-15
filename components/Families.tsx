@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Eyebrow } from "./Eyebrow";
 import { useI18n } from "@/lib/i18n/provider";
 
@@ -32,6 +33,14 @@ export function Families() {
             </li>
           ))}
         </ul>
+        <p className="mt-10">
+          <Link
+            href="/features"
+            className="inline-flex min-h-12 items-center rounded-full border border-moss px-6 text-lg font-semibold text-moss transition-colors hover:bg-ivory"
+          >
+            {copy.families.featuresCta}
+          </Link>
+        </p>
       </div>
     </section>
   );

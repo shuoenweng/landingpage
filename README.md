@@ -1,8 +1,6 @@
-# Liora landing page
+# QiLyra landing page
 
-Pre-launch marketing site for **Liora**, a jewelry-first smart bracelet for older adults and their families. The page collects waitlist emails and presents the product as premium jewelry with warm, dignity-preserving safety messaging.
-
-> **Brand name is a placeholder.** “Liora” can be replaced before launch — update copy in `app/`, `components/`, and this README.
+Pre-launch marketing site for **QiLyra**, a jewelry-first smart bracelet for older adults and their families. The page collects waitlist emails and presents the product as premium jewelry with warm, dignity-preserving safety messaging.
 
 ## Product
 
@@ -12,7 +10,9 @@ A discreet wearable that looks like boutique jewelry, not a medical device:
 - Translucent moss-green stone beads
 - Silver spacers, onyx accent, lobster clasp
 
-Hero photography lives at [`public/assets/liora-bracelet.jpg`](public/assets/liora-bracelet.jpg).
+Hero photography lives at [`public/assets/qilyra-bracelet.jpg`](public/assets/qilyra-bracelet.jpg).
+
+Capabilities are described on [`/features`](app/features/page.tsx): fall detection, emergency auto-contact, location peace of mind for families walking with dementia, heart and activity wellbeing, battery, water resistance, companion app, and jewelry-first design.
 
 ## Stack
 
@@ -83,11 +83,11 @@ Serve on the port your host expects (`PORT` is read by Next.js).
 
 ## Languages
 
-The site is bilingual: **English** and **Simplified Chinese**. Use the **EN | 中文** control in the header (visible on mobile). The choice is stored in `localStorage` (`liora-locale`) and restored on reload.
+The site is bilingual: **English** and **Simplified Chinese**. Use the **EN | 中文** control in the header (visible on mobile). The choice is stored in `localStorage` (`qilyra-locale`) and restored on reload.
 
 - Default: English
 - First visit with no saved choice: Simplified Chinese if the browser language starts with `zh`, otherwise English
-- Copy lives in [`lib/i18n/messages.ts`](lib/i18n/messages.ts). Keep the wordmark **Liora** untranslated.
+- Copy lives in [`lib/i18n/messages.ts`](lib/i18n/messages.ts). Keep the wordmark **QiLyra** untranslated.
 
 ## Accessibility notes
 
@@ -98,7 +98,3 @@ The layout is written for older visitors and family members:
 - Labels on every field; radio cards instead of a tiny dropdown
 - 48px+ tap targets on primary actions
 - `prefers-reduced-motion` honored
-
-## Replace the brand
-
-Search the repo for `Liora`, `wearliora`, and `liora` after you choose a final name, including both English and Chinese strings in [`lib/i18n/messages.ts`](lib/i18n/messages.ts). Keep the cream / moss / silver palette unless brand guidelines change.

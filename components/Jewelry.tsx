@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Eyebrow } from "./Eyebrow";
 import { useI18n } from "@/lib/i18n/provider";
+import { PRODUCT_IMAGE } from "@/lib/site";
 
 export function Jewelry() {
   const { copy } = useI18n();
@@ -12,7 +13,7 @@ export function Jewelry() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-2 lg:gap-16">
         <div className="order-2 overflow-hidden rounded-[2rem] bg-cream ring-1 ring-sand lg:order-1">
           <Image
-            src="/assets/liora-bracelet.jpg"
+            src={PRODUCT_IMAGE}
             alt={copy.jewelry.imageAlt}
             width={1086}
             height={1448}

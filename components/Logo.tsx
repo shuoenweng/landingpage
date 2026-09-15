@@ -22,8 +22,8 @@ export function Logo({ className = "" }: { className?: string }) {
         />
         <rect x="13" y="16.2" width="10" height="2.8" rx="1.4" fill="currentColor" />
       </svg>
-      <span className="font-serif text-[1.7rem] font-semibold leading-none tracking-tight text-ink">
-        Liora
+      <span className="font-serif text-[1.4rem] font-semibold leading-none tracking-tight text-ink sm:text-[1.65rem]">
+        QiLyra
       </span>
     </span>
   );

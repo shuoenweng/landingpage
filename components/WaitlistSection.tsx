@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Eyebrow } from "./Eyebrow";
 import { WaitlistForm } from "./WaitlistForm";
 import { useI18n } from "@/lib/i18n/provider";
@@ -16,6 +17,14 @@ export function WaitlistSection() {
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-xl leading-relaxed text-stone">
           {copy.waitlist.body}
+        </p>
+        <p className="mt-4">
+          <Link
+            href="/features"
+            className="text-lg font-semibold text-moss underline decoration-moss/30 underline-offset-4 hover:decoration-moss"
+          >
+            {copy.hero.featuresLink}
+          </Link>
         </p>
         <div className="mt-10 rounded-[1.75rem] border border-sand bg-cream/60 p-5 text-left shadow-sm sm:p-8">
           <WaitlistForm idPrefix="footer-waitlist" />

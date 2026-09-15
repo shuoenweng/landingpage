@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Eyebrow } from "./Eyebrow";
 import { WaitlistForm } from "./WaitlistForm";
 import { useI18n } from "@/lib/i18n/provider";
+import { PRODUCT_IMAGE } from "@/lib/site";
 
 export function Hero() {
   const { copy } = useI18n();
@@ -19,6 +21,14 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-xl leading-relaxed text-stone">
             {copy.hero.body}
           </p>
+          <p className="mt-5">
+            <Link
+              href="/features"
+              className="text-lg font-semibold text-moss underline decoration-moss/30 underline-offset-4 hover:decoration-moss"
+            >
+              {copy.hero.featuresLink}
+            </Link>
+          </p>
           <div className="mt-9 max-w-xl rounded-[1.75rem] border border-sand bg-white/80 p-5 shadow-sm sm:p-7">
             <p className="mb-5 font-serif text-2xl font-semibold text-ink">
               {copy.hero.waitlistTitle}
@@ -30,7 +40,7 @@ export function Hero() {
         <figure className="relative mx-auto w-full max-w-md lg:max-w-none">
           <div className="overflow-hidden rounded-[2rem] bg-cream shadow-[0_30px_80px_-40px_rgba(36,31,26,0.45)] ring-1 ring-sand">
             <Image
-              src="/assets/liora-bracelet.jpg"
+              src={PRODUCT_IMAGE}
               alt={copy.hero.imageAlt}
               width={1086}
               height={1448}

@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import {
+  LEGACY_STORAGE_KEY,
   STORAGE_KEY,
   detectBrowserLocale,
   interpolate,
@@ -48,7 +49,9 @@ function readStoredLocale(): Locale {
   }
 
   try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
+    const stored =
+      window.localStorage.getItem(STORAGE_KEY) ??
+      window.localStorage.getItem(LEGACY_STORAGE_KEY);
     if (isLocale(stored)) {
       memoryLocale = stored;
       return stored;
