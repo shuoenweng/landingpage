@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --ivory: #fbf7f0;
+  --cream: #f3ede3;
+  --sand: #e7ddce;
+  --moss: #3c5841;
+  --moss-deep: #2f4634;
+  --leaf: #d7e3d3;
+  --ink: #241f1a;
+  --stone: #534e47;
+  --silver: #8a8680;
+  --pearl: #cfc9bf;
+}
+
+@theme inline {
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-source-sans);
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-sand: var(--sand);
+  --color-moss: var(--moss);
+  --color-moss-deep: var(--moss-deep);
+  --color-leaf: var(--leaf);
+  --color-ink: var(--ink);
+  --color-stone: var(--stone);
+  --color-silver: var(--silver);
+  --color-pearl: var(--pearl);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-source-sans), "Source Sans 3", "Segoe UI", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+::selection {
+  background: var(--leaf);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--moss);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  border-radius: 999px;
+  background: var(--moss);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
