@@ -232,7 +232,7 @@ export const messages: Record<Locale, Messages> = {
       genderMale: "Male",
       genderOther: "Other",
       betaInterest:
-        "I would like to be among the first beta testers, with a large discount.",
+        "I would like to be among the first beta testers, with a discount.",
       submit: "Reserve a place",
       submitting: "Joining…",
       privacyNote: "We only use your email for launch notes. No ads, no clutter.",
@@ -434,7 +434,7 @@ export const messages: Record<Locale, Messages> = {
       genderFemale: "女",
       genderMale: "男",
       genderOther: "其他",
-      betaInterest: "希望成为首批测试用户，并享大幅优惠。",
+      betaInterest: "希望成为首批测试用户，并享优惠。",
       submit: "预留一个名额",
       submitting: "正在加入…",
       privacyNote: "邮箱仅用于发布消息。没有广告，也没有打扰。",
