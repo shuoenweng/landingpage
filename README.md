@@ -62,7 +62,7 @@ The app is a standard Next.js site.
 2. Import the project at [vercel.com/new](https://vercel.com/new).
 3. Framework preset: Next.js (defaults are fine).
 4. Add `NEXT_PUBLIC_WAITLIST_ENDPOINT` in project environment variables when you have a form provider.
-5. Set `NEXT_PUBLIC_SITE_URL` to the production origin (for example `https://your-project.vercel.app` or your custom domain). Use a real URL — do **not** set it to empty. If the variable is omitted, blank, or invalid, the build falls back to `http://localhost:3000` so metadata collection does not fail.
+5. Optionally set `NEXT_PUBLIC_SITE_URL` to a custom domain (for example `https://www.qilyra.com`). If it is omitted, empty, or not a valid absolute URL, Vercel builds use `VERCEL_PROJECT_PRODUCTION_URL` or `VERCEL_URL` automatically (https). Local builds fall back to `http://localhost:3000`.
 6. Deploy.
 
 ### Netlify

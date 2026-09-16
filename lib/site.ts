@@ -4,15 +4,37 @@ export const WAITLIST_STORAGE_KEY = "qilyra-waitlist";
 
 const DEFAULT_SITE_URL = "http://localhost:3000";
 
+function parseAbsoluteUrl(value: string | undefined): string | undefined {
+  const trimmed = value?.trim();
+  if (!trimmed) return undefined;
+  try {
+    const url = new URL(trimmed);
+    if (url.protocol === "http:" || url.protocol === "https:") {
+      return url.toString();
+    }
+  } catch {
+    // Blank, relative, or otherwise invalid — try the next source.
+  }
+  return undefined;
+}
+
+/** Vercel system env vars are hostnames without a scheme. */
+function parseVercelHost(host: string | undefined): string | undefined {
+  const trimmed = host?.trim();
+  if (!trimmed) return undefined;
+  return parseAbsoluteUrl(`https://${trimmed}`);
+}
+
 /**
  * Canonical site origin for metadata (Open Graph, etc.).
- * Blank/whitespace `NEXT_PUBLIC_SITE_URL` is treated as unset — `??` would not.
+ * Prefers a valid `NEXT_PUBLIC_SITE_URL`, then Vercel production/deployment
+ * hosts, then localhost so empty env vars cannot crash `next build`.
  */
 export function getSiteUrl(): string {
-  const candidate = process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_SITE_URL;
-  try {
-    return new URL(candidate).toString();
-  } catch {
-    return DEFAULT_SITE_URL;
-  }
+  return (
+    parseAbsoluteUrl(process.env.NEXT_PUBLIC_SITE_URL) ??
+    parseVercelHost(process.env.VERCEL_PROJECT_PRODUCTION_URL) ??
+    parseVercelHost(process.env.VERCEL_URL) ??
+    new URL(DEFAULT_SITE_URL).toString()
+  );
 }
