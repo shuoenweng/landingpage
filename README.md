@@ -61,8 +61,9 @@ The app is a standard Next.js site.
 1. Push this repository to GitHub.
 2. Import the project at [vercel.com/new](https://vercel.com/new).
 3. Framework preset: Next.js (defaults are fine).
-4. Add `NEXT_PUBLIC_WAITLIST_ENDPOINT` and `NEXT_PUBLIC_SITE_URL` in project environment variables when you have a form provider and a live domain.
-5. Deploy.
+4. Add `NEXT_PUBLIC_WAITLIST_ENDPOINT` in project environment variables when you have a form provider.
+5. Set `NEXT_PUBLIC_SITE_URL` to the production origin (for example `https://your-project.vercel.app` or your custom domain). Use a real URL — do **not** set it to empty. If the variable is omitted, blank, or invalid, the build falls back to `http://localhost:3000` so metadata collection does not fail.
+6. Deploy.
 
 ### Netlify
 
