@@ -51,19 +51,26 @@ export type Messages = {
     firstName: string;
     optional: string;
     firstNamePlaceholder: string;
+    firstNameRequired: string;
+    firstNameTooLong: string;
     email: string;
     emailPlaceholder: string;
-    audienceLegend: string;
-    audienceMyself: string;
-    audienceLovedOne: string;
-    audienceBoth: string;
+    age: string;
+    agePlaceholder: string;
+    ageInvalid: string;
+    gender: string;
+    genderPlaceholder: string;
+    genderPreferNot: string;
+    genderFemale: string;
+    genderMale: string;
+    genderOther: string;
+    betaInterest: string;
     submit: string;
     submitting: string;
     privacyNote: string;
     emailRequired: string;
     emailTooLong: string;
     emailInvalid: string;
-    audienceRequired: string;
     submitFailed: string;
     sending: string;
     successTitle: string;
@@ -210,12 +217,22 @@ export const messages: Record<Locale, Messages> = {
       firstName: "First name",
       optional: "(optional)",
       firstNamePlaceholder: "Alex",
+      firstNameRequired: "Please enter your first name.",
+      firstNameTooLong:
+        "That name looks a little too long. Please check it and try again.",
       email: "Email address",
       emailPlaceholder: "you@example.com",
-      audienceLegend: "Who is this for?",
-      audienceMyself: "For myself",
-      audienceLovedOne: "For a loved one",
-      audienceBoth: "For both of us",
+      age: "Age",
+      agePlaceholder: "72",
+      ageInvalid: "Please enter a valid age, such as 72.",
+      gender: "Gender",
+      genderPlaceholder: "Choose one",
+      genderPreferNot: "Prefer not to say",
+      genderFemale: "Female",
+      genderMale: "Male",
+      genderOther: "Other",
+      betaInterest:
+        "I would like to be among the first beta testers, with a large discount.",
       submit: "Reserve a place",
       submitting: "Joining…",
       privacyNote: "We only use your email for launch notes. No ads, no clutter.",
@@ -223,7 +240,6 @@ export const messages: Record<Locale, Messages> = {
       emailTooLong:
         "That email looks a little too long. Please check it and try again.",
       emailInvalid: "Please enter a valid email, such as name@example.com.",
-      audienceRequired: "Please tell us who the bracelet is for.",
       submitFailed:
         "We could not join the waitlist just now. Please try again in a moment.",
       sending: "Sending your request.",
@@ -242,7 +258,7 @@ export const messages: Record<Locale, Messages> = {
     privacy: {
       title: "Privacy",
       p1: "QiLyra is not for sale yet. This site collects waitlist details so we can tell you when the first collection is ready.",
-      p2: "We ask for an email address, an optional first name, and whether you are joining for yourself, a loved one, or both. We use that information only to send launch updates about QiLyra.",
+      p2: "We ask for a first name and an email address. You may also share your age, gender, and whether you would like to be among the first beta testers. We use that information only to send launch updates about QiLyra.",
       p3Before:
         "We do not sell waitlist data. We do not send advertising on behalf of others. If a form provider is connected later, that provider will process submissions under their own terms — the endpoint is configured with",
       p3After: ".",
@@ -404,20 +420,27 @@ export const messages: Record<Locale, Messages> = {
       body: "加入等候名单，获取私密预览、尺寸说明，以及首批选购。我们很少写信，只在真正值得告诉你的时候。",
       firstName: "名字",
       optional: "（选填）",
-      firstNamePlaceholder: "可填写名字",
+      firstNamePlaceholder: "您的名字",
+      firstNameRequired: "请填写名字。",
+      firstNameTooLong: "这个名字看起来有些长，请核对后再试。",
       email: "电子邮箱",
       emailPlaceholder: "you@example.com",
-      audienceLegend: "这是为谁准备的？",
-      audienceMyself: "给我自己",
-      audienceLovedOne: "给亲人",
-      audienceBoth: "给我们两人",
+      age: "年龄",
+      agePlaceholder: "72",
+      ageInvalid: "请填写有效年龄，例如 72。",
+      gender: "性别",
+      genderPlaceholder: "请选择",
+      genderPreferNot: "不想说明",
+      genderFemale: "女",
+      genderMale: "男",
+      genderOther: "其他",
+      betaInterest: "希望成为首批测试用户，并享大幅优惠。",
       submit: "预留一个名额",
       submitting: "正在加入…",
       privacyNote: "邮箱仅用于发布消息。没有广告，也没有打扰。",
       emailRequired: "请填写电子邮箱。",
       emailTooLong: "这个邮箱看起来太长了，请核对后再试。",
       emailInvalid: "请填写有效邮箱，例如 name@example.com。",
-      audienceRequired: "请告诉我们，这条手链是为谁准备的。",
       submitFailed: "此刻无法加入等候名单，请稍后再试。",
       sending: "正在发送您的请求。",
       successTitle: "已为您记下。",
@@ -435,7 +458,7 @@ export const messages: Record<Locale, Messages> = {
     privacy: {
       title: "隐私",
       p1: "QiLyra 尚未发售。本页收集等候名单信息，以便在首批系列准备好时告知您。",
-      p2: "我们会询问电子邮箱、可选的名字，以及您是为自己、为亲人，还是为彼此加入。这些信息仅用于发送 QiLyra 的发布消息。",
+      p2: "我们会询问名字和电子邮箱。您也可以选填年龄、性别，以及是否希望成为首批测试用户。这些信息仅用于发送 QiLyra 的发布消息。",
       p3Before:
         "我们不会出售等候名单。也不会代他人发送广告。若日后接入表单服务，该服务将按其条款处理提交内容——接口由",
       p3After: " 配置。",

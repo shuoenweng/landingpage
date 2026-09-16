@@ -3,11 +3,11 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { useI18n } from "@/lib/i18n/provider";
 import {
+  GENDER_VALUES,
   submitWaitlist,
   validateWaitlist,
-  type Audience,
-  type AudienceErrorKey,
-  type EmailErrorKey,
+  type Gender,
+  type WaitlistFieldErrors,
   type WaitlistPayload,
 } from "@/lib/waitlist";
 
@@ -15,30 +15,38 @@ type WaitlistFormProps = {
   idPrefix?: string;
 };
 
+const fieldOrder = ["firstName", "email", "age"] as const;
+
 export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
   const { copy, interpolate, locale } = useI18n();
   const liveId = useId();
   const successRef = useRef<HTMLDivElement>(null);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [audience, setAudience] = useState<Audience>("myself");
-  const [errors, setErrors] = useState<
-    Partial<Record<"email", EmailErrorKey> & Record<"audience", AudienceErrorKey>>
-  >({});
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState<Gender | "">("");
+  const [betaInterest, setBetaInterest] = useState(false);
+  const [errors, setErrors] = useState<WaitlistFieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">(
     "idle",
   );
   const [formError, setFormError] = useState<string | null>(null);
 
-  const emailId = `${idPrefix}-email`;
   const nameId = `${idPrefix}-name`;
+  const emailId = `${idPrefix}-email`;
+  const ageId = `${idPrefix}-age`;
+  const genderId = `${idPrefix}-gender`;
+  const betaId = `${idPrefix}-beta`;
+  const nameErrorId = `${idPrefix}-name-error`;
   const emailErrorId = `${idPrefix}-email-error`;
+  const ageErrorId = `${idPrefix}-age-error`;
   const formErrorId = `${idPrefix}-form-error`;
 
-  const audienceOptions: { value: Audience; label: string }[] = [
-    { value: "myself", label: copy.waitlist.audienceMyself },
-    { value: "loved-one", label: copy.waitlist.audienceLovedOne },
-    { value: "both", label: copy.waitlist.audienceBoth },
+  const genderOptions: { value: Gender; label: string }[] = [
+    { value: "prefer-not-to-say", label: copy.waitlist.genderPreferNot },
+    { value: "female", label: copy.waitlist.genderFemale },
+    { value: "male", label: copy.waitlist.genderMale },
+    { value: "other", label: copy.waitlist.genderOther },
   ];
 
   useEffect(() => {
@@ -47,16 +55,39 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
     }
   }, [status]);
 
+  function clearFieldError(field: keyof WaitlistFieldErrors) {
+    if (errors[field]) {
+      setErrors((current) => {
+        const next = { ...current };
+        delete next[field];
+        return next;
+      });
+    }
+  }
+
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const payload: WaitlistPayload = { email, firstName, audience };
+    const payload: WaitlistPayload = {
+      email,
+      firstName,
+      age,
+      gender,
+      betaInterest,
+    };
     const nextErrors = validateWaitlist(payload);
     setErrors(nextErrors);
     setFormError(null);
 
     if (Object.keys(nextErrors).length > 0) {
-      document.getElementById(emailId)?.focus();
+      const firstInvalid = fieldOrder.find((field) => nextErrors[field]);
+      const focusId =
+        firstInvalid === "firstName"
+          ? nameId
+          : firstInvalid === "age"
+            ? ageId
+            : emailId;
+      document.getElementById(focusId)?.focus();
       return;
     }
 
@@ -107,19 +138,29 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="grid gap-2">
             <label htmlFor={nameId} className="text-base font-semibold text-ink">
-              {copy.waitlist.firstName}{" "}
-              <span className="font-normal text-stone">{copy.waitlist.optional}</span>
+              {copy.waitlist.firstName}
             </label>
             <input
               id={nameId}
               name="firstName"
               type="text"
               autoComplete="given-name"
+              required
               value={firstName}
-              onChange={(event) => setFirstName(event.target.value)}
-              className="min-h-14 rounded-2xl border border-pearl bg-white px-4 text-lg text-ink shadow-sm placeholder:text-silver"
+              onChange={(event) => {
+                setFirstName(event.target.value);
+                clearFieldError("firstName");
+              }}
+              aria-invalid={Boolean(errors.firstName)}
+              aria-describedby={errors.firstName ? nameErrorId : undefined}
+              className="min-h-14 rounded-2xl border border-pearl bg-white px-4 text-lg text-ink shadow-sm placeholder:text-silver aria-invalid:border-red-700 aria-invalid:ring-2 aria-invalid:ring-red-700/20"
               placeholder={copy.waitlist.firstNamePlaceholder}
             />
+            {errors.firstName ? (
+              <p id={nameErrorId} className="text-base font-medium text-red-800" role="alert">
+                {copy.waitlist[errors.firstName]}
+              </p>
+            ) : null}
           </div>
           <div className="grid gap-2">
             <label htmlFor={emailId} className="text-base font-semibold text-ink">
@@ -135,9 +176,7 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
               value={email}
               onChange={(event) => {
                 setEmail(event.target.value);
-                if (errors.email) {
-                  setErrors((current) => ({ ...current, email: undefined }));
-                }
+                clearFieldError("email");
               }}
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? emailErrorId : undefined}
@@ -152,40 +191,75 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
           </div>
         </div>
 
-        <fieldset className="grid gap-3">
-          <legend className="text-base font-semibold text-ink">
-            {copy.waitlist.audienceLegend}
-          </legend>
-          <div className="grid gap-3">
-            {audienceOptions.map((option) => {
-              const optionId = `${idPrefix}-${option.value}`;
-              const selected = audience === option.value;
-
-              return (
-                <label
-                  key={option.value}
-                  htmlFor={optionId}
-                  className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 text-lg font-medium transition-colors ${
-                    selected
-                      ? "border-moss bg-leaf/70 text-ink"
-                      : "border-pearl bg-white text-stone hover:border-silver"
-                  }`}
-                >
-                  <input
-                    id={optionId}
-                    type="radio"
-                    name={`${idPrefix}-audience`}
-                    value={option.value}
-                    checked={selected}
-                    onChange={() => setAudience(option.value)}
-                    className="h-5 w-5 accent-moss"
-                  />
-                  {option.label}
-                </label>
-              );
-            })}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-2">
+            <label htmlFor={ageId} className="text-base font-semibold text-ink">
+              {copy.waitlist.age}{" "}
+              <span className="font-normal text-stone">{copy.waitlist.optional}</span>
+            </label>
+            <input
+              id={ageId}
+              name="age"
+              type="text"
+              inputMode="numeric"
+              autoComplete="off"
+              value={age}
+              onChange={(event) => {
+                setAge(event.target.value);
+                clearFieldError("age");
+              }}
+              aria-invalid={Boolean(errors.age)}
+              aria-describedby={errors.age ? ageErrorId : undefined}
+              className="min-h-14 rounded-2xl border border-pearl bg-white px-4 text-lg text-ink shadow-sm placeholder:text-silver aria-invalid:border-red-700 aria-invalid:ring-2 aria-invalid:ring-red-700/20"
+              placeholder={copy.waitlist.agePlaceholder}
+            />
+            {errors.age ? (
+              <p id={ageErrorId} className="text-base font-medium text-red-800" role="alert">
+                {copy.waitlist[errors.age]}
+              </p>
+            ) : null}
           </div>
-        </fieldset>
+          <div className="grid gap-2">
+            <label htmlFor={genderId} className="text-base font-semibold text-ink">
+              {copy.waitlist.gender}{" "}
+              <span className="font-normal text-stone">{copy.waitlist.optional}</span>
+            </label>
+            <select
+              id={genderId}
+              name="gender"
+              value={gender}
+              onChange={(event) => {
+                const next = event.target.value;
+                setGender(
+                  next && GENDER_VALUES.includes(next as Gender) ? (next as Gender) : "",
+                );
+              }}
+              className="min-h-14 rounded-2xl border border-pearl bg-white px-4 text-lg text-ink shadow-sm"
+            >
+              <option value="">{copy.waitlist.genderPlaceholder}</option>
+              {genderOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <label
+          htmlFor={betaId}
+          className="flex min-h-14 cursor-pointer items-start gap-3 rounded-2xl border border-pearl bg-white px-4 py-3 text-lg text-ink shadow-sm"
+        >
+          <input
+            id={betaId}
+            name="betaInterest"
+            type="checkbox"
+            checked={betaInterest}
+            onChange={(event) => setBetaInterest(event.target.checked)}
+            className="mt-1 h-5 w-5 shrink-0 accent-moss"
+          />
+          <span>{copy.waitlist.betaInterest}</span>
+        </label>
 
         {formError ? (
           <p id={formErrorId} className="text-base font-medium text-red-800" role="alert">
