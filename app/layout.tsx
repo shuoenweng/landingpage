@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Noto_Sans_SC, Noto_Serif_SC, Source_Sans_3 } from "next/font/google";
 import { I18nProvider } from "@/lib/i18n/provider";
 import { SkipLink } from "@/components/SkipLink";
+import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -39,9 +40,7 @@ const description =
   "A jewelry-first smart bracelet for older adults and their families. Elegant moss-green stones and a matte silver bar — with discreet fall, location, and wellbeing care, designed to preserve dignity.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  ),
+  metadataBase: new URL(getSiteUrl()),
   title,
   description,
   keywords: [
