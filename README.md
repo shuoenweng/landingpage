@@ -18,7 +18,7 @@ Capabilities are described on [`/features`](app/features/page.tsx): fall detecti
 
 - [Next.js](https://nextjs.org/) 16 (App Router) + TypeScript
 - [Tailwind CSS](https://tailwindcss.com/) v4
-- No backend required for v1
+- Waitlist POSTs to [`/api/waitlist`](app/api/waitlist/route.ts); Formspree is optional
 
 ## Local development
 
@@ -40,17 +40,21 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Waitlist form
 
-The form validates email client-side and shows a success state. Wiring a real inbox is one environment variable:
+The form validates client-side, then POSTs JSON to [`/api/waitlist`](app/api/waitlist/route.ts). That route reads the visitor country from Vercel’s `x-vercel-ip-country` header (ISO code such as `TW` or `US`) and forwards the payload — including `country` — to Formspree. Formspree will show a `country` field on each submission. Locally the header is usually missing, so `country` is stored as `unknown` and the submit still succeeds. The browser Geolocation API is not used.
+
+Wire a real inbox with either variable (the API prefers the server-only name):
 
 ```bash
 NEXT_PUBLIC_WAITLIST_ENDPOINT=https://formspree.io/f/your-form-id
+# or
+WAITLIST_ENDPOINT=https://formspree.io/f/your-form-id
 ```
 
 See [`.env.example`](.env.example). Copy it to `.env.local` (gitignored) and restart the dev server.
 
-Until that variable is set, `submitWaitlist` in [`lib/waitlist.ts`](lib/waitlist.ts) keeps a **local demo record** in `localStorage` so the UI can be reviewed without a backend. **Do not commit API keys.**
+Until an endpoint is set, `submitWaitlist` in [`lib/waitlist.ts`](lib/waitlist.ts) keeps a **local demo record** in `localStorage` (including `country` from the API) so the UI can be reviewed without a form provider. **Do not commit API keys.**
 
-Suggested providers: [Formspree](https://formspree.io/), [Getform](https://getform.io/), [Basin](https://usebasin.com/), or a Next.js Route Handler plus [Resend](https://resend.com/).
+Suggested providers: [Formspree](https://formspree.io/), [Getform](https://getform.io/), or [Basin](https://usebasin.com/).
 
 ## Deploy
 
@@ -61,7 +65,7 @@ The app is a standard Next.js site.
 1. Push this repository to GitHub.
 2. Import the project at [vercel.com/new](https://vercel.com/new).
 3. Framework preset: Next.js (defaults are fine).
-4. Add `NEXT_PUBLIC_WAITLIST_ENDPOINT` in project environment variables when you have a form provider.
+4. Add `NEXT_PUBLIC_WAITLIST_ENDPOINT` or server-only `WAITLIST_ENDPOINT` in project environment variables when you have a form provider.
 5. Optionally set `NEXT_PUBLIC_SITE_URL` to a custom domain (for example `https://www.qilyra.com`). If it is omitted, empty, or not a valid absolute URL, Vercel builds use `VERCEL_PROJECT_PRODUCTION_URL` or `VERCEL_URL` automatically (https). Local builds fall back to `http://localhost:3000`.
 6. Deploy.
 
@@ -70,7 +74,7 @@ The app is a standard Next.js site.
 1. Add the site from the Git repository.
 2. Build command: `npm run build`
 3. Publish directory: `.next` (or use the official Next.js runtime / `@netlify/plugin-nextjs`).
-4. Set `NEXT_PUBLIC_WAITLIST_ENDPOINT` in site environment variables.
+4. Set `NEXT_PUBLIC_WAITLIST_ENDPOINT` or `WAITLIST_ENDPOINT` in site environment variables.
 
 ### Other Node hosts
 

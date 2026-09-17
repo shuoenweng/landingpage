@@ -258,11 +258,11 @@ export const messages: Record<Locale, Messages> = {
     privacy: {
       title: "Privacy",
       p1: "QiLyra is not for sale yet. This site collects waitlist details so we can tell you when the first collection is ready.",
-      p2: "We ask for a first name and an email address. You may also share your age, gender, and whether you would like to be among the first beta testers. We use that information only to send launch updates about QiLyra.",
+      p2: "We ask for a first name and an email address. You may also share your age, gender, and whether you would like to be among the first beta testers. When you submit, we may also record an approximate country (for example TW or US) from the hosting platform’s IP geo headers. We do not ask for device location permission. We use that information only to send launch updates about QiLyra.",
       p3Before:
         "We do not sell waitlist data. We do not send advertising on behalf of others. If a form provider is connected later, that provider will process submissions under their own terms — the endpoint is configured with",
       p3After: ".",
-      p4: "Until that endpoint is set, submissions stay in your browser for demonstration only and are not sent to a server.",
+      p4: "Until that endpoint is set, a demo copy stays in your browser and is not forwarded to a form provider. Submissions still pass through this site’s waitlist API, which may attach an approximate country from Vercel geo headers.",
       p5Before: "To be removed from the list after launch, write to",
       p5After: ".",
     },
@@ -458,11 +458,11 @@ export const messages: Record<Locale, Messages> = {
     privacy: {
       title: "隐私",
       p1: "QiLyra 尚未发售。本页收集等候名单信息，以便在首批系列准备好时告知您。",
-      p2: "我们会询问名字和电子邮箱。您也可以选填年龄、性别，以及是否希望成为首批测试用户。这些信息仅用于发送 QiLyra 的发布消息。",
+      p2: "我们会询问名字和电子邮箱。您也可以选填年龄、性别，以及是否希望成为首批测试用户。提交时，我们也可能根据托管平台的 IP 地理信息记录一个大致的国家或地区（例如 TW、US）。我们不会请求设备定位权限。这些信息仅用于发送 QiLyra 的发布消息。",
       p3Before:
         "我们不会出售等候名单。也不会代他人发送广告。若日后接入表单服务，该服务将按其条款处理提交内容——接口由",
       p3After: " 配置。",
-      p4: "在设置该接口之前，提交内容仅保存在您的浏览器中，供演示使用，不会发送到服务器。",
+      p4: "在设置该接口之前，演示副本会保存在您的浏览器中，不会转发给表单服务。提交仍会经过本站的等候名单接口，并可能根据 Vercel 的地理信息附上大致的国家或地区。",
       p5Before: "发布后如需从名单中移除，请来信",
       p5After: "。",
     },
