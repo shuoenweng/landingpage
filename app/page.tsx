@@ -1,3 +1,4 @@
+import { Designs } from "@/components/Designs";
 import { Families } from "@/components/Families";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <HowItHelps />
         <Jewelry />
+        <Designs />
         <Families />
         <WaitlistSection />
       </main>
