@@ -8,6 +8,7 @@ export type Messages = {
   header: {
     howItHelps: string;
     thePiece: string;
+    designs: string;
     forFamilies: string;
     features: string;
     joinWaitlist: string;
@@ -36,6 +37,18 @@ export type Messages = {
     body: string;
     imageAlt: string;
     details: { name: string; detail: string }[];
+  };
+  designs: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    waitlistCta: string;
+    items: {
+      ice: { stones: string; imageAlt: string };
+      rose: { stones: string; imageAlt: string };
+      citrine: { stones: string; imageAlt: string };
+      onyx: { stones: string; imageAlt: string };
+    };
   };
   families: {
     eyebrow: string;
@@ -79,6 +92,7 @@ export type Messages = {
   footer: {
     blurb: string;
     joinWaitlist: string;
+    designs: string;
     features: string;
     privacy: string;
     copyright: string;
@@ -121,6 +135,7 @@ export const messages: Record<Locale, Messages> = {
     header: {
       howItHelps: "How it helps",
       thePiece: "The piece",
+      designs: "Designs",
       forFamilies: "For families",
       features: "Features",
       joinWaitlist: "Join the waitlist",
@@ -184,6 +199,34 @@ export const messages: Record<Locale, Messages> = {
             "Polished silver spacers, a single onyx accent, and a classic lobster clasp with an extender.",
         },
       ],
+    },
+    designs: {
+      eyebrow: "Designs",
+      title: "Four colorways. The same quiet line.",
+      body: "The pavé crystal bar stays. The stones change with the wearer — Ice, Rose, Citrine, and Onyx — each composed as jewelry, never as a device.",
+      waitlistCta: "Join the waitlist",
+      items: {
+        ice: {
+          stones: "Cracked quartz and pale aquamarine on a pavé crystal silver bar.",
+          imageAlt:
+            "QiLyra Ice colorway: cracked clear quartz and pale aquamarine beads with silver spacers, a lobster clasp, and a pavé crystal silver bar, photographed on black",
+        },
+        rose: {
+          stones: "Rose quartz and lavender amethyst, set with the same pavé bar.",
+          imageAlt:
+            "QiLyra Rose colorway: pink rose-quartz and lavender amethyst beads with silver spacers, a lobster clasp, and a pavé crystal silver bar, photographed on black",
+        },
+        citrine: {
+          stones: "Honeyed citrine, warm against the pavé crystal silver line.",
+          imageAlt:
+            "QiLyra Citrine colorway: pale yellow cracked citrine beads with silver spacers, a lobster clasp, and a pavé crystal silver bar, photographed on black",
+        },
+        onyx: {
+          stones: "Polished black onyx, quiet and precise against pavé crystal.",
+          imageAlt:
+            "QiLyra Onyx colorway: polished black onyx beads with silver spacers, a lobster clasp, and a pavé crystal silver bar, photographed on black",
+        },
+      },
     },
     families: {
       eyebrow: "For families",
@@ -251,6 +294,7 @@ export const messages: Record<Locale, Messages> = {
       blurb:
         "Quiet jewelry for everyday independence. A first collection for older adults and the families who love them.",
       joinWaitlist: "Join the waitlist",
+      designs: "Designs",
       features: "Features",
       privacy: "Privacy",
       copyright: "© {year} QiLyra.",
@@ -329,6 +373,7 @@ export const messages: Record<Locale, Messages> = {
     header: {
       howItHelps: "它如何帮到你",
       thePiece: "这件饰物",
+      designs: "款式",
       forFamilies: "写给家人",
       features: "功能",
       joinWaitlist: "加入等候名单",
@@ -389,6 +434,34 @@ export const messages: Record<Locale, Messages> = {
           detail: "抛光银隔片、一颗墨玉点缀，以及经典龙虾扣与调节链。",
         },
       ],
+    },
+    designs: {
+      eyebrow: "款式",
+      title: "四种气色，同一条安静的银线。",
+      body: "铺镶水晶的银弧不变。石珠随人而换——冰晶、玫瑰、黄晶、墨玉——每一款都按珠宝来做，而不是器械。",
+      waitlistCta: "加入等候名单",
+      items: {
+        ice: {
+          stones: "碎裂水晶与浅海蓝，映着铺镶水晶银弧。",
+          imageAlt:
+            "QiLyra 冰晶款：碎裂透明水晶与浅海蓝珠、银隔片、龙虾扣，以及铺镶水晶银弧，黑底拍摄",
+        },
+        rose: {
+          stones: "粉晶与浅紫，同一条铺镶银弧。",
+          imageAlt:
+            "QiLyra 玫瑰款：粉晶与浅紫珠、银隔片、龙虾扣，以及铺镶水晶银弧，黑底拍摄",
+        },
+        citrine: {
+          stones: "蜜色黄晶，暖在铺镶水晶的银线上。",
+          imageAlt:
+            "QiLyra 黄晶款：浅黄碎裂黄晶珠、银隔片、龙虾扣，以及铺镶水晶银弧，黑底拍摄",
+        },
+        onyx: {
+          stones: "抛光墨玉，对着铺镶水晶，安静而清楚。",
+          imageAlt:
+            "QiLyra 墨玉款：抛光墨玉珠、银隔片、龙虾扣，以及铺镶水晶银弧，黑底拍摄",
+        },
+      },
     },
     families: {
       eyebrow: "写给家人",
@@ -451,6 +524,7 @@ export const messages: Record<Locale, Messages> = {
       blurb:
         "安静的珠宝，日常的独立。首批系列写给年长者，以及爱他们的家人。",
       joinWaitlist: "加入等候名单",
+      designs: "款式",
       features: "功能",
       privacy: "隐私",
       copyright: "© {year} QiLyra。",

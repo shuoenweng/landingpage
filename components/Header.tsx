@@ -11,6 +11,7 @@ export function Header() {
     { href: "/features", label: copy.header.features },
     { href: "/#how-it-helps", label: copy.header.howItHelps },
     { href: "/#jewelry", label: copy.header.thePiece },
+    { href: "/#designs", label: copy.header.designs },
     { href: "/#families", label: copy.header.forFamilies },
   ];
 
@@ -23,12 +24,18 @@ export function Header() {
           </Link>
           <Link
             href="/features"
-            className="text-base font-medium text-stone transition-colors hover:text-ink md:hidden"
+            className="text-base font-medium text-stone transition-colors hover:text-ink lg:hidden"
           >
             {copy.header.features}
           </Link>
+          <Link
+            href="/#designs"
+            className="text-base font-medium text-stone transition-colors hover:text-ink lg:hidden"
+          >
+            {copy.header.designs}
+          </Link>
         </div>
-        <nav aria-label="Primary" className="hidden items-center gap-5 lg:gap-8 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-5 xl:gap-8 lg:flex">
           {links.map((link) => (
             <Link
               key={link.href}
