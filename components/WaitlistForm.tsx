@@ -275,7 +275,7 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="inline-flex min-h-14 items-center justify-center whitespace-nowrap rounded-full bg-moss px-8 text-lg font-semibold text-white shadow-sm transition-colors hover:bg-moss-deep disabled:cursor-wait disabled:opacity-80"
+            className="maison-btn disabled:cursor-wait disabled:opacity-80"
           >
             {status === "submitting" ? copy.waitlist.submitting : copy.waitlist.submit}
           </button>

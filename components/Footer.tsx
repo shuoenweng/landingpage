@@ -9,32 +9,32 @@ export function Footer() {
   const { copy, interpolate } = useI18n();
 
   return (
-    <footer className="border-t border-sand bg-cream">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-12 sm:px-8 md:flex-row md:items-start md:justify-between">
+    <footer className="bg-noir text-pearl">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-14 sm:px-8 md:flex-row md:items-start md:justify-between">
         <div>
-          <Logo />
-          <p className="mt-4 max-w-sm text-lg text-stone">{copy.footer.blurb}</p>
+          <Logo invert />
+          <p className="mt-5 max-w-sm text-lg text-pearl/85">{copy.footer.blurb}</p>
         </div>
-        <div className="grid gap-3 text-base text-stone">
-          <Link className="font-medium text-ink hover:text-moss" href="/#waitlist">
+        <div className="grid gap-3 text-base">
+          <Link className="font-medium text-ivory hover:text-leaf" href="/#waitlist">
             {copy.footer.joinWaitlist}
           </Link>
-          <Link className="hover:text-ink" href="/#designs">
+          <Link className="text-pearl hover:text-ivory" href="/#designs">
             {copy.footer.designs}
           </Link>
-          <Link className="hover:text-ink" href="/features">
+          <Link className="text-pearl hover:text-ivory" href="/features">
             {copy.footer.features}
           </Link>
-          <Link className="hover:text-ink" href="/privacy">
+          <Link className="text-pearl hover:text-ivory" href="/privacy">
             {copy.footer.privacy}
           </Link>
-          <a className="hover:text-ink" href={`mailto:${CONTACT_EMAIL}`}>
+          <a className="text-pearl hover:text-ivory" href={`mailto:${CONTACT_EMAIL}`}>
             {CONTACT_EMAIL}
           </a>
         </div>
       </div>
-      <div className="border-t border-sand/80">
-        <p className="mx-auto max-w-6xl px-5 py-6 text-base text-stone sm:px-8">
+      <div className="border-t border-ivory/10">
+        <p className="mx-auto max-w-6xl px-5 py-6 text-base text-pearl/70 sm:px-8">
           {interpolate(copy.footer.copyright, {
             year: String(new Date().getFullYear()),
           })}

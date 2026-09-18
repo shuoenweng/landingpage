@@ -1,10 +1,16 @@
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({
+  className = "",
+  invert = false,
+}: {
+  className?: string;
+  invert?: boolean;
+}) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <svg
         aria-hidden="true"
         viewBox="0 0 36 36"
-        className="h-9 w-9 text-moss"
+        className={`h-9 w-9 ${invert ? "text-ivory" : "text-moss"}`}
       >
         <rect
           width="36"
@@ -22,7 +28,11 @@ export function Logo({ className = "" }: { className?: string }) {
         />
         <rect x="13" y="16.2" width="10" height="2.8" rx="1.4" fill="currentColor" />
       </svg>
-      <span className="font-serif text-[1.4rem] font-semibold leading-none tracking-tight text-ink sm:text-[1.65rem]">
+      <span
+        className={`font-serif text-[1.4rem] font-semibold leading-none tracking-tight sm:text-[1.65rem] ${
+          invert ? "text-ivory" : "text-ink"
+        }`}
+      >
         QiLyra
       </span>
     </span>

@@ -18,8 +18,10 @@ export type Messages = {
   hero: {
     eyebrow: string;
     title: string;
+    line: string;
     body: string;
     waitlistTitle: string;
+    discoverCta: string;
     featuresLink: string;
     imageAlt: string;
     caption: string;
@@ -43,8 +45,7 @@ export type Messages = {
     title: string;
     body: string;
     waitlistCta: string;
-    lookbookLabel: string;
-    lookbookHint: string;
+    campaignLabel: string;
     items: {
       ice: { stones: string; imageAlt: string };
       rose: { stones: string; imageAlt: string };
@@ -147,8 +148,10 @@ export const messages: Record<Locale, Messages> = {
     hero: {
       eyebrow: "First collection · coming soon",
       title: "Quiet confidence, beautifully worn.",
+      line: "Discreet care, held in a piece you would choose anyway.",
       body: "QiLyra is a jewelry-first bracelet for older adults who want to look like themselves — and for families who want to stay close without hovering. Discreet care for unexpected moments, held in a piece you would choose anyway.",
       waitlistTitle: "Join the waitlist",
+      discoverCta: "Discover the piece",
       featuresLink: "See what QiLyra can do",
       imageAlt:
         "QiLyra bracelet with translucent moss-green stone beads, silver spacers, a lobster clasp, and a matte silver curved sensor bar, photographed on cream silk",
@@ -207,8 +210,7 @@ export const messages: Record<Locale, Messages> = {
       title: "Four colorways. The same quiet line.",
       body: "The pavé crystal bar stays. The stones change with the wearer — Ice, Rose, Citrine, and Onyx — each composed as jewelry, never as a device.",
       waitlistCta: "Join the waitlist",
-      lookbookLabel: "Colorway lookbook",
-      lookbookHint: "Hover, tap, or use the arrow keys to move between colorways.",
+      campaignLabel: "The collection",
       items: {
         ice: {
           stones: "Cracked quartz and pale aquamarine on a pavé crystal silver bar.",
@@ -387,8 +389,10 @@ export const messages: Record<Locale, Messages> = {
     hero: {
       eyebrow: "首批系列 · 即将推出",
       title: "从容的自信，戴在腕上。",
+      line: "一份安静的照料，收在你本来就会戴上的饰物里。",
       body: "QiLyra 是一款以珠宝为先的手链，写给希望保持本色的年长者，也写给希望陪伴、却不愿过分叮咛的家人。意外来临时的一份安静照料，收在一件你本来就会戴上的饰物里。",
       waitlistTitle: "加入等候名单",
+      discoverCta: "认识这件饰物",
       featuresLink: "看看 QiLyra 能做什么",
       imageAlt:
         "QiLyra 手链：通透的苔绿石珠、银隔片、龙虾扣，以及雾面银色弧形感应条，置于奶油色丝绸上",
@@ -444,8 +448,7 @@ export const messages: Record<Locale, Messages> = {
       title: "四种气色，同一条安静的银线。",
       body: "铺镶水晶的银弧不变。石珠随人而换——冰晶、玫瑰、黄晶、墨玉——每一款都按珠宝来做，而不是器械。",
       waitlistCta: "加入等候名单",
-      lookbookLabel: "气色展陈",
-      lookbookHint: "悬停、点按，或使用方向键在款式之间切换。",
+      campaignLabel: "本季气色",
       items: {
         ice: {
           stones: "碎裂水晶与浅海蓝，映着铺镶水晶银弧。",
