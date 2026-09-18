@@ -43,6 +43,8 @@ export type Messages = {
     title: string;
     body: string;
     waitlistCta: string;
+    lookbookLabel: string;
+    lookbookHint: string;
     items: {
       ice: { stones: string; imageAlt: string };
       rose: { stones: string; imageAlt: string };
@@ -205,6 +207,8 @@ export const messages: Record<Locale, Messages> = {
       title: "Four colorways. The same quiet line.",
       body: "The pavé crystal bar stays. The stones change with the wearer — Ice, Rose, Citrine, and Onyx — each composed as jewelry, never as a device.",
       waitlistCta: "Join the waitlist",
+      lookbookLabel: "Colorway lookbook",
+      lookbookHint: "Hover, tap, or use the arrow keys to move between colorways.",
       items: {
         ice: {
           stones: "Cracked quartz and pale aquamarine on a pavé crystal silver bar.",
@@ -440,6 +444,8 @@ export const messages: Record<Locale, Messages> = {
       title: "四种气色，同一条安静的银线。",
       body: "铺镶水晶的银弧不变。石珠随人而换——冰晶、玫瑰、黄晶、墨玉——每一款都按珠宝来做，而不是器械。",
       waitlistCta: "加入等候名单",
+      lookbookLabel: "气色展陈",
+      lookbookHint: "悬停、点按，或使用方向键在款式之间切换。",
       items: {
         ice: {
           stones: "碎裂水晶与浅海蓝，映着铺镶水晶银弧。",
