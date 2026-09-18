@@ -105,12 +105,88 @@ export function validateWaitlist(payload: WaitlistPayload): WaitlistFieldErrors 
   return errors;
 }
 
-function waitlistBody(payload: WaitlistPayload) {
+export const UNKNOWN_COUNTRY = "unknown";
+export const WAITLIST_SOURCE = "qilyra-landing";
+
+export type GeoFields = {
+  country: string;
+  countryRegion?: string;
+};
+
+export type WaitlistSubmission = {
+  email: string;
+  firstName: string;
+  name: string;
+  age: string;
+  gender: string;
+  betaInterest: "yes" | "no";
+  source: string;
+  country: string;
+  countryRegion?: string;
+};
+
+function parseBetaInterest(value: unknown): boolean {
+  if (value === true) {
+    return true;
+  }
+
+  if (typeof value === "string") {
+    const normalized = value.trim().toLowerCase();
+    return normalized === "yes" || normalized === "true";
+  }
+
+  return false;
+}
+
+/**
+ * Accept the existing waitlist fields from JSON (firstName or name, email,
+ * age, gender, betaInterest as boolean or yes/no).
+ */
+export function parseWaitlistRequestBody(input: unknown): WaitlistPayload | null {
+  if (!input || typeof input !== "object") {
+    return null;
+  }
+
+  const record = input as Record<string, unknown>;
+  const firstName =
+    typeof record.firstName === "string"
+      ? record.firstName
+      : typeof record.name === "string"
+        ? record.name
+        : "";
+  const email = typeof record.email === "string" ? record.email : "";
+  const age =
+    typeof record.age === "string"
+      ? record.age
+      : typeof record.age === "number" && Number.isFinite(record.age)
+        ? String(Math.trunc(record.age))
+        : "";
+  const genderRaw = typeof record.gender === "string" ? record.gender : "";
+  const gender: Gender | "" =
+    genderRaw !== "" && GENDER_VALUES.includes(genderRaw as Gender)
+      ? (genderRaw as Gender)
+      : "";
+
+  return {
+    email,
+    firstName,
+    age,
+    gender,
+    betaInterest: parseBetaInterest(record.betaInterest),
+  };
+}
+
+export function buildWaitlistBody(
+  payload: WaitlistPayload,
+  geo?: GeoFields,
+): WaitlistSubmission {
   const firstName = payload.firstName.trim();
   const gender =
     payload.gender !== "" && GENDER_VALUES.includes(payload.gender)
       ? payload.gender
       : "";
+  const country = geo?.country?.trim() || UNKNOWN_COUNTRY;
+  const countryRegion = geo?.countryRegion?.trim();
 
   return {
     email: payload.email.trim(),
@@ -119,46 +195,71 @@ function waitlistBody(payload: WaitlistPayload) {
     age: payload.age.trim(),
     gender,
     betaInterest: payload.betaInterest ? "yes" : "no",
-    source: "qilyra-landing",
+    source: WAITLIST_SOURCE,
+    country,
+    ...(countryRegion ? { countryRegion } : {}),
   };
 }
 
-/**
- * Submit a waitlist signup.
- *
- * If `NEXT_PUBLIC_WAITLIST_ENDPOINT` is set, this POSTs JSON to that URL
- * (Formspree, Getform, Basin, a Next.js Route Handler, etc.).
- * Otherwise it saves a local demo record and still shows the success state.
- *
- * Do not put API keys in the client. A public form endpoint is enough for v1.
- */
-export async function submitWaitlist(payload: WaitlistPayload): Promise<void> {
-  const endpoint = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT?.trim();
-  const body = waitlistBody(payload);
+/** ISO country from Vercel geo headers. Missing headers become `"unknown"`. */
+export function readCountryFromHeaders(headers: Headers): GeoFields {
+  const rawCountry = headers.get("x-vercel-ip-country")?.trim().toUpperCase() ?? "";
+  const country = /^[A-Z]{2}$/.test(rawCountry) ? rawCountry : UNKNOWN_COUNTRY;
+  const rawRegion =
+    headers.get("x-vercel-ip-country-region")?.trim().toUpperCase() ?? "";
 
-  if (endpoint) {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
-
-    if (!response.ok) {
-      throw new Error("WAITLIST_SUBMIT_FAILED");
-    }
-
-    return;
+  if (/^[A-Z0-9-]{1,8}$/.test(rawRegion)) {
+    return { country, countryRegion: rawRegion };
   }
 
-  // Demo fallback so the UI can be reviewed without a backend.
-  await new Promise((resolve) => setTimeout(resolve, 650));
+  return { country };
+}
 
-  if (typeof window !== "undefined") {
+type WaitlistApiResponse = {
+  ok?: boolean;
+  demo?: boolean;
+  country?: string;
+};
+
+/**
+ * Submit a waitlist signup through `/api/waitlist`.
+ *
+ * The route attaches `country` from Vercel geo headers and forwards to
+ * Formspree when an endpoint is configured. Otherwise it returns demo
+ * success and this function saves a localStorage record (including country).
+ */
+export async function submitWaitlist(payload: WaitlistPayload): Promise<void> {
+  const body = buildWaitlistBody(payload);
+
+  const response = await fetch("/api/waitlist", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  let result: WaitlistApiResponse = {};
+
+  try {
+    result = (await response.json()) as WaitlistApiResponse;
+  } catch {
+    result = {};
+  }
+
+  if (!response.ok || result.ok === false) {
+    throw new Error("WAITLIST_SUBMIT_FAILED");
+  }
+
+  const country =
+    typeof result.country === "string" && result.country.trim()
+      ? result.country.trim()
+      : UNKNOWN_COUNTRY;
+
+  if (result.demo && typeof window !== "undefined") {
     const existing = safeParseList(window.localStorage.getItem(WAITLIST_STORAGE_KEY));
-    existing.push({ ...body, savedAt: new Date().toISOString() });
+    existing.push({ ...body, country, savedAt: new Date().toISOString() });
     window.localStorage.setItem(WAITLIST_STORAGE_KEY, JSON.stringify(existing));
   }
 }
