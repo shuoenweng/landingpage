@@ -30,7 +30,7 @@ export function Header() {
           </Link>
           <Link
             href="/#designs"
-            className="text-base font-medium text-stone transition-colors hover:text-ink lg:hidden"
+            className="hidden text-base font-medium text-stone transition-colors hover:text-ink sm:inline lg:hidden"
           >
             {copy.header.designs}
           </Link>
