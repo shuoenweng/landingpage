@@ -25,7 +25,7 @@ export const LIFESTYLE_MOMENTS = [
     width: 1122,
     height: 1402,
     tone: "dark",
-    objectPosition: "42% 28%",
+    objectPosition: "48% 38%",
   },
   {
     id: "curtain",

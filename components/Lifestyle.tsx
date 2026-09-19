@@ -41,11 +41,13 @@ export function Lifestyle() {
                 sizes="100vw"
               />
               <div className="lifestyle-panel-copy">
-                <p className="lifestyle-panel-index">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="lifestyle-panel-title">{item.title}</h3>
-                <p className="lifestyle-panel-line">{item.line}</p>
+                <div className="lifestyle-panel-copy-inner">
+                  <p className="lifestyle-panel-index">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="lifestyle-panel-title">{item.title}</h3>
+                  <p className="lifestyle-panel-line">{item.line}</p>
+                </div>
               </div>
             </article>
           );
