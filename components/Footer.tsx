@@ -19,8 +19,8 @@ export function Footer() {
           <Link className="font-medium text-ivory hover:text-leaf" href="/#waitlist">
             {copy.footer.joinWaitlist}
           </Link>
-          <Link className="text-pearl hover:text-ivory" href="/#designs">
-            {copy.footer.designs}
+          <Link className="text-pearl hover:text-ivory" href="/#life">
+            {copy.footer.life}
           </Link>
           <Link className="text-pearl hover:text-ivory" href="/features">
             {copy.footer.features}

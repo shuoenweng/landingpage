@@ -8,7 +8,7 @@ export type Messages = {
   header: {
     howItHelps: string;
     thePiece: string;
-    designs: string;
+    life: string;
     forFamilies: string;
     features: string;
     joinWaitlist: string;
@@ -40,17 +40,18 @@ export type Messages = {
     imageAlt: string;
     details: { name: string; detail: string }[];
   };
-  designs: {
+  life: {
     eyebrow: string;
     title: string;
     body: string;
     waitlistCta: string;
     campaignLabel: string;
     items: {
-      ice: { stones: string; imageAlt: string };
-      rose: { stones: string; imageAlt: string };
-      citrine: { stones: string; imageAlt: string };
-      onyx: { stones: string; imageAlt: string };
+      writing: { title: string; line: string; imageAlt: string };
+      commute: { title: string; line: string; imageAlt: string };
+      window: { title: string; line: string; imageAlt: string };
+      curtain: { title: string; line: string; imageAlt: string };
+      garden: { title: string; line: string; imageAlt: string };
     };
   };
   families: {
@@ -95,7 +96,7 @@ export type Messages = {
   footer: {
     blurb: string;
     joinWaitlist: string;
-    designs: string;
+    life: string;
     features: string;
     privacy: string;
     copyright: string;
@@ -138,7 +139,7 @@ export const messages: Record<Locale, Messages> = {
     header: {
       howItHelps: "How it helps",
       thePiece: "The piece",
-      designs: "Designs",
+      life: "In life",
       forFamilies: "For families",
       features: "Features",
       joinWaitlist: "Join the waitlist",
@@ -205,32 +206,42 @@ export const messages: Record<Locale, Messages> = {
         },
       ],
     },
-    designs: {
-      eyebrow: "Designs",
-      title: "Four colorways. The same quiet line.",
-      body: "The pavé crystal bar stays. The stones change with the wearer — Ice, Rose, Citrine, and Onyx — each composed as jewelry, never as a device.",
+    life: {
+      eyebrow: "Life with QiLyra",
+      title: "Worn in the day you already have.",
+      body: "Not a device to explain. A bracelet in the hours that are already yours — writing, travelling, tending, watching the light change.",
       waitlistCta: "Join the waitlist",
-      campaignLabel: "The collection",
+      campaignLabel: "Life with QiLyra",
       items: {
-        ice: {
-          stones: "Cracked quartz and pale aquamarine on a pavé crystal silver bar.",
+        writing: {
+          title: "Morning, unhurried.",
+          line: "Coffee, a few lines, and a bracelet that looks like jewelry — because it is.",
           imageAlt:
-            "QiLyra Ice colorway: cracked clear quartz and pale aquamarine beads with silver spacers, a lobster clasp, and a pavé crystal silver bar, photographed on black",
+            "A hand writing in a notebook at a café table, wearing a QiLyra bracelet of moss-green beads and a pavé silver bar, beside coffee and a pen",
         },
-        rose: {
-          stones: "Rose quartz and lavender amethyst, set with the same pavé bar.",
+        commute: {
+          title: "The city, on your own terms.",
+          line: "A hand on the rail. Ice-clear stones, and nowhere a device in sight.",
           imageAlt:
-            "QiLyra Rose colorway: pink rose-quartz and lavender amethyst beads with silver spacers, a lobster clasp, and a pavé crystal silver bar, photographed on black",
+            "A hand holding a transit handrail, wearing a QiLyra bracelet of ice-blue crackle beads and a pavé silver bar, with city buildings beyond the window",
         },
-        citrine: {
-          stones: "Honeyed citrine, warm against the pavé crystal silver line.",
+        window: {
+          title: "Light, and a little company.",
+          line: "Golden hour, a warm mug, and care that does not hover.",
           imageAlt:
-            "QiLyra Citrine colorway: pale yellow cracked citrine beads with silver spacers, a lobster clasp, and a pavé crystal silver bar, photographed on black",
+            "A woman at a window in golden hour, holding a mug, with a dark-bead QiLyra bracelet visible on her wrist",
         },
-        onyx: {
-          stones: "Polished black onyx, quiet and precise against pavé crystal.",
+        curtain: {
+          title: "The day, opened gently.",
+          line: "Onyx and pavé, catching the first light.",
           imageAlt:
-            "QiLyra Onyx colorway: polished black onyx beads with silver spacers, a lobster clasp, and a pavé crystal silver bar, photographed on black",
+            "A hand drawing a sheer curtain at sunrise, wearing a QiLyra bracelet of polished black onyx beads and a pavé silver bar",
+        },
+        garden: {
+          title: "Hands in the living day.",
+          line: "Rosemary, sun, and a quiet line of honeyed stones.",
+          imageAlt:
+            "Hands tending a rosemary plant on a balcony, wearing a QiLyra bracelet of honeyed amber beads and a pavé silver bar",
         },
       },
     },
@@ -300,7 +311,7 @@ export const messages: Record<Locale, Messages> = {
       blurb:
         "Quiet jewelry for everyday independence. A first collection for older adults and the families who love them.",
       joinWaitlist: "Join the waitlist",
-      designs: "Designs",
+      life: "In life",
       features: "Features",
       privacy: "Privacy",
       copyright: "© {year} QiLyra.",
@@ -379,7 +390,7 @@ export const messages: Record<Locale, Messages> = {
     header: {
       howItHelps: "它如何帮到你",
       thePiece: "这件饰物",
-      designs: "款式",
+      life: "日常",
       forFamilies: "写给家人",
       features: "功能",
       joinWaitlist: "加入等候名单",
@@ -443,32 +454,42 @@ export const messages: Record<Locale, Messages> = {
         },
       ],
     },
-    designs: {
-      eyebrow: "款式",
-      title: "四种气色，同一条安静的银线。",
-      body: "铺镶水晶的银弧不变。石珠随人而换——冰晶、玫瑰、黄晶、墨玉——每一款都按珠宝来做，而不是器械。",
+    life: {
+      eyebrow: "与 QiLyra 同行",
+      title: "戴在你本来就有的一天里。",
+      body: "不必解释的饰物。写字、出行、照料、看光慢慢变——腕上只是一件你本来就会戴的手链。",
       waitlistCta: "加入等候名单",
-      campaignLabel: "本季气色",
+      campaignLabel: "与 QiLyra 同行",
       items: {
-        ice: {
-          stones: "碎裂水晶与浅海蓝，映着铺镶水晶银弧。",
+        writing: {
+          title: "从容的早晨。",
+          line: "一杯咖啡，几行字，腕上是饰物——本来就该如此。",
           imageAlt:
-            "QiLyra 冰晶款：碎裂透明水晶与浅海蓝珠、银隔片、龙虾扣，以及铺镶水晶银弧，黑底拍摄",
+            "一只手在咖啡馆桌边写笔记本，腕上是苔绿石珠与铺镶银弧的 QiLyra 手链，旁有咖啡与笔",
         },
-        rose: {
-          stones: "粉晶与浅紫，同一条铺镶银弧。",
+        commute: {
+          title: "城市，按你的节奏。",
+          line: "扶着扶手。冰色的石珠，看不见器械。",
           imageAlt:
-            "QiLyra 玫瑰款：粉晶与浅紫珠、银隔片、龙虾扣，以及铺镶水晶银弧，黑底拍摄",
+            "一只手握着车厢扶手，腕上是冰蓝色碎裂纹石珠与铺镶银弧的 QiLyra 手链，窗外是城市楼群",
         },
-        citrine: {
-          stones: "蜜色黄晶，暖在铺镶水晶的银线上。",
+        window: {
+          title: "光，以及一份安静。",
+          line: "窗边的黄昏，一杯温热。陪伴不必催促。",
           imageAlt:
-            "QiLyra 黄晶款：浅黄碎裂黄晶珠、银隔片、龙虾扣，以及铺镶水晶银弧，黑底拍摄",
+            "一位女士在黄昏窗边持杯，腕上可见深色石珠的 QiLyra 手链",
         },
-        onyx: {
-          stones: "抛光墨玉，对着铺镶水晶，安静而清楚。",
+        curtain: {
+          title: "把一天轻轻拉开。",
+          line: "墨玉迎着晨光。日子这样开始，才像样。",
           imageAlt:
-            "QiLyra 墨玉款：抛光墨玉珠、银隔片、龙虾扣，以及铺镶水晶银弧，黑底拍摄",
+            "一只手拉开晨光中的薄纱帘，腕上是抛光墨玉珠与铺镶银弧的 QiLyra 手链",
+        },
+        garden: {
+          title: "手还在园里。",
+          line: "迷迭香，阳光，一条安静的蜜色石线。",
+          imageAlt:
+            "双手在阳台照料迷迭香，腕上是蜜色黄晶珠与铺镶银弧的 QiLyra 手链",
         },
       },
     },
@@ -533,7 +554,7 @@ export const messages: Record<Locale, Messages> = {
       blurb:
         "安静的珠宝，日常的独立。首批系列写给年长者，以及爱他们的家人。",
       joinWaitlist: "加入等候名单",
-      designs: "款式",
+      life: "日常",
       features: "功能",
       privacy: "隐私",
       copyright: "© {year} QiLyra。",

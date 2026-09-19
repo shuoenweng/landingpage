@@ -11,7 +11,7 @@ export function Header() {
     { href: "/features", label: copy.header.features },
     { href: "/#how-it-helps", label: copy.header.howItHelps },
     { href: "/#jewelry", label: copy.header.thePiece },
-    { href: "/#designs", label: copy.header.designs },
+    { href: "/#life", label: copy.header.life },
     { href: "/#families", label: copy.header.forFamilies },
   ];
 
@@ -29,10 +29,10 @@ export function Header() {
             {copy.header.features}
           </Link>
           <Link
-            href="/#designs"
+            href="/#life"
             className="hidden text-base font-medium text-stone transition-colors hover:text-ink sm:inline lg:hidden"
           >
-            {copy.header.designs}
+            {copy.header.life}
           </Link>
         </div>
         <nav aria-label="Primary" className="hidden items-center gap-6 xl:gap-8 lg:flex">
