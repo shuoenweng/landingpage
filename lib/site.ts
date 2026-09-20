@@ -2,42 +2,50 @@ export const CONTACT_EMAIL = "hello@qilyra.com";
 export const PRODUCT_IMAGE = "/assets/qilyra-bracelet.jpg";
 export const WAITLIST_STORAGE_KEY = "qilyra-waitlist";
 
-export const DESIGN_COLORWAYS = [
+export const LIFESTYLE_MOMENTS = [
   {
-    id: "ice",
-    src: "/assets/design-ice.png",
-    nameEn: "Ice",
-    nameZh: "冰晶",
-    width: 1243,
-    height: 1265,
+    id: "writing",
+    src: "/assets/lifestyle-writing.png",
+    width: 1122,
+    height: 1402,
+    tone: "light",
+    objectPosition: "68% 42%",
   },
   {
-    id: "rose",
-    src: "/assets/design-rose.png",
-    nameEn: "Rose",
-    nameZh: "玫瑰",
-    width: 1243,
-    height: 1265,
+    id: "commute",
+    src: "/assets/lifestyle-commute.png",
+    width: 1122,
+    height: 1402,
+    tone: "dark",
+    objectPosition: "32% 52%",
   },
   {
-    id: "citrine",
-    src: "/assets/design-citrine.png",
-    nameEn: "Citrine",
-    nameZh: "黄晶",
-    width: 1243,
-    height: 1265,
+    id: "window",
+    src: "/assets/lifestyle-window.png",
+    width: 1122,
+    height: 1402,
+    tone: "dark",
+    objectPosition: "48% 38%",
   },
   {
-    id: "onyx",
-    src: "/assets/design-onyx.png",
-    nameEn: "Onyx",
-    nameZh: "墨玉",
-    width: 1243,
-    height: 1265,
+    id: "curtain",
+    src: "/assets/lifestyle-curtain.png",
+    width: 1122,
+    height: 1402,
+    tone: "light",
+    objectPosition: "48% 40%",
+  },
+  {
+    id: "garden",
+    src: "/assets/lifestyle-garden.png",
+    width: 1122,
+    height: 1402,
+    tone: "light",
+    objectPosition: "58% 42%",
   },
 ] as const;
 
-export type DesignColorwayId = (typeof DESIGN_COLORWAYS)[number]["id"];
+export type LifestyleMomentId = (typeof LIFESTYLE_MOMENTS)[number]["id"];
 
 const DEFAULT_SITE_URL = "http://localhost:3000";
 

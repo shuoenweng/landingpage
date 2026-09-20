@@ -8,20 +8,22 @@ export function Families() {
   const { copy } = useI18n();
 
   return (
-    <section id="families" className="border-y border-sand bg-leaf/40">
+    <section id="families" className="bg-cream">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <Eyebrow>{copy.families.eyebrow}</Eyebrow>
-        <h2 className="mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+        <h2 className="mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.35rem] lg:leading-[1.15]">
           {copy.families.title}
         </h2>
-        <p className="mt-5 max-w-2xl text-xl leading-relaxed text-stone">
+        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
           {copy.families.intro}
         </p>
-        <ul className="mt-14 grid gap-6 lg:grid-cols-3">
-          {copy.families.notes.map((note) => (
+        <ul className="mt-16 grid gap-10 lg:grid-cols-3 lg:gap-0">
+          {copy.families.notes.map((note, index) => (
             <li
               key={note.title}
-              className="rounded-[1.75rem] bg-ivory/90 p-7 shadow-sm ring-1 ring-sand sm:p-8"
+              className={`lg:px-10 ${index === 0 ? "lg:pl-0" : ""} ${
+                index === copy.families.notes.length - 1 ? "lg:pr-0" : ""
+              } ${index > 0 ? "border-t border-sand pt-10 lg:border-l lg:border-t-0 lg:pt-0" : ""}`}
             >
               <p className="text-sm font-semibold tracking-[0.18em] text-moss">
                 {note.audience}
@@ -33,11 +35,8 @@ export function Families() {
             </li>
           ))}
         </ul>
-        <p className="mt-10">
-          <Link
-            href="/features"
-            className="inline-flex min-h-12 items-center rounded-full border border-moss px-6 text-lg font-semibold text-moss transition-colors hover:bg-ivory"
-          >
+        <p className="mt-14">
+          <Link href="/features" className="maison-link">
             {copy.families.featuresCta}
           </Link>
         </p>

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "./Eyebrow";
-import { WaitlistForm } from "./WaitlistForm";
 import { useI18n } from "@/lib/i18n/provider";
 import { PRODUCT_IMAGE } from "@/lib/site";
 
@@ -11,48 +10,43 @@ export function Hero() {
   const { copy } = useI18n();
 
   return (
-    <section className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:py-20">
-        <div>
-          <Eyebrow>{copy.hero.eyebrow}</Eyebrow>
-          <h1 className="mt-5 max-w-xl font-serif text-5xl font-semibold leading-[1.12] tracking-tight text-ink sm:text-6xl lg:text-[4.25rem]">
-            {copy.hero.title}
-          </h1>
-          <p className="mt-6 max-w-xl text-xl leading-relaxed text-stone">
-            {copy.hero.body}
-          </p>
-          <p className="mt-5">
-            <Link
-              href="/features"
-              className="text-lg font-semibold text-moss underline decoration-moss/30 underline-offset-4 hover:decoration-moss"
-            >
-              {copy.hero.featuresLink}
-            </Link>
-          </p>
-          <div className="mt-9 max-w-xl rounded-[1.75rem] border border-sand bg-white/80 p-5 shadow-sm sm:p-7">
-            <p className="mb-5 font-serif text-2xl font-semibold text-ink">
-              {copy.hero.waitlistTitle}
+    <section className="relative isolate overflow-hidden bg-cream md:min-h-[calc(100svh-5.75rem)]">
+      <div className="relative h-[70svh] min-h-[22rem] md:absolute md:inset-0 md:h-auto md:min-h-0">
+        <Image
+          src={PRODUCT_IMAGE}
+          alt={copy.hero.imageAlt}
+          fill
+          priority
+          className="object-cover object-[center_42%]"
+          sizes="100vw"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ivory/92 via-ivory/55 to-ivory/5 md:block"
+          aria-hidden="true"
+        />
+      </div>
+
+      <div className="relative z-10 bg-ivory px-5 py-10 sm:px-8 md:flex md:min-h-[calc(100svh-5.75rem)] md:items-end md:bg-transparent md:pb-20 md:pt-28">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="max-w-xl">
+            <Eyebrow>{copy.hero.eyebrow}</Eyebrow>
+            <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-[4.6rem]">
+              {copy.hero.title}
+            </h1>
+            <p className="mt-6 max-w-md text-xl leading-relaxed text-stone">
+              {copy.hero.line}
             </p>
-            <WaitlistForm idPrefix="hero-waitlist" />
+            <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <Link href="/#waitlist" className="maison-btn">
+                {copy.hero.waitlistTitle}
+              </Link>
+              <Link href="/#jewelry" className="maison-link">
+                {copy.hero.discoverCta}
+              </Link>
+            </div>
+            <p className="mt-6 max-w-md text-base text-stone/90">{copy.hero.caption}</p>
           </div>
         </div>
-
-        <figure className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div className="overflow-hidden rounded-[2rem] bg-cream shadow-[0_30px_80px_-40px_rgba(36,31,26,0.45)] ring-1 ring-sand">
-            <Image
-              src={PRODUCT_IMAGE}
-              alt={copy.hero.imageAlt}
-              width={1086}
-              height={1448}
-              priority
-              className="h-auto w-full object-cover"
-              sizes="(min-width: 1024px) 480px, 90vw"
-            />
-          </div>
-          <figcaption className="mt-4 text-center text-base text-stone">
-            {copy.hero.caption}
-          </figcaption>
-        </figure>
       </div>
     </section>
   );
