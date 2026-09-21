@@ -17,7 +17,7 @@ export function Hero() {
           alt={copy.hero.imageAlt}
           fill
           priority
-          className="object-cover object-[68%_42%] sm:object-[center_42%]"
+          className="object-cover object-center"
           sizes="100vw"
         />
         <div className="hero-overlay pointer-events-none absolute inset-0" aria-hidden="true" />

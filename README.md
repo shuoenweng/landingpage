@@ -10,7 +10,7 @@ A discreet wearable that looks like boutique jewelry, not a medical device:
 - Translucent moss-green stone beads
 - Silver spacers, onyx accent, lobster clasp
 
-Hero photography lives at [`public/assets/qilyra-bracelet.jpg`](public/assets/qilyra-bracelet.jpg).
+Hero photography lives at [`public/assets/qilyra-bracelet.png`](public/assets/qilyra-bracelet.png).
 
 Capabilities are described on [`/features`](app/features/page.tsx): fall detection, emergency auto-contact, location peace of mind for families walking with dementia, heart and activity wellbeing, battery, water resistance, companion app, and jewelry-first design.
 
