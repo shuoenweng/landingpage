@@ -38,7 +38,12 @@ html {
 section[id],
 #main,
 #designs,
-#life {
+#life,
+#everyday,
+#why,
+#waitlist,
+#faq,
+#positioning {
   scroll-margin-top: 5.75rem;
 }
 
@@ -103,16 +108,17 @@ html[lang="zh-CN"] .font-serif {
 
 .maison-btn {
   display: inline-flex;
-  min-height: 3rem;
+  min-height: 3.15rem;
   align-items: center;
   justify-content: center;
-  padding: 0 1.6rem;
+  padding: 0 1.7rem;
   border: 1px solid var(--ink);
+  border-radius: 999px;
   background: var(--ink);
   color: var(--ivory);
   font-size: 0.9375rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-decoration: none;
   transition:
     background-color 200ms ease,
@@ -156,100 +162,7 @@ html[lang="zh-CN"] .font-serif {
   text-decoration-color: var(--ink);
 }
 
-.maison-link-on-dark {
-  color: var(--ivory);
-  text-decoration-color: color-mix(in srgb, var(--ivory) 35%, transparent);
-}
-
-.maison-link-on-dark:hover {
-  text-decoration-color: var(--ivory);
-}
-
 html[lang="zh-CN"] .maison-btn,
 html[lang="zh-CN"] .maison-btn-compact {
-  letter-spacing: 0.12em;
-}
-
-.lifestyle-panel {
-  position: relative;
-  height: min(54rem, calc(100svh - 5.75rem));
-  min-height: 28rem;
-  overflow: hidden;
-  isolation: isolate;
-  background: var(--noir);
-}
-
-.lifestyle-panel-image {
-  object-fit: cover;
-  transform: scale(1);
-  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.lifestyle-panel:hover .lifestyle-panel-image,
-.lifestyle-panel:focus-within .lifestyle-panel-image {
-  transform: scale(1.04);
-}
-
-.lifestyle-panel-copy {
-  position: absolute;
-  inset: auto 0 0 0;
-  z-index: 1;
-  padding: clamp(3.5rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem)
-    clamp(1.75rem, 4vw, 2.75rem);
-}
-
-.lifestyle-panel[data-tone="dark"] .lifestyle-panel-copy {
-  color: var(--ivory);
-  background: linear-gradient(
-    to top,
-    rgba(12, 13, 12, 0.72) 0%,
-    rgba(12, 13, 12, 0.28) 55%,
-    rgba(12, 13, 12, 0) 100%
-  );
-}
-
-.lifestyle-panel[data-tone="light"] .lifestyle-panel-copy {
-  color: var(--ink);
-  background: linear-gradient(
-    to top,
-    rgba(251, 247, 240, 0.82) 0%,
-    rgba(251, 247, 240, 0.32) 55%,
-    rgba(251, 247, 240, 0) 100%
-  );
-}
-
-.lifestyle-panel-copy-inner {
-  max-width: 32rem;
-}
-
-.lifestyle-panel-index {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  opacity: 0.62;
-}
-
-.lifestyle-panel-title {
-  margin-top: 0.7rem;
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 4.4vw, 4.1rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-}
-
-.lifestyle-panel-line {
-  max-width: 26rem;
-  margin-top: 0.9rem;
-  font-size: 1.125rem;
-  line-height: 1.65;
-  opacity: 0.92;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lifestyle-panel:hover .lifestyle-panel-image,
-  .lifestyle-panel:focus-within .lifestyle-panel-image {
-    transform: none;
-  }
+  letter-spacing: 0.1em;
 }

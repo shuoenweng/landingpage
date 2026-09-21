@@ -1,10 +1,12 @@
-import { Families } from "@/components/Families";
+import { Comparison } from "@/components/Comparison";
+import { Everyday } from "@/components/Everyday";
+import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { HowItHelps } from "@/components/HowItHelps";
-import { Jewelry } from "@/components/Jewelry";
 import { Lifestyle } from "@/components/Lifestyle";
+import { Positioning } from "@/components/Positioning";
+import { Testimonials } from "@/components/Testimonials";
 import { WaitlistSection } from "@/components/WaitlistSection";
 
 export default function Home() {
@@ -13,11 +15,13 @@ export default function Home() {
       <Header />
       <main id="main">
         <Hero />
-        <HowItHelps />
-        <Jewelry />
+        <Positioning />
+        <Everyday />
         <Lifestyle />
-        <Families />
+        <Comparison />
         <WaitlistSection />
+        <Testimonials />
+        <Faq />
       </main>
       <Footer />
     </>
