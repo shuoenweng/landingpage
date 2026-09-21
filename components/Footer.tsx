@@ -22,6 +22,12 @@ export function Footer() {
           <Link className="text-pearl hover:text-ivory" href="/#life">
             {copy.footer.life}
           </Link>
+          <Link className="text-pearl hover:text-ivory" href="/#why">
+            {copy.footer.why}
+          </Link>
+          <Link className="text-pearl hover:text-ivory" href="/#faq">
+            {copy.footer.faq}
+          </Link>
           <Link className="text-pearl hover:text-ivory" href="/features">
             {copy.footer.features}
           </Link>

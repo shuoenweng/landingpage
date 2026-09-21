@@ -2,50 +2,64 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Eyebrow } from "./Eyebrow";
 import { useI18n } from "@/lib/i18n/provider";
 import { PRODUCT_IMAGE } from "@/lib/site";
 
 export function Hero() {
-  const { copy } = useI18n();
+  const { copy, locale } = useI18n();
 
   return (
-    <section className="relative isolate overflow-hidden bg-cream md:min-h-[calc(100svh-5.75rem)]">
-      <div className="relative h-[70svh] min-h-[22rem] md:absolute md:inset-0 md:h-auto md:min-h-0">
+    <section className="relative isolate overflow-hidden bg-noir text-ivory lg:min-h-[calc(100svh-5.75rem)]">
+      <div id="jewelry" aria-hidden="true" className="h-0 overflow-hidden" />
+      <div className="relative min-h-[34rem] sm:min-h-[40rem] lg:min-h-[calc(100svh-5.75rem)]">
         <Image
           src={PRODUCT_IMAGE}
           alt={copy.hero.imageAlt}
           fill
           priority
-          className="object-cover object-[center_42%]"
+          className="object-cover object-[68%_42%] sm:object-[center_42%]"
           sizes="100vw"
         />
-        <div
-          className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ivory/92 via-ivory/55 to-ivory/5 md:block"
-          aria-hidden="true"
-        />
-      </div>
+        <div className="hero-overlay pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <div className="relative z-10 bg-ivory px-5 py-10 sm:px-8 md:flex md:min-h-[calc(100svh-5.75rem)] md:items-end md:bg-transparent md:pb-20 md:pt-28">
-        <div className="mx-auto w-full max-w-6xl">
-          <div className="max-w-xl">
-            <Eyebrow>{copy.hero.eyebrow}</Eyebrow>
-            <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-[4.6rem]">
+        <div className="relative z-10 mx-auto flex min-h-[34rem] max-w-6xl flex-col justify-end px-5 py-10 sm:min-h-[40rem] sm:px-8 sm:py-14 lg:min-h-[calc(100svh-5.75rem)] lg:justify-center lg:py-20">
+          <div className="max-w-2xl">
+            <p
+              className={`inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm font-semibold text-ivory ${
+                locale === "zh" ? "tracking-[0.14em]" : "uppercase tracking-[0.16em]"
+              }`}
+            >
+              {copy.hero.eyebrow}
+            </p>
+            <h1 className="mt-6 font-serif text-[2.85rem] font-semibold leading-[0.98] tracking-tight text-ivory sm:text-6xl lg:text-[4.75rem] xl:text-[5.25rem]">
               {copy.hero.title}
             </h1>
-            <p className="mt-6 max-w-md text-xl leading-relaxed text-stone">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ivory/85 sm:text-xl">
               {copy.hero.line}
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <Link href="/#waitlist" className="maison-btn">
+            <div className="mt-8 flex w-full max-w-md flex-col gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
+              <Link href="/#waitlist" className="maison-btn maison-btn-light w-full sm:w-auto">
                 {copy.hero.waitlistTitle}
               </Link>
-              <Link href="/#jewelry" className="maison-link">
+              <Link
+                href="/#life"
+                className="maison-link maison-link-on-dark hidden sm:inline-flex"
+              >
                 {copy.hero.discoverCta}
               </Link>
             </div>
-            <p className="mt-6 max-w-md text-base text-stone/90">{copy.hero.caption}</p>
           </div>
+
+          <ul className="mt-10 flex max-w-3xl flex-wrap gap-2.5">
+            {copy.hero.pills.map((pill) => (
+              <li
+                key={pill}
+                className="rounded-full border border-white/15 bg-noir/45 px-4 py-2 text-sm font-semibold text-ivory backdrop-blur-sm"
+              >
+                {pill}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

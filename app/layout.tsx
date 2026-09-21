@@ -35,9 +35,9 @@ const notoSerifSC = Noto_Serif_SC({
   preload: false,
 });
 
-const title = "QiLyra — Quiet jewelry for everyday independence";
+const title = "QiLyra — Jewelry you will actually wear";
 const description =
-  "A jewelry-first smart bracelet for older adults and their families. Elegant moss-green stones and a matte silver bar — with discreet fall, location, and wellbeing care, designed to preserve dignity.";
+  "A jewelry-first, screen-free bracelet for older adults and their families. Discreet fall alerts, family peace of mind, and a piece that looks like jewelry because it is.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
