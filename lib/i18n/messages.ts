@@ -169,7 +169,7 @@ export const messages: Record<Locale, Messages> = {
       faq: "FAQ",
       features: "Features",
       joinWaitlist: "Join the waitlist",
-      joinWaitlistShort: "Join waitlist",
+      joinWaitlistShort: "Join",
       homeAria: "QiLyra home",
     },
     hero: {

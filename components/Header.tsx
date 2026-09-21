@@ -24,7 +24,7 @@ export function Header() {
           </Link>
           <Link
             href="/features"
-            className="text-base font-medium text-stone transition-colors hover:text-ink lg:hidden"
+            className="hidden text-base font-medium text-stone transition-colors hover:text-ink sm:inline lg:hidden"
           >
             {copy.header.features}
           </Link>
@@ -50,7 +50,10 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageToggle />
-          <Link href="/#waitlist" className="maison-btn maison-btn-compact">
+          <Link
+            href="/#waitlist"
+            className="maison-btn maison-btn-compact shrink-0 whitespace-nowrap"
+          >
             <span className="sm:hidden">{copy.header.joinWaitlistShort}</span>
             <span className="hidden sm:inline">{copy.header.joinWaitlist}</span>
           </Link>
