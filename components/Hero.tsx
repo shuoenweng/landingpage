@@ -34,14 +34,17 @@ export function Hero() {
             <h1 className="mt-6 font-serif text-[2.85rem] font-semibold leading-[0.98] tracking-tight text-ivory sm:text-6xl lg:text-[4.75rem] xl:text-[5.25rem]">
               {copy.hero.title}
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-pearl sm:text-xl">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ivory/85 sm:text-xl">
               {copy.hero.line}
             </p>
             <div className="mt-8 flex w-full max-w-md flex-col gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
               <Link href="/#waitlist" className="maison-btn maison-btn-light w-full sm:w-auto">
                 {copy.hero.waitlistTitle}
               </Link>
-              <Link href="/#life" className="maison-link maison-link-on-dark justify-center sm:justify-start">
+              <Link
+                href="/#life"
+                className="maison-link maison-link-on-dark hidden sm:inline-flex"
+              >
                 {copy.hero.discoverCta}
               </Link>
             </div>
