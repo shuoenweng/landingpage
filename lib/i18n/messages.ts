@@ -193,7 +193,7 @@ export const messages: Record<Locale, Messages> = {
       waitlistTitle: "Join the waitlist",
       discoverCta: "See everyday life",
       imageAlt:
-        "QiLyra bracelet with translucent moss-green stone beads, silver spacers, a lobster clasp, and a matte silver curved sensor bar, photographed on cream silk",
+        "QiLyra bracelet of translucent moss-green stone beads, silver spacers, and a pavé silver bar on a glass dish over cream silk. The photograph reads QiLyra, Screenless Intelligent Jewelry, and Quietly Connected — Coming Soon.",
       caption: "Matte silver bar · moss-green stones · made to be worn, not hidden",
       pills: [
         "Jewelry-first",
@@ -606,7 +606,7 @@ export const messages: Record<Locale, Messages> = {
       waitlistTitle: "加入等候名单",
       discoverCta: "看看日常里的样子",
       imageAlt:
-        "QiLyra 手链：通透的苔绿石珠、银隔片、龙虾扣，以及雾面银色弧形感应条，置于奶油色丝绸上",
+        "QiLyra 手链：通透的苔绿石珠、银隔片与铺镶银条，置于玻璃托盘和奶油色丝绸上。画面文字为 QiLyra、Screenless Intelligent Jewelry，以及 Quietly Connected — Coming Soon。",
       caption: "雾面银弧 · 苔绿石珠 · 为佩戴而做，不必藏起",
       pills: ["珠宝为先", "跌倒提醒", "家人安心", "无屏幕"],
     },
