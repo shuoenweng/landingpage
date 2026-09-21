@@ -186,33 +186,6 @@ html[lang="zh-CN"] .font-serif {
   text-decoration-color: var(--ivory);
 }
 
-.hero-overlay {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(18, 14, 12, 0.84) 0%,
-      rgba(18, 14, 12, 0.48) 46%,
-      rgba(18, 14, 12, 0.16) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(18, 14, 12, 0.2) 0%,
-      rgba(18, 14, 12, 0.12) 45%,
-      rgba(18, 14, 12, 0.72) 100%
-    );
-}
-
-@media (max-width: 639px) {
-  .hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(18, 14, 12, 0.28) 0%,
-      rgba(18, 14, 12, 0.4) 38%,
-      rgba(18, 14, 12, 0.86) 100%
-    );
-  }
-}
-
 html[lang="zh-CN"] .maison-btn,
 html[lang="zh-CN"] .maison-btn-compact {
   letter-spacing: 0.1em;

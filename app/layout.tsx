@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Noto_Sans_SC, Noto_Serif_SC, Source_Sans_3 } from "next/font/google";
 import { I18nProvider } from "@/lib/i18n/provider";
 import { SkipLink } from "@/components/SkipLink";
-import { getSiteUrl } from "@/lib/site";
+import {
+  getSiteUrl,
+  PRODUCT_IMAGE,
+  PRODUCT_IMAGE_HEIGHT,
+  PRODUCT_IMAGE_WIDTH,
+} from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -60,10 +65,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/assets/qilyra-bracelet.png",
-        width: 1086,
-        height: 1448,
-        alt: "QiLyra bracelet with moss-green stones and a matte silver bar on cream silk",
+        url: PRODUCT_IMAGE,
+        width: PRODUCT_IMAGE_WIDTH,
+        height: PRODUCT_IMAGE_HEIGHT,
+        alt: "QiLyra bracelet with moss-green stones and a pavé silver bar on glass over cream silk",
       },
     ],
   },
@@ -71,7 +76,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/assets/qilyra-bracelet.png"],
+    images: [PRODUCT_IMAGE],
   },
   robots: {
     index: true,

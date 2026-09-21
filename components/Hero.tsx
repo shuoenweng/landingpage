@@ -3,58 +3,55 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useI18n } from "@/lib/i18n/provider";
-import { PRODUCT_IMAGE } from "@/lib/site";
+import { PRODUCT_IMAGE, PRODUCT_IMAGE_HEIGHT, PRODUCT_IMAGE_WIDTH } from "@/lib/site";
+
+const HERO_ASPECT = `${PRODUCT_IMAGE_WIDTH}/${PRODUCT_IMAGE_HEIGHT}`;
 
 export function Hero() {
-  const { copy, locale } = useI18n();
+  const { copy } = useI18n();
 
   return (
-    <section className="relative isolate overflow-hidden bg-noir text-ivory lg:min-h-[calc(100svh-5.75rem)]">
+    <section className="relative isolate bg-[#f6ebe2] text-ink">
       <div id="jewelry" aria-hidden="true" className="h-0 overflow-hidden" />
-      <div className="relative min-h-[34rem] sm:min-h-[40rem] lg:min-h-[calc(100svh-5.75rem)]">
-        <Image
-          src={PRODUCT_IMAGE}
-          alt={copy.hero.imageAlt}
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="hero-overlay pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="mx-auto flex min-h-[calc(100svh-5.75rem)] w-full flex-col items-center justify-center">
+        {/* Wordmark, tagline, and “coming soon” are printed on the photograph. */}
+        <h1 className="sr-only">{copy.hero.title}</h1>
+        <p className="sr-only">
+          {copy.hero.eyebrow}. {copy.hero.line}
+        </p>
 
-        <div className="relative z-10 mx-auto flex min-h-[34rem] max-w-6xl flex-col justify-end px-5 py-10 sm:min-h-[40rem] sm:px-8 sm:py-14 lg:min-h-[calc(100svh-5.75rem)] lg:justify-center lg:py-20">
-          <div className="max-w-2xl">
-            <p
-              className={`inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm font-semibold text-ivory ${
-                locale === "zh" ? "tracking-[0.14em]" : "uppercase tracking-[0.16em]"
-              }`}
-            >
-              {copy.hero.eyebrow}
-            </p>
-            <h1 className="mt-6 font-serif text-[2.85rem] font-semibold leading-[0.98] tracking-tight text-ivory sm:text-6xl lg:text-[4.75rem] xl:text-[5.25rem]">
-              {copy.hero.title}
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ivory/85 sm:text-xl">
-              {copy.hero.line}
-            </p>
-            <div className="mt-8 flex w-full max-w-md flex-col gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
-              <Link href="/#waitlist" className="maison-btn maison-btn-light w-full sm:w-auto">
-                {copy.hero.waitlistTitle}
-              </Link>
-              <Link
-                href="/#life"
-                className="maison-link maison-link-on-dark hidden sm:inline-flex"
-              >
-                {copy.hero.discoverCta}
-              </Link>
-            </div>
+        <div
+          className="relative w-full"
+          style={{
+            maxWidth: `min(100%, calc((100svh - 5.75rem - 9.25rem) * ${PRODUCT_IMAGE_WIDTH} / ${PRODUCT_IMAGE_HEIGHT}))`,
+          }}
+        >
+          <div className="relative w-full" style={{ aspectRatio: HERO_ASPECT }}>
+            <Image
+              src={PRODUCT_IMAGE}
+              alt={copy.hero.imageAlt}
+              fill
+              priority
+              className="object-contain object-center"
+              sizes="(max-width: 1023px) 100vw, 72vh"
+            />
           </div>
+        </div>
 
-          <ul className="mt-10 flex max-w-3xl flex-wrap gap-2.5">
+        <div className="flex w-full flex-col items-center gap-4 px-5 py-5 sm:px-8 sm:py-6">
+          <div className="flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
+            <Link href="/#waitlist" className="maison-btn w-full sm:w-auto">
+              {copy.hero.waitlistTitle}
+            </Link>
+            <Link href="/#life" className="maison-link hidden sm:inline-flex">
+              {copy.hero.discoverCta}
+            </Link>
+          </div>
+          <ul className="flex max-w-3xl flex-wrap justify-center gap-2">
             {copy.hero.pills.map((pill) => (
               <li
                 key={pill}
-                className="rounded-full border border-white/15 bg-noir/45 px-4 py-2 text-sm font-semibold text-ivory backdrop-blur-sm"
+                className="rounded-full border border-sand bg-ivory/80 px-4 py-2 text-sm font-semibold text-ink"
               >
                 {pill}
               </li>
