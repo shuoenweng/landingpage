@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/assets/qilyra-bracelet.jpg",
+        url: "/assets/qilyra-bracelet.png",
         width: 1086,
         height: 1448,
         alt: "QiLyra bracelet with moss-green stones and a matte silver bar on cream silk",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/assets/qilyra-bracelet.jpg"],
+    images: ["/assets/qilyra-bracelet.png"],
   },
   robots: {
     index: true,
