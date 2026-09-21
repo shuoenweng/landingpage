@@ -38,6 +38,20 @@ export type Messages = {
     items: { title: string; body: string }[];
     featuresCta: string;
   };
+  insights: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    imageAlt: string;
+    items: { title: string; body: string }[];
+  };
+  specs: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: { title: string; body: string }[];
+    disclaimer: string;
+  };
   life: {
     eyebrow: string;
     title: string;
@@ -230,12 +244,68 @@ export const messages: Record<Locale, Messages> = {
           title: "GPS peace of mind",
           body: "For families walking with dementia: a consented thread of location, used with dignity. Not a leash, and not a camera.",
         },
-        {
-          title: "Wellbeing, kept private",
-          body: "A gentle sense of the day’s rhythm — heart and movement — stays with the wearer unless you decide to share.",
-        },
       ],
       featuresCta: "Explore all features",
+    },
+    insights: {
+      eyebrow: "Peace of mind",
+      title: "Quiet care, when the day asks for it.",
+      intro:
+        "The bracelet stays jewelry. Underneath, a calm layer for unexpected moments — shared only with the people you choose.",
+      imageAlt:
+        "Hands tending a rosemary plant on a balcony, wearing a QiLyra bracelet of honeyed amber beads and a pavé silver bar",
+      items: [
+        {
+          title: "Fall awareness",
+          body: "If a fall happens, QiLyra can notice the sudden change and quietly let chosen contacts know.",
+        },
+        {
+          title: "Family, not a feed",
+          body: "People you name can receive a clear, unhurried message — not a stream of surveillance.",
+        },
+        {
+          title: "Location, with consent",
+          body: "A thread of reassurance for families walking with dementia. Not a leash, and not a camera.",
+        },
+        {
+          title: "Wellbeing, kept private",
+          body: "A gentle sense of heart and movement stays with the wearer unless you decide to share.",
+        },
+      ],
+    },
+    specs: {
+      eyebrow: "The piece",
+      title: "Made to look like jewelry. Built for ordinary days.",
+      intro:
+        "Capabilities live in the matte silver bar — described with care, and never as a medical device.",
+      items: [
+        {
+          title: "Jewelry form",
+          body: "Moss-green stones, a matte silver curve, silver spacers, and a clasp you already know how to use.",
+        },
+        {
+          title: "Screen-free",
+          body: "No notifications on the wrist. No dashboard competing with the day you are already living.",
+        },
+        {
+          title: "Care, on your terms",
+          body: "Fall awareness, emergency auto-contact, and optional location sharing with the family you invite.",
+        },
+        {
+          title: "Companion app",
+          body: "Family members you choose can hear when something needs them — and stay quiet when the afternoon is simply unfolding.",
+        },
+        {
+          title: "Everyday water",
+          body: "Washed hands, a little rain, a splash at the sink. Not for swimming or a long bath.",
+        },
+        {
+          title: "A charge for ordinary days",
+          body: "Made for everyday wear, with a gentle reminder when it is time to rest on the charger.",
+        },
+      ],
+      disclaimer:
+        "QiLyra is jewelry with optional care features. It is not a medical device and is not intended to diagnose, treat, cure, or prevent any medical condition.",
     },
     life: {
       eyebrow: "Life with QiLyra",
@@ -582,12 +652,67 @@ export const messages: Record<Locale, Messages> = {
           title: "位置的安心",
           body: "写给与认知障碍同行的家人：一条经同意的位置线索，顾及体面。不是拴绳，也不是镜头。",
         },
-        {
-          title: "身心安好，留在私下",
-          body: "对一日节奏的轻柔感知——心跳与走动——先留在佩戴者身边，除非你决定分享。",
-        },
       ],
       featuresCta: "查看全部功能",
+    },
+    insights: {
+      eyebrow: "一份安心",
+      title: "日子需要时，照料保持安静。",
+      intro:
+        "腕上仍是珠宝。底下是一层从容的照料——只与你选定的人分享，直到真正需要的时候。",
+      imageAlt:
+        "双手在阳台照料迷迭香，腕上是蜜色黄晶珠与铺镶银弧的 QiLyra 手链",
+      items: [
+        {
+          title: "跌倒察觉",
+          body: "若有跌倒，QiLyra 可以察觉那一阵忽然的变化，并安静地告知选定的联系人。",
+        },
+        {
+          title: "家人，不是信息流",
+          body: "你写下的人可以收到清楚、不催促的告知——而不是监视的信息流。",
+        },
+        {
+          title: "位置，经你同意",
+          body: "写给与认知障碍同行的家人的一条安心线索。不是拴绳，也不是镜头。",
+        },
+        {
+          title: "身心安好，留在私下",
+          body: "对心跳与走动的轻柔感知，先留在佩戴者身边，除非你决定分享。",
+        },
+      ],
+    },
+    specs: {
+      eyebrow: "这件饰物",
+      title: "看起来是珠宝。为平常的日子而做。",
+      intro: "能力收在雾面银弧里——说得克制，也从不把它写成医疗器械。",
+      items: [
+        {
+          title: "珠宝形态",
+          body: "苔绿石珠、一条雾面银弧、银隔片，以及你本来就会用的扣。",
+        },
+        {
+          title: "无屏幕",
+          body: "腕上没有通知。没有看板来抢去你本来就在过的一天。",
+        },
+        {
+          title: "照料，由你决定",
+          body: "跌倒察觉、紧急联系人自动通知，以及可选的位置分享——只给邀请的家人。",
+        },
+        {
+          title: "陪伴应用",
+          body: "你选定的家人，会在需要他们时收到消息；若午后只是安静地过去，应用便保持安静。",
+        },
+        {
+          title: "日常的水",
+          body: "洗手、一点雨水、水槽边的溅湿。不适合游泳或长时间沐浴。",
+        },
+        {
+          title: "电量陪你过完平常的日子",
+          body: "为日常佩戴而做；该休息充电时只会轻轻提醒。",
+        },
+      ],
+      disclaimer:
+        "QiLyra 是带有可选照料功能的珠宝。它不是医疗器械，也无意诊断、治疗、治愈或预防任何疾病。",
     },
     life: {
       eyebrow: "与 QiLyra 同行",

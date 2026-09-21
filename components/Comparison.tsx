@@ -17,6 +17,12 @@ function cellTone(value: string, featured: boolean) {
 export function Comparison() {
   const { copy } = useI18n();
   const { columns, rows } = copy.comparison;
+  const products = [
+    { key: "smartwatch" as const, featured: false },
+    { key: "pendant" as const, featured: false },
+    { key: "band" as const, featured: false },
+    { key: "qilyra" as const, featured: true },
+  ];
 
   return (
     <section id="why" className="bg-ivory">
@@ -29,8 +35,34 @@ export function Comparison() {
           {copy.comparison.intro}
         </p>
 
-        <div className="mt-10 overflow-x-auto rounded-[1.75rem] border border-sand bg-white shadow-sm">
-          <table className="min-w-[40rem] w-full border-collapse text-left">
+        <ul className="mt-10 grid gap-4 md:hidden">
+          {rows.map((row) => (
+            <li
+              key={row.feature}
+              className="rounded-[1.5rem] border border-sand bg-white p-5 shadow-sm"
+            >
+              <h3 className="font-serif text-xl font-semibold text-ink">{row.feature}</h3>
+              <dl className="mt-4 grid gap-2">
+                {products.map((product) => (
+                  <div
+                    key={product.key}
+                    className={`flex items-baseline justify-between gap-3 rounded-xl px-3 py-2 ${
+                      product.featured ? "bg-leaf/50" : "bg-cream/60"
+                    }`}
+                  >
+                    <dt className="text-sm font-medium text-stone">{columns[product.key]}</dt>
+                    <dd className={`text-base ${cellTone(row[product.key], product.featured)}`}>
+                      {row[product.key]}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-10 hidden overflow-hidden rounded-[1.75rem] border border-sand bg-white shadow-sm md:block">
+          <table className="w-full border-collapse text-left">
             <caption className="sr-only">{copy.comparison.title}</caption>
             <thead>
               <tr className="border-b border-sand bg-cream/70">

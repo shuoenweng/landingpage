@@ -19,7 +19,7 @@ export function Everyday() {
         <p className="mt-5 max-w-2xl text-xl leading-relaxed text-stone">
           {copy.everyday.intro}
         </p>
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {copy.everyday.items.map((item) => (
             <li
               key={item.title}
