@@ -5,18 +5,20 @@ import { useI18n } from "@/lib/i18n/provider";
 
 export function Eyebrow({
   children,
-  tone = "moss",
+  tone = "stone",
 }: {
   children: ReactNode;
-  tone?: "moss" | "ivory" | "pearl";
+  tone?: "moss" | "ivory" | "pearl" | "stone";
 }) {
   const { locale } = useI18n();
   const color =
     tone === "ivory"
       ? "text-ivory"
       : tone === "pearl"
-        ? "text-pearl"
-        : "text-moss";
+        ? "text-pearl/80"
+        : tone === "moss"
+          ? "text-moss"
+          : "text-stone";
 
   return (
     <p

@@ -135,6 +135,18 @@ html[lang="zh-CN"] .font-serif {
   color: white;
 }
 
+.maison-btn-light {
+  background: white;
+  color: var(--ink);
+  border-color: white;
+}
+
+.maison-btn-light:hover {
+  background: var(--ivory);
+  border-color: var(--ivory);
+  color: var(--ink);
+}
+
 .maison-btn-compact {
   min-height: 3rem;
   padding: 0 0.9rem;
@@ -163,6 +175,42 @@ html[lang="zh-CN"] .font-serif {
 
 .maison-link:hover {
   text-decoration-color: var(--ink);
+}
+
+.maison-link-on-dark {
+  color: var(--ivory);
+  text-decoration-color: color-mix(in srgb, var(--ivory) 40%, transparent);
+}
+
+.maison-link-on-dark:hover {
+  text-decoration-color: var(--ivory);
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(18, 14, 12, 0.84) 0%,
+      rgba(18, 14, 12, 0.48) 46%,
+      rgba(18, 14, 12, 0.16) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(18, 14, 12, 0.2) 0%,
+      rgba(18, 14, 12, 0.12) 45%,
+      rgba(18, 14, 12, 0.72) 100%
+    );
+}
+
+@media (max-width: 639px) {
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(18, 14, 12, 0.28) 0%,
+      rgba(18, 14, 12, 0.4) 38%,
+      rgba(18, 14, 12, 0.86) 100%
+    );
+  }
 }
 
 html[lang="zh-CN"] .maison-btn,

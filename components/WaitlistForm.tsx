@@ -271,11 +271,11 @@ export function WaitlistForm({ idPrefix = "waitlist" }: WaitlistFormProps) {
           </p>
         )}
 
-        <div className="flex flex-col items-start gap-3">
+        <div className="flex flex-col items-stretch gap-3 sm:items-start">
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="maison-btn disabled:cursor-wait disabled:opacity-80"
+            className="maison-btn w-full disabled:cursor-wait disabled:opacity-80 sm:w-auto"
           >
             {status === "submitting" ? copy.waitlist.submitting : copy.waitlist.submit}
           </button>

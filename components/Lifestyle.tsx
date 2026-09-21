@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Eyebrow } from "./Eyebrow";
 import { useI18n } from "@/lib/i18n/provider";
 import { LIFESTYLE_MOMENTS } from "@/lib/site";
@@ -66,14 +65,6 @@ export function Lifestyle() {
             </article>
           );
         })}
-      </div>
-
-      <div className="border-t border-sand bg-ivory px-5 py-12 sm:px-8 sm:py-16">
-        <p className="mx-auto max-w-6xl">
-          <Link href="/#waitlist" className="maison-btn">
-            {copy.life.waitlistCta}
-          </Link>
-        </p>
       </div>
     </section>
   );

@@ -203,7 +203,7 @@ export const messages: Record<Locale, Messages> = {
       ],
     },
     positioning: {
-      eyebrow: "A different kind of wearable",
+      eyebrow: "The problem",
       title: "You don’t need another medical gadget.",
       intro:
         "Smartwatches nag. Medical alerts announce themselves. QiLyra is jewelry — with a quiet layer of care underneath.",
@@ -253,7 +253,7 @@ export const messages: Record<Locale, Messages> = {
       intro:
         "The bracelet stays jewelry. Underneath, a calm layer for unexpected moments — shared only with the people you choose.",
       imageAlt:
-        "Hands tending a rosemary plant on a balcony, wearing a QiLyra bracelet of honeyed amber beads and a pavé silver bar",
+        "A hand holding a transit handrail, wearing a QiLyra bracelet of ice-blue crackle beads and a pavé silver bar, with city buildings beyond the window",
       items: [
         {
           title: "Fall awareness",
@@ -611,7 +611,7 @@ export const messages: Record<Locale, Messages> = {
       pills: ["珠宝为先", "跌倒提醒", "家人安心", "无屏幕"],
     },
     positioning: {
-      eyebrow: "另一种可穿戴",
+      eyebrow: "问题所在",
       title: "你不需要再戴一只医疗器械。",
       intro:
         "智能手表会催促。急救吊坠会替你开口。QiLyra 是珠宝——照料收在底下，直到真正需要的时候。",
@@ -661,7 +661,7 @@ export const messages: Record<Locale, Messages> = {
       intro:
         "腕上仍是珠宝。底下是一层从容的照料——只与你选定的人分享，直到真正需要的时候。",
       imageAlt:
-        "双手在阳台照料迷迭香，腕上是蜜色黄晶珠与铺镶银弧的 QiLyra 手链",
+        "一只手握着车厢扶手，腕上是冰蓝色碎裂纹石珠与铺镶银弧的 QiLyra 手链，窗外是城市楼群",
       items: [
         {
           title: "跌倒察觉",

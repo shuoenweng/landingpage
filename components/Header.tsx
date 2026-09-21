@@ -16,7 +16,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-sand/70 bg-ivory/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-sand/60 bg-ivory/92 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-8 sm:py-3.5">
         <div className="flex min-w-0 items-center gap-3 sm:gap-5">
           <Link href="/" className="rounded-lg" aria-label={copy.header.homeAria}>
