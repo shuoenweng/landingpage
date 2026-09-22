@@ -214,8 +214,9 @@ html[lang="zh-CN"] .maison-btn-compact {
   .lifestyle-stage {
     aspect-ratio: auto;
     width: 100%;
-    min-height: min(42rem, 78vh);
-    align-self: stretch;
+    /* Definite height so the container query sees the real frame.
+       min-height alone collapses that query and letterboxes every column. */
+    height: min(42rem, 78vh);
     container-type: size;
   }
 }
