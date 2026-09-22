@@ -190,3 +190,39 @@ html[lang="zh-CN"] .maison-btn,
 html[lang="zh-CN"] .maison-btn-compact {
   letter-spacing: 0.1em;
 }
+
+/* Portrait lifestyle files are 1122×1402. object-cover inside a short, wide
+   frame (a full-screen 50vw column, or a single-column card on a wide phone)
+   crops the bracelet off. Keep the editorial split; only relax the crop. */
+.lifestyle-frame {
+  position: relative;
+  width: min(100%, calc(min(36rem, 72vh) * 1122 / 1402));
+  aspect-ratio: 1122 / 1402;
+  margin-inline: auto;
+  justify-self: center;
+  overflow: hidden;
+}
+
+.lifestyle-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1122 / 1402;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .lifestyle-stage {
+    aspect-ratio: auto;
+    width: 100%;
+    min-height: min(42rem, 78vh);
+    align-self: stretch;
+    container-type: size;
+  }
+}
+
+@container (min-aspect-ratio: 1 / 1) {
+  .lifestyle-stage img {
+    object-fit: contain;
+    object-position: center center !important;
+  }
+}

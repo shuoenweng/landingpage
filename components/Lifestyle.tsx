@@ -32,9 +32,9 @@ export function Lifestyle() {
               className="grid lg:grid-cols-2 lg:min-h-[min(42rem,78vh)]"
             >
               <div
-                className={`relative min-h-[22rem] overflow-hidden bg-cream sm:min-h-[28rem] ${
-                  imageFirst ? "lg:order-1" : "lg:order-2"
-                }`}
+                className={`lifestyle-stage bg-cream ${
+                  moment.tone === "dark" ? "lg:bg-ink" : "lg:bg-cream"
+                } ${imageFirst ? "lg:order-1" : "lg:order-2"}`}
               >
                 <Image
                   src={moment.src}

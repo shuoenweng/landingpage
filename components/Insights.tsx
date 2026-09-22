@@ -16,14 +16,14 @@ export function Insights() {
   return (
     <section id="peace" className="bg-noir text-ivory">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-2 lg:gap-14">
-        <div className="relative min-h-[24rem] overflow-hidden rounded-[1.8rem] bg-ink sm:min-h-[32rem] lg:min-h-[36rem]">
+        <div className="lifestyle-frame rounded-[1.8rem] bg-ink">
           <Image
             src={COMMUTE_MOMENT.src}
             alt={copy.insights.imageAlt}
             fill
             className="object-cover"
             style={{ objectPosition: COMMUTE_MOMENT.objectPosition }}
-            sizes="(min-width: 1024px) 50vw, 100vw"
+            sizes="(min-width: 1024px) 29rem, 100vw"
           />
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-noir/70 via-noir/10 to-transparent"
