@@ -27,13 +27,10 @@ function FaqItem({
           onClick={() => setOpen((current) => !current)}
           className="flex min-h-16 w-full items-center justify-between gap-4 py-5 text-left"
         >
-          <span className="font-serif text-2xl font-semibold leading-snug text-ink sm:text-[1.7rem]">
+          <span className="font-serif text-2xl font-medium leading-snug text-ink sm:text-3xl">
             {question}
           </span>
-          <span
-            aria-hidden="true"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sand bg-white text-xl font-semibold text-moss"
-          >
+          <span aria-hidden="true" className="shrink-0 font-serif text-3xl leading-none text-ink">
             {open ? "−" : "+"}
           </span>
         </button>
@@ -55,9 +52,9 @@ export function Faq() {
 
   return (
     <section id="faq" className="bg-ivory">
-      <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
+      <div className="mx-auto max-w-3xl px-6 py-28 sm:px-10 sm:py-36">
         <Eyebrow>{copy.faq.eyebrow}</Eyebrow>
-        <h2 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+        <h2 className="mt-5 font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl">
           {copy.faq.title}
         </h2>
         <p className="mt-5 text-xl leading-relaxed text-stone">{copy.faq.intro}</p>

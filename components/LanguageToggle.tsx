@@ -12,26 +12,30 @@ export function LanguageToggle() {
   const { locale, setLocale, copy } = useI18n();
 
   return (
-    <div
-      role="group"
-      aria-label={copy.languageLabel}
-      className="inline-flex shrink-0 items-center rounded-full border border-sand bg-white/80 p-1"
-    >
-      {options.map((option) => {
+    <div role="group" aria-label={copy.languageLabel} className="inline-flex items-center gap-1">
+      {options.map((option, index) => {
         const selected = locale === option.locale;
 
         return (
-          <button
-            key={option.locale}
-            type="button"
-            aria-pressed={selected}
-            onClick={() => setLocale(option.locale)}
-            className={`inline-flex min-h-10 min-w-11 items-center justify-center rounded-full px-3 text-sm font-semibold transition-colors ${
-              selected ? "bg-moss text-white" : "text-stone hover:text-ink"
-            }`}
-          >
-            {option.label}
-          </button>
+          <span key={option.locale} className="inline-flex items-center">
+            {index > 0 ? (
+              <span aria-hidden="true" className="px-1 text-stone/70">
+                /
+              </span>
+            ) : null}
+            <button
+              type="button"
+              aria-pressed={selected}
+              onClick={() => setLocale(option.locale)}
+              className={`inline-flex min-h-12 items-center px-1.5 text-base font-semibold underline-offset-[0.35em] ${
+                selected
+                  ? "text-ink underline decoration-ink"
+                  : "text-stone hover:text-ink"
+              }`}
+            >
+              {option.label}
+            </button>
+          </span>
         );
       })}
     </div>

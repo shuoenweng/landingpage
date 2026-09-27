@@ -2,9 +2,9 @@
 
 :root {
   color-scheme: light;
-  --ivory: #fbf7f0;
-  --cream: #f3ede3;
-  --sand: #e7ddce;
+  --ivory: #f6efe6;
+  --cream: #efe4d6;
+  --sand: #e3d5c4;
   --moss: #3c5841;
   --moss-deep: #2f4634;
   --leaf: #d7e3d3;
@@ -37,16 +37,11 @@ html {
 
 section[id],
 #main,
-#designs,
-#life,
-#everyday,
-#why,
 #waitlist,
 #faq,
-#positioning,
-#peace,
-#specs {
-  scroll-margin-top: 5.75rem;
+#care,
+#presence {
+  scroll-margin-top: 5.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -82,6 +77,108 @@ html[lang="zh-CN"] .font-serif {
     var(--font-cormorant), serif;
 }
 
+.font-wordmark,
+html[lang="zh-CN"] .font-wordmark {
+  font-family: var(--font-cormorant), "Iowan Old Style", Palatino, "Palatino Linotype",
+    serif;
+}
+
+/* Portrait phones use the portrait film. Wide viewports (including landscape
+   phones) use the landscape film so the bracelet stays in frame. */
+.film-for-wide {
+  display: none;
+}
+
+.film-for-narrow {
+  display: block;
+}
+
+.hero-aside {
+  display: none;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 11vw, 3.4rem);
+  line-height: 1.12;
+}
+
+.hero-scrim {
+  background:
+    linear-gradient(180deg, rgba(246, 236, 224, 0.9) 0%, rgba(246, 236, 224, 0.55) 18%, rgba(246, 236, 224, 0) 38%),
+    linear-gradient(0deg, rgba(232, 214, 196, 0.92) 0%, rgba(232, 214, 196, 0.55) 16%, rgba(232, 214, 196, 0) 34%);
+}
+
+.presence-grid {
+  display: grid;
+  justify-items: center;
+  gap: 3.5rem;
+  text-align: center;
+}
+
+.presence-copy {
+  text-align: center;
+}
+
+@media (min-aspect-ratio: 5/4) {
+  .film-for-wide {
+    display: block;
+  }
+
+  .film-for-narrow {
+    display: none;
+  }
+
+  .hero-layout {
+    justify-content: center;
+  }
+
+  .hero-aside {
+    display: block;
+  }
+
+  .hero-bottom {
+    display: none;
+  }
+
+  .hero-title {
+    margin-top: 1.25rem;
+    font-size: clamp(2.75rem, 4.6vw, 4.75rem);
+    line-height: 1.08;
+  }
+
+  .hero-scrim {
+    background: linear-gradient(
+      90deg,
+      rgba(243, 230, 214, 0.82) 0%,
+      rgba(243, 230, 214, 0.5) 28%,
+      rgba(243, 230, 214, 0.08) 48%,
+      rgba(243, 230, 214, 0) 62%
+    );
+  }
+
+  .hero-layout {
+    padding-left: clamp(2.5rem, 6vw, 6rem);
+    padding-right: clamp(2.5rem, 6vw, 6rem);
+  }
+
+  .hero-layout > .max-w-lg {
+    width: min(28rem, 38vw);
+    max-width: 28rem;
+  }
+
+  .presence-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 22rem);
+    align-items: center;
+    justify-items: stretch;
+    gap: 4.5rem;
+    text-align: left;
+  }
+
+  .presence-copy {
+    text-align: left;
+  }
+}
+
 ::selection {
   background: var(--leaf);
   color: var(--ink);
@@ -110,17 +207,17 @@ html[lang="zh-CN"] .font-serif {
 
 .maison-btn {
   display: inline-flex;
-  min-height: 3.15rem;
+  min-height: 3.25rem;
   align-items: center;
   justify-content: center;
-  padding: 0 1.7rem;
+  padding: 0 1.6rem;
   border: 1px solid var(--ink);
   border-radius: 999px;
   background: var(--ink);
   color: var(--ivory);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
   text-decoration: none;
   white-space: nowrap;
   transition:
@@ -191,39 +288,3 @@ html[lang="zh-CN"] .maison-btn-compact {
   letter-spacing: 0.1em;
 }
 
-/* Portrait lifestyle files are 1122×1402. object-cover inside a short, wide
-   frame (a full-screen 50vw column, or a single-column card on a wide phone)
-   crops the bracelet off. Keep the editorial split; only relax the crop. */
-.lifestyle-frame {
-  position: relative;
-  width: min(100%, calc(min(36rem, 72vh) * 1122 / 1402));
-  aspect-ratio: 1122 / 1402;
-  margin-inline: auto;
-  justify-self: center;
-  overflow: hidden;
-}
-
-.lifestyle-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1122 / 1402;
-  overflow: hidden;
-}
-
-@media (min-width: 1024px) {
-  .lifestyle-stage {
-    aspect-ratio: auto;
-    width: 100%;
-    /* Definite height so the container query sees the real frame.
-       min-height alone collapses that query and letterboxes every column. */
-    height: min(42rem, 78vh);
-    container-type: size;
-  }
-}
-
-@container (min-aspect-ratio: 1 / 1) {
-  .lifestyle-stage img {
-    object-fit: contain;
-    object-position: center center !important;
-  }
-}

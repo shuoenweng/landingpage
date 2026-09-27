@@ -10,7 +10,7 @@ A discreet wearable that looks like boutique jewelry, not a medical device:
 - Translucent moss-green stone beads
 - Silver spacers, onyx accent, lobster clasp
 
-Hero photography lives at [`public/assets/qilyra-hero.png`](public/assets/qilyra-hero.png). The wordmark and “coming soon” line are printed in the photograph, so the homepage hero does not repeat them on top of the image.
+The homepage hero is a full-screen product film. A landscape clip plays on wide viewports, with the line of type in the empty space to the left of the bracelet. A portrait clip plays on narrow viewports, with type in the empty space above and below the bracelet. Both are muted, looped (ping-pong, so the seam is smooth), and replaced by a still poster when the visitor prefers reduced motion. Files live in [`public/video/`](public/video/). The still used for social previews remains [`public/assets/qilyra-hero.png`](public/assets/qilyra-hero.png).
 
 Capabilities are described on [`/features`](app/features/page.tsx): fall detection, emergency auto-contact, location peace of mind for families walking with dementia, heart and activity wellbeing, battery, water resistance, companion app, and jewelry-first design.
 

@@ -4,50 +4,29 @@ export const PRODUCT_IMAGE_WIDTH = 2160;
 export const PRODUCT_IMAGE_HEIGHT = 2700;
 export const WAITLIST_STORAGE_KEY = "qilyra-waitlist";
 
-export const LIFESTYLE_MOMENTS = [
-  {
-    id: "writing",
-    src: "/assets/lifestyle-writing.png",
-    width: 1122,
-    height: 1402,
-    tone: "light",
-    objectPosition: "68% 42%",
-  },
-  {
-    id: "commute",
-    src: "/assets/lifestyle-commute.png",
-    width: 1122,
-    height: 1402,
-    tone: "dark",
-    objectPosition: "32% 52%",
-  },
-  {
-    id: "window",
-    src: "/assets/lifestyle-window.png",
-    width: 1122,
-    height: 1402,
-    tone: "dark",
-    objectPosition: "48% 38%",
-  },
-  {
-    id: "curtain",
-    src: "/assets/lifestyle-curtain.png",
-    width: 1122,
-    height: 1402,
-    tone: "light",
-    objectPosition: "48% 40%",
-  },
-  {
-    id: "garden",
-    src: "/assets/lifestyle-garden.png",
-    width: 1122,
-    height: 1402,
-    tone: "light",
-    objectPosition: "58% 42%",
-  },
-] as const;
+export type HeroFilm = {
+  mp4: string;
+  webm: string;
+  poster: string;
+  width: number;
+  height: number;
+};
 
-export type LifestyleMomentId = (typeof LIFESTYLE_MOMENTS)[number]["id"];
+export const HERO_LANDSCAPE: HeroFilm = {
+  mp4: "/video/hero-landscape.mp4",
+  webm: "/video/hero-landscape.webm",
+  poster: "/video/hero-landscape.jpg",
+  width: 1280,
+  height: 728,
+};
+
+export const HERO_PORTRAIT: HeroFilm = {
+  mp4: "/video/hero-portrait.mp4",
+  webm: "/video/hero-portrait.webm",
+  poster: "/video/hero-portrait.jpg",
+  width: 728,
+  height: 1280,
+};
 
 const DEFAULT_SITE_URL = "http://localhost:3000";
 
