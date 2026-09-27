@@ -50,6 +50,13 @@ type FilmFrameProps = {
   objectPosition?: string;
   className?: string;
   priority?: boolean;
+  /**
+   * Keep the picture at its native pixel size. The hero used to cover the
+   * viewport, which stretched a 1280-wide film past 1:1 on 1440 and 1920
+   * screens. Presence frames are already smaller than the file, so they
+   * stay in the aspect box and only scale down.
+   */
+  crisp?: boolean;
 };
 
 export function FilmFrame({
@@ -60,30 +67,52 @@ export function FilmFrame({
   objectPosition = "center",
   className = "",
   priority = false,
+  crisp = false,
 }: FilmFrameProps) {
   const { stage, reduceMotion } = useStage();
   const film = films[clip];
   const playing = stage === showOn && !reduceMotion;
   const fitClass = fit === "cover" ? "object-cover" : "object-contain";
-  const shell =
-    showOn === "wide" ? "film-for-wide" : "film-for-narrow";
+  const shell = showOn === "wide" ? "film-for-wide" : "film-for-narrow";
+  const nativeStyle = {
+    ["--film-w" as string]: `${film.width}px`,
+    ["--film-h" as string]: `${film.height}px`,
+  };
 
   return (
-    <div className={`${shell} ${className}`}>
-      <Image
-        src={film.poster}
-        alt={playing ? "" : label}
-        fill
-        priority={priority}
-        sizes="100vw"
-        className={fitClass}
-        style={{ objectPosition }}
-        aria-hidden={playing}
-      />
+    <div
+      className={`${shell} ${crisp ? "film-crisp" : ""} ${className}`}
+      style={crisp ? nativeStyle : undefined}
+    >
+      {crisp ? (
+        <Image
+          src={film.poster}
+          alt={playing ? "" : label}
+          width={film.width}
+          height={film.height}
+          priority={priority}
+          unoptimized
+          className="film-native-media"
+          aria-hidden={playing}
+        />
+      ) : (
+        <Image
+          src={film.poster}
+          alt={playing ? "" : label}
+          fill
+          priority={priority}
+          sizes="(min-width: 1024px) 28rem, 100vw"
+          className={fitClass}
+          style={{ objectPosition }}
+          aria-hidden={playing}
+        />
+      )}
       {playing ? (
         <video
-          className={`absolute inset-0 h-full w-full ${fitClass}`}
-          style={{ objectPosition }}
+          className={crisp ? "film-native-media" : `absolute inset-0 h-full w-full ${fitClass}`}
+          style={crisp ? undefined : { objectPosition }}
+          width={crisp ? film.width : undefined}
+          height={crisp ? film.height : undefined}
           autoPlay
           muted
           loop

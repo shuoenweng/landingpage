@@ -93,6 +93,20 @@ html[lang="zh-CN"] .font-wordmark {
   display: block;
 }
 
+/* Never draw a hero film larger than its own pixels. A 1280-wide clip
+   covering a 1440 or 1920 viewport was being scaled up and looked soft.
+   Width and height are set explicitly: width:auto lets the browser treat a
+   next/image srcset width as a density and shrink a 1280 poster to ~853px. */
+.film-crisp .film-native-media {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(100%, var(--film-w));
+  height: min(100%, var(--film-h));
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+}
+
 .hero-aside {
   display: none;
 }
