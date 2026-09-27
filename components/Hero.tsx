@@ -38,6 +38,9 @@ export function Hero() {
           <h1 className="hero-title mt-4 font-serif font-medium tracking-tight text-ink">
             {copy.hero.title}
           </h1>
+          <p className="hero-lead mt-4 max-w-md text-lg leading-snug text-ink">
+            {copy.hero.line}
+          </p>
           <div className="hero-aside">
             <p className="mt-6 max-w-md text-xl leading-relaxed text-ink sm:text-2xl">
               {copy.hero.line}
@@ -52,9 +55,8 @@ export function Hero() {
             </div>
           </div>
         </div>
-        <div className="hero-bottom mt-auto max-w-md pt-8">
-          <p className="text-xl leading-relaxed text-ink">{copy.hero.line}</p>
-          <div className="mt-6 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
+        <div className="hero-bottom mt-auto max-w-md">
+          <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
             <Link href="/#waitlist" className="maison-btn">
               {copy.hero.waitlistCta}
             </Link>
