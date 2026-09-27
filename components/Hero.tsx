@@ -15,21 +15,21 @@ export function Hero() {
           clip="landscape"
           showOn="wide"
           label={copy.hero.videoAlt}
-          fit="contain"
+          fit="cover"
           objectPosition="center center"
           className="absolute inset-0"
           priority
-          crisp
+          sizes="100vw"
         />
         <FilmFrame
           clip="portrait"
           showOn="narrow"
           label={copy.hero.videoAlt}
-          fit="contain"
+          fit="cover"
           objectPosition="center center"
           className="absolute inset-0"
           priority
-          crisp
+          sizes="100vw"
         />
         <div className="hero-scrim pointer-events-none absolute inset-0" />
       </div>

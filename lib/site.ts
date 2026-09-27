@@ -16,16 +16,16 @@ export const HERO_LANDSCAPE: HeroFilm = {
   mp4: "/video/hero-landscape.mp4",
   webm: "/video/hero-landscape.webm",
   poster: "/video/hero-landscape.jpg",
-  width: 1280,
-  height: 728,
+  width: 2560,
+  height: 1456,
 };
 
 export const HERO_PORTRAIT: HeroFilm = {
   mp4: "/video/hero-portrait.mp4",
   webm: "/video/hero-portrait.webm",
   poster: "/video/hero-portrait.jpg",
-  width: 728,
-  height: 1280,
+  width: 1456,
+  height: 2560,
 };
 
 const DEFAULT_SITE_URL = "http://localhost:3000";
