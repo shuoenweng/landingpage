@@ -1,62 +1,69 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { Eyebrow } from "./Eyebrow";
+import { FilmFrame } from "./FilmFrame";
 import { useI18n } from "@/lib/i18n/provider";
-import { PRODUCT_IMAGE, PRODUCT_IMAGE_HEIGHT, PRODUCT_IMAGE_WIDTH } from "@/lib/site";
-
-const HERO_ASPECT = `${PRODUCT_IMAGE_WIDTH}/${PRODUCT_IMAGE_HEIGHT}`;
 
 export function Hero() {
   const { copy } = useI18n();
 
   return (
-    <section className="relative isolate bg-[#f6ebe2] text-ink">
-      <div id="jewelry" aria-hidden="true" className="h-0 overflow-hidden" />
-      <div className="mx-auto flex min-h-[calc(100svh-5.75rem)] w-full flex-col items-center justify-center">
-        {/* Wordmark, tagline, and “coming soon” are printed on the photograph. */}
-        <h1 className="sr-only">{copy.hero.title}</h1>
-        <p className="sr-only">
-          {copy.hero.eyebrow}. {copy.hero.line}
-        </p>
+    <section className="relative min-h-svh bg-[#f3e6d6] text-ink">
+      <div className="absolute inset-0" aria-hidden={false}>
+        <FilmFrame
+          clip="landscape"
+          showOn="wide"
+          label={copy.hero.videoAlt}
+          fit="cover"
+          objectPosition="center center"
+          className="absolute inset-0"
+          priority
+        />
+        <FilmFrame
+          clip="portrait"
+          showOn="narrow"
+          label={copy.hero.videoAlt}
+          fit="cover"
+          objectPosition="center center"
+          className="absolute inset-0"
+          priority
+        />
+        <div className="hero-scrim pointer-events-none absolute inset-0" />
+      </div>
 
-        <div
-          className="relative w-full"
-          style={{
-            maxWidth: `min(100%, calc((100svh - 5.75rem - 9.25rem) * ${PRODUCT_IMAGE_WIDTH} / ${PRODUCT_IMAGE_HEIGHT}))`,
-          }}
-        >
-          <div className="relative w-full" style={{ aspectRatio: HERO_ASPECT }}>
-            <Image
-              src={PRODUCT_IMAGE}
-              alt={copy.hero.imageAlt}
-              fill
-              priority
-              className="object-contain object-center"
-              sizes="(max-width: 1023px) 100vw, 72vh"
-            />
+      <div className="hero-layout relative z-10 flex min-h-svh flex-col px-6 pb-10 pt-24 sm:px-10 sm:pt-28">
+        <div className="max-w-lg">
+          <Eyebrow>{copy.hero.eyebrow}</Eyebrow>
+          <h1 className="hero-title mt-4 font-serif font-medium tracking-tight text-ink">
+            {copy.hero.title}
+          </h1>
+          <p className="hero-lead mt-4 max-w-md text-lg leading-snug text-ink">
+            {copy.hero.line}
+          </p>
+          <div className="hero-aside">
+            <p className="mt-6 max-w-md text-xl leading-relaxed text-ink sm:text-2xl">
+              {copy.hero.line}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <Link href="/#waitlist" className="maison-btn">
+                {copy.hero.waitlistCta}
+              </Link>
+              <Link href="/features" className="maison-link">
+                {copy.hero.featuresCta}
+              </Link>
+            </div>
           </div>
         </div>
-
-        <div className="flex w-full flex-col items-center gap-4 px-5 py-5 sm:px-8 sm:py-6">
-          <div className="flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
-            <Link href="/#waitlist" className="maison-btn w-full sm:w-auto">
-              {copy.hero.waitlistTitle}
+        <div className="hero-bottom mt-auto max-w-md">
+          <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
+            <Link href="/#waitlist" className="maison-btn">
+              {copy.hero.waitlistCta}
             </Link>
-            <Link href="/#life" className="maison-link hidden sm:inline-flex">
-              {copy.hero.discoverCta}
+            <Link href="/features" className="maison-link">
+              {copy.hero.featuresCta}
             </Link>
           </div>
-          <ul className="flex max-w-3xl flex-wrap justify-center gap-2">
-            {copy.hero.pills.map((pill) => (
-              <li
-                key={pill}
-                className="rounded-full border border-sand bg-ivory/80 px-4 py-2 text-sm font-semibold text-ink"
-              >
-                {pill}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
