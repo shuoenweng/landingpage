@@ -91,7 +91,7 @@ export function FilmFrame({
           width={film.width}
           height={film.height}
           priority={priority}
-          sizes={`(min-width: ${film.width}px) ${film.width}px, 100vw`}
+          unoptimized
           className="film-native-media"
           aria-hidden={playing}
         />
