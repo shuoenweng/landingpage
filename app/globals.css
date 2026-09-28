@@ -112,6 +112,38 @@ html[lang="zh-CN"] .font-wordmark {
     linear-gradient(0deg, rgba(232, 214, 196, 0.9) 0%, rgba(232, 214, 196, 0.45) 14%, rgba(232, 214, 196, 0) 28%);
 }
 
+/* Phones: the portrait film's green stones rise into the subline, and the
+   light scrim used to fade before the words ended. Keep a warm veil over the
+   type only, then let the bracelet show through. */
+@media (max-width: 767px) and (max-aspect-ratio: 5/4) {
+  .hero-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(246, 236, 224, 0.97) 0%,
+        rgba(246, 236, 224, 0.94) 22%,
+        rgba(246, 236, 224, 0.82) 40%,
+        rgba(246, 236, 224, 0.62) 52%,
+        rgba(246, 236, 224, 0.22) 64%,
+        rgba(246, 236, 224, 0) 74%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(243, 230, 214, 0.96) 0%,
+        rgba(243, 230, 214, 0.9) 12%,
+        rgba(243, 230, 214, 0.66) 24%,
+        rgba(243, 230, 214, 0.24) 34%,
+        rgba(243, 230, 214, 0) 44%
+      );
+  }
+
+  .hero-title,
+  .hero-lead,
+  .hero-layout .maison-link {
+    text-shadow: 0 0 18px rgba(246, 236, 224, 0.95);
+  }
+}
+
 .presence-layout {
   display: flex;
   flex-direction: column;
