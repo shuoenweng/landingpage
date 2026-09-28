@@ -12,19 +12,29 @@ export type HeroFilm = {
   height: number;
 };
 
+/** 1080p landscape. Laptops and the narrow Presence frame use this. */
 export const HERO_LANDSCAPE: HeroFilm = {
   mp4: "/video/hero-landscape.mp4",
   webm: "/video/hero-landscape.webm",
   poster: "/video/hero-landscape.jpg",
-  width: 2560,
-  height: 1456,
+  width: 1920,
+  height: 1080,
+};
+
+/** Native 4K landscape. Wide screens only, so smaller laptops skip the download. */
+export const HERO_LANDSCAPE_4K: HeroFilm = {
+  mp4: "/video/hero-landscape-4k.mp4",
+  webm: "/video/hero-landscape-4k.webm",
+  poster: "/video/hero-landscape-4k.jpg",
+  width: 3840,
+  height: 2160,
 };
 
 export const HERO_PORTRAIT: HeroFilm = {
   mp4: "/video/hero-portrait.mp4",
   webm: "/video/hero-portrait.webm",
   poster: "/video/hero-portrait.jpg",
-  width: 1456,
+  width: 1440,
   height: 2560,
 };
 

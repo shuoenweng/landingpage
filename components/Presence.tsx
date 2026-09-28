@@ -25,14 +25,14 @@ export function Presence() {
             showOn="wide"
             label={copy.presence.videoAlt}
             fit="contain"
-            className="relative mx-auto aspect-[728/1280] w-full max-w-[22rem]"
+            className="relative mx-auto aspect-[9/16] w-full max-w-[22rem]"
           />
           <FilmFrame
             clip="landscape"
             showOn="narrow"
             label={copy.presence.videoAlt}
             fit="contain"
-            className="relative aspect-[1280/728] w-full"
+            className="relative aspect-video w-full"
           />
         </div>
       </div>

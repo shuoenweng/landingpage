@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { HERO_LANDSCAPE, HERO_PORTRAIT, type HeroFilm } from "@/lib/site";
+import { HERO_LANDSCAPE, HERO_LANDSCAPE_4K, HERO_PORTRAIT, type HeroFilm } from "@/lib/site";
 
 export type Stage = "narrow" | "wide";
 
@@ -14,26 +14,31 @@ export type Stage = "narrow" | "wide";
 export function useStage() {
   const [stage, setStage] = useState<Stage | null>(null);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [large, setLarge] = useState(false);
 
   useEffect(() => {
     const wideQuery = window.matchMedia("(min-aspect-ratio: 5/4)");
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const largeQuery = window.matchMedia("(min-width: 1600px)");
 
     const update = () => {
       setStage(wideQuery.matches ? "wide" : "narrow");
       setReduceMotion(motionQuery.matches);
+      setLarge(largeQuery.matches);
     };
 
     update();
     wideQuery.addEventListener("change", update);
     motionQuery.addEventListener("change", update);
+    largeQuery.addEventListener("change", update);
     return () => {
       wideQuery.removeEventListener("change", update);
       motionQuery.removeEventListener("change", update);
+      largeQuery.removeEventListener("change", update);
     };
   }, []);
 
-  return { stage, reduceMotion };
+  return { stage, reduceMotion, large };
 }
 
 const films: Record<"landscape" | "portrait", HeroFilm> = {
@@ -52,6 +57,11 @@ type FilmFrameProps = {
   priority?: boolean;
   /** Passed to the poster so a full-bleed hero is not fetched at the presence size. */
   sizes?: string;
+  /**
+   * On viewports at least 1600px wide, use the native 4K landscape file.
+   * Narrower landscape screens keep the 1080p file.
+   */
+  hiRes?: boolean;
 };
 
 export function FilmFrame({
@@ -63,9 +73,10 @@ export function FilmFrame({
   className = "",
   priority = false,
   sizes = "(min-width: 1024px) 28rem, 100vw",
+  hiRes = false,
 }: FilmFrameProps) {
-  const { stage, reduceMotion } = useStage();
-  const film = films[clip];
+  const { stage, reduceMotion, large } = useStage();
+  const film = hiRes && large && clip === "landscape" ? HERO_LANDSCAPE_4K : films[clip];
   const playing = stage === showOn && !reduceMotion;
   const fitClass = fit === "cover" ? "object-cover" : "object-contain";
   const shell = showOn === "wide" ? "film-for-wide" : "film-for-narrow";
@@ -84,6 +95,7 @@ export function FilmFrame({
       />
       {playing ? (
         <video
+          key={film.mp4}
           className={`absolute inset-0 h-full w-full ${fitClass}`}
           style={{ objectPosition }}
           autoPlay
