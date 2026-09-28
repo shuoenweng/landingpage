@@ -208,51 +208,51 @@ export const messages: Record<Locale, Messages> = {
     faq: {
       eyebrow: "Good questions",
       title: "Short answers before you join.",
-      intro: "Everything families usually ask before reserving a place on the waitlist.",
+      intro: "A few things worth knowing before you reserve a place.",
       items: [
         {
-          question: "What is QiLyra?",
+          question: "Will it look like jewelry, or like a gadget?",
           answer:
-            "QiLyra is a jewelry-first bracelet for older adults and their families. It is designed to look like a boutique piece — stones and a matte silver bar — with a quiet layer of care for unexpected moments.",
+            "It should look like jewelry. QiLyra is moss-green stones and a matte silver bar, with no screen competing for attention. If it looks like a medical device, we have not succeeded.",
         },
         {
-          question: "Is QiLyra available now?",
+          question: "Is there a screen? Will it light up or make a sound through the day?",
           answer:
-            "Not yet. The first collection is coming soon. Join the waitlist to hear when preview, sizing, and early access open.",
+            "No screen, and no siren on the wrist. The people you invite can receive a calm note in a companion app when something needs them, and the app stays quiet when the day is simply going on. There is no feed of surveillance. Which phones that app supports, we'll share before launch, and waitlist members hear first.",
         },
         {
-          question: "Who is QiLyra for?",
+          question: "Can I wear it in the rain, or while I wash my hands?",
           answer:
-            "Older adults who want to look like themselves, and families who want to stay close without hovering. It is made for ordinary days — walks, time alone, and the wish to keep dignity intact.",
+            "Washed hands, a little rain, a splash at the sink. Not for swimming or a long bath. We will share the exact rating with the first collection.",
         },
         {
-          question: "Does it look like a medical alert?",
+          question: "Who can see where I am?",
           answer:
-            "It should not. QiLyra is composed as jewelry: moss-green stones, a silver line with presence, and no screen competing for attention. If it looks like a medical device, we have not succeeded.",
+            "Only the people you choose. QiLyra can share your location with them, with your consent. It is a thread of whereabouts, not a leash and not a camera.",
         },
         {
-          question: "What happens if there is a fall?",
+          question: "If I am walking home, out for the night, or travelling on my own, how does someone hear?",
           answer:
-            "QiLyra is designed so that if a fall happens, it can notice the sudden change and quietly notify the contacts you have chosen. There is no pendant to remember, and no siren on the wrist.",
+            "You choose who is contacted, and in what order. When something needs attention, QiLyra can reach them with a clear, unhurried message — not a panic. There is no siren on the wrist, and no pendant to remember.",
         },
         {
-          question: "How do family members hear from QiLyra?",
+          question: "What do you do with what the bracelet knows, and with my email?",
           answer:
-            "You choose who is notified, and in what order. When something needs attention, they can receive a clear, unhurried message — not a feed of surveillance.",
+            "Heart and movement stay with you unless you decide to share them. They are not a hospital readout. Location goes only to the people you choose. If you join the waitlist, we use your email for launch notes. We do not sell the list, and we do not send advertising for anyone else. You may also share your age, your gender, and whether you would like to be a beta tester. This site does not ask for your phone's location.",
         },
         {
-          question: "Can it help families walking with dementia?",
+          question: "How long does a charge last?",
           answer:
-            "QiLyra can share location with the family members you choose, so if someone leaves a familiar path, you have a quiet way to find them. It is used with consent and dignity — not as a leash or a camera.",
+            "It is made for everyday wear: a long charge, and a gentle reminder when it is time to rest on the charger. Never an urgent alarm on the wrist. How many days that charge covers, we'll share before launch, and waitlist members hear first.",
         },
         {
-          question: "Is QiLyra a medical device?",
+          question: "When can I have one, and what do the waitlist and the beta discount include?",
           answer:
-            "No. QiLyra is jewelry with optional care features. It is not intended to diagnose, treat, cure, or prevent any medical condition, and it is not a substitute for emergency services or clinical care.",
+            "Not yet. The first collection is coming soon. We have not published a date — we'll share it before launch, and waitlist members hear first. Joining the list is for a private preview, sizing notes, and first-collection access. We write rarely, and only when there is something worth knowing. You can also ask to be among the first beta testers, with a discount. The details of that discount, we'll share before launch.",
         },
       ],
       disclaimer:
-        "QiLyra is designed for everyday independence and family peace of mind. It is not a medical device and is not intended to diagnose, treat, cure, or prevent any medical condition.",
+        "QiLyra is jewelry with a quiet layer of care. It is not a medical device, it is not a substitute for emergency services, and it is not intended to diagnose, treat, cure, or prevent any condition.",
     },
     footer: {
       blurb:
@@ -415,53 +415,53 @@ export const messages: Record<Locale, Messages> = {
         "谢谢{name}。首批系列准备好时，我们会写信告诉您——从容一些，也只谈 QiLyra。",
     },
     faq: {
-      eyebrow: "好问题",
-      title: "加入前的简短回答。",
-      intro: "家人在预留等候名额前，通常会问这些。",
+      eyebrow: "好問題",
+      title: "加入前的簡短回答。",
+      intro: "預留名額之前，這幾件事值得先知道。",
       items: [
         {
-          question: "QiLyra 是什么？",
+          question: "戴起來像珠寶，還是像一個裝置？",
           answer:
-            "QiLyra 是一款以珠宝为先的手链，写给年长者与他们的家人。它按精品店里的作品来设计——石珠与雾面银弧——并在意外来临时，收着一层安静的照料。",
+            "該像珠寶。QiLyra 是苔綠石珠與一條霧面銀弧，沒有螢幕來搶去目光。若看起來像醫療器械，我們便沒有做成。",
         },
         {
-          question: "现在可以买到吗？",
+          question: "腕上有螢幕嗎？一天裡會亮、會響嗎？",
           answer:
-            "还没有。首批系列即将推出。加入等候名单，以便在预览、尺寸与提前选购开放时收到消息。",
+            "沒有螢幕，腕上也沒有警鈴。你邀請的人，可以在陪伴應用裡收到從容的通知——只在有事需要他們的時候；若這一天只是平常地過去，應用便保持安靜。沒有監視用的資訊流。這支應用支援哪些手機，我們會在推出前說明，等候名單上的人會先知道。",
         },
         {
-          question: "QiLyra 为谁而做？",
+          question: "下雨，或洗手的時候，可以戴著嗎？",
           answer:
-            "希望保持本色的年长者，以及希望陪伴、却不愿过分叮咛的家人。它为平常的日子而做——散步、独处，以及把体面留住。",
+            "洗手、一點雨水、水槽邊的濺濕，都可以。不適合游泳，也不適合長時間沐浴。精確的防水等級，會隨首批系列一起說明。",
         },
         {
-          question: "看起来会像医疗警报吗？",
+          question: "誰看得到我在哪裡？",
           answer:
-            "不该如此。QiLyra 按珠宝来构成：苔绿石珠、一条有分量的银线，没有屏幕来抢去目光。若看起来像医疗器械，我们便没有做成。",
+            "只有你選定的人。在你同意之下，QiLyra 可以把位置告訴他們。那是一條行蹤的線索，不是拴繩，也不是鏡頭。",
         },
         {
-          question: "若有跌倒，会怎样？",
+          question: "晚上獨自回家、出門，或一個人旅行時，別人怎麼知道？",
           answer:
-            "QiLyra 的设计是：若有跌倒，它可以察觉那一阵忽然的变化，并安静地通知你选定的联系人。不必记得按吊坠，腕上也没有刺耳的铃声。",
+            "由你決定聯絡誰，以及先後順序。當有事需要留意，QiLyra 可以送出清楚、不催促的告知，而不是一陣驚慌。腕上沒有警鈴，也不必記得去按一個吊墜。",
         },
         {
-          question: "家人如何收到消息？",
+          question: "手鏈知道的事，還有我的信箱，你們怎麼對待？",
           answer:
-            "由你决定通知谁、按什么顺序。当有事需要留意，他们可以收到清楚、不催促的告知——而不是监视的信息流。",
+            "心跳與活動先留在你身邊，除非你決定分享。那不是醫院的讀數。位置只給你選定的人。若你加入等候名單，信箱只用來寄發布的消息。我們不出售這份名單，也不代他人發廣告。你也可以選填年齡、性別，以及是否希望成為測試者。這個網站不會向你的手機索取定位權限。",
         },
         {
-          question: "能帮到与认知障碍同行的家庭吗？",
+          question: "一次充電可以撐多久？",
           answer:
-            "QiLyra 可以把位置告诉你选定的家人；若有人走出熟悉的路，你们有一条安静的方式彼此找到。经同意、也顾及体面——不是拴绳，也不是镜头。",
+            "它為日常佩戴而做：一次充電可以用得久，該放回充電器時只會輕輕提醒，腕上不會亮起催促的紅燈。具體能用幾天，我們會在推出前說明，等候名單上的人會先知道。",
         },
         {
-          question: "QiLyra 是医疗器械吗？",
+          question: "什麼時候能買到？等候名單和測試優惠包含什麼？",
           answer:
-            "不是。QiLyra 是带有可选照料功能的珠宝。它无意诊断、治疗、治愈或预防任何疾病，也不能替代急救或临床照料。",
+            "還沒有。首批系列即將推出。公開的日期尚未寫下——我們會在推出前說明，等候名單上的人會先知道。加入名單，是為了私下預覽、尺寸說明，以及首批選購。我們很少寫信，只在值得告訴你的時候。你也可以表示希望成為首批測試者，並享有優惠。優惠的內容，同樣會在推出前說明。",
         },
       ],
       disclaimer:
-        "QiLyra 为日常独立与家人安心而设计。它不是医疗器械，也无意诊断、治疗、治愈或预防任何疾病。",
+        "QiLyra 是珠寶，帶著一層安靜的照料。它不是醫療器械，也不是急救的替代，無意診斷、治療、治癒或預防任何疾病。",
     },
     footer: {
       blurb:
