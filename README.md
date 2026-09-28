@@ -1,10 +1,10 @@
 # QiLyra landing page
 
-Pre-launch marketing site for **QiLyra**, a jewelry-first smart bracelet for older adults and their families. The page collects waitlist emails and presents the product as premium jewelry with warm, dignity-preserving safety messaging.
+Pre-launch marketing site for **QiLyra**, a jewelry-first, screen-free smart bracelet. The page collects waitlist emails and presents the product as premium jewelry: cycle tracking, awareness when a cycle drifts from its usual pattern, hydration reminders, and — second to those — personal safety for the people you choose.
 
 ## Product
 
-A discreet wearable that looks like boutique jewelry, not a medical device:
+A discreet wearable that looks like boutique jewelry:
 
 - Matte silver curved sensor bar
 - Translucent moss-green stone beads
@@ -12,7 +12,7 @@ A discreet wearable that looks like boutique jewelry, not a medical device:
 
 The homepage hero is a full-screen product film. A landscape clip plays on wide viewports, with the line of type in the empty space to the left of the bracelet. A portrait clip plays on narrow viewports, with type in the empty space above and below the bracelet. Both are muted, looped (ping-pong, so the seam is smooth), and replaced by a still poster when the visitor prefers reduced motion. Files live in [`public/video/`](public/video/). The still used for social previews remains [`public/assets/qilyra-hero.png`](public/assets/qilyra-hero.png).
 
-Capabilities are described on [`/features`](app/features/page.tsx): fall detection, emergency auto-contact, location peace of mind for families walking with dementia, heart and activity wellbeing, battery, water resistance, companion app, and jewelry-first design.
+Capabilities are described on [`/features`](app/features/page.tsx): cycle tracking, awareness when a cycle drifts from its usual pattern (not a diagnosis, and not a contraceptive), hydration reminders, then personal safety (location sharing with chosen people, and emergency auto-contact). Everyday notes cover jewelry design, battery, splash resistance, the companion app, and heart and movement kept with the wearer.
 
 ## Stack
 
@@ -66,7 +66,7 @@ The app is a standard Next.js site.
 2. Import the project at [vercel.com/new](https://vercel.com/new).
 3. Framework preset: Next.js (defaults are fine).
 4. Add `NEXT_PUBLIC_WAITLIST_ENDPOINT` or server-only `WAITLIST_ENDPOINT` in project environment variables when you have a form provider.
-5. Optionally set `NEXT_PUBLIC_SITE_URL` to a custom domain (for example `https://www.qilyra.com`). If it is omitted, empty, or not a valid absolute URL, Vercel builds use `VERCEL_PROJECT_PRODUCTION_URL` or `VERCEL_URL` automatically (https). Local builds fall back to `http://localhost:3000`.
+5. Optionally set `NEXT_PUBLIC_SITE_URL` to a custom domain (for example `https://www.qilyra.com`). If it is omitted, empty, or not a valid absolute URL, Vercel builds use `VERCEL_PROJECT_PRODUCTION_URL` or `VERCEL_URL` automatically (https). Local builds use `http://localhost:3000`.
 6. Deploy.
 
 ### Netlify

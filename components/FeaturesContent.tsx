@@ -40,6 +40,16 @@ export function FeaturesContent() {
         </div>
       </section>
 
+      <section className="border-b border-sand bg-ivory">
+        <div className="mx-auto max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
+          <Eyebrow>{page.safetyEyebrow}</Eyebrow>
+          <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            {page.safetyTitle}
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-stone">{page.safetyBody}</p>
+        </div>
+      </section>
+
       <section className="bg-ivory">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
           <Eyebrow>{page.everydayEyebrow}</Eyebrow>

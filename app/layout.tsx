@@ -42,7 +42,7 @@ const notoSerifSC = Noto_Serif_SC({
 
 const title = "QiLyra — Jewelry you will actually wear";
 const description =
-  "A jewelry-first, screen-free bracelet for older adults and their families. Discreet fall alerts, family peace of mind, and a piece that looks like jewelry because it is.";
+  "A screen-free bracelet in the form of jewelry. It learns your cycle, notices when the pattern drifts, and reminds you to drink.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -52,10 +52,10 @@ export const metadata: Metadata = {
     "QiLyra",
     "smart bracelet",
     "jewelry",
-    "older adults",
-    "fall detection",
-    "family peace of mind",
-    "discreet wearable",
+    "cycle tracking",
+    "hydration",
+    "screen-free",
+    "personal safety",
   ],
   authors: [{ name: "QiLyra" }],
   openGraph: {

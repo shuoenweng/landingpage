@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 export const metadata: Metadata = {
   title: "Features — QiLyra",
   description:
-    "Fall detection, emergency auto-contact, location peace of mind for families walking with dementia, and everyday wellbeing — designed as jewelry.",
+    "Cycle tracking, awareness when your pattern drifts, hydration reminders, and personal safety — designed as jewelry.",
 };
 
 export default function FeaturesPage() {

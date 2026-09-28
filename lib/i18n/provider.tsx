@@ -57,7 +57,7 @@ function readStoredLocale(): Locale {
       return stored;
     }
   } catch {
-    // Private mode or blocked storage — fall through to browser language.
+    // Private mode or blocked storage — use the browser language.
   }
 
   const detected = detectBrowserLocale();
