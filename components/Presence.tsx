@@ -19,23 +19,23 @@ export function Presence() {
         </div>
         <figure className="presence-wrist">
           <Image
-            src="/presence/wrist.webp"
+            src="/presence/wrist.png"
             alt={copy.presence.wristAlt}
             width={1536}
             height={1024}
             quality={90}
-            sizes="(min-aspect-ratio: 5/4) 46vw, 92vw"
+            sizes="(min-aspect-ratio: 5/4) 600px, 92vw"
             className="h-auto w-full"
           />
         </figure>
         <figure className="presence-product">
           <Image
-            src="/presence/product.webp"
+            src="/presence/product.png"
             alt={copy.presence.productAlt}
             width={1536}
             height={1024}
             quality={90}
-            sizes="(min-aspect-ratio: 5/4) 34vw, 78vw"
+            sizes="(min-aspect-ratio: 5/4) 480px, 80vw"
             className="h-auto w-full"
           />
         </figure>
