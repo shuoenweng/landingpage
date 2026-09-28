@@ -24,6 +24,12 @@ export function Care() {
             </li>
           ))}
         </ul>
+        <div className="mt-16 border-t border-sand pt-10 text-left">
+          <h3 className="font-serif text-2xl font-medium leading-snug text-ink sm:text-3xl">
+            {copy.care.safety.title}
+          </h3>
+          <p className="mt-3 text-lg leading-relaxed text-stone">{copy.care.safety.body}</p>
+        </div>
         <p className="mt-16">
           <Link href="/features" className="maison-link">
             {copy.care.featuresCta}

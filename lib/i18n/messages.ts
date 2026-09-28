@@ -35,6 +35,7 @@ export type Messages = {
     eyebrow: string;
     title: string;
     items: { title: string; body: string }[];
+    safety: { title: string; body: string };
     featuresCta: string;
   };
   waitlist: {
@@ -108,6 +109,9 @@ export type Messages = {
     intro: string;
     highlightsEyebrow: string;
     highlights: { title: string; body: string }[];
+    safetyEyebrow: string;
+    safetyTitle: string;
+    safetyBody: string;
     everydayEyebrow: string;
     everydayTitle: string;
     everyday: { title: string; body: string }[];
@@ -130,42 +134,46 @@ export const messages: Record<Locale, Messages> = {
     hero: {
       eyebrow: "First collection · coming soon",
       title: "Jewelry you will actually wear.",
-      line: "A screen-free bracelet for older adults. Discreet fall alerts and family peace of mind, in a piece that looks like jewelry because it is.",
+      line: "A screen-free bracelet that learns your cycle, notices when the pattern drifts, and reminds you to drink. It looks like jewelry because it is.",
       waitlistCta: "Join the waitlist",
-      featuresCta: "See how it cares",
+      featuresCta: "See what it does",
       videoAlt:
         "QiLyra bracelet resting on a warm beige surface, with soft rippling light moving across the stones and silver bar.",
     },
     statement: {
-      lead: "Care that does not announce itself.",
-      rest: "No screen on the wrist, and no pendant to explain — until a fall, a stillness, or a familiar path needs a calm word.",
+      lead: "It does not announce itself.",
+      rest: "No screen on the wrist. Your cycle, a drift from your usual pattern, a quiet reminder to drink — and, if you want it, a way for the people you choose to be reached.",
     },
     presence: {
       eyebrow: "The piece",
       title: "A bracelet, not a device.",
-      body: "Stones and a silver bar, made to disappear into an ordinary afternoon. The care stays underneath until a fall happens, or someone you love leaves a familiar path.",
+      body: "Stones and a silver bar, made to disappear into an ordinary afternoon. The cycle, the pattern, and a glass of water stay underneath.",
       wristAlt:
         "QiLyra bracelet on a wrist at a linen table, beside a cup of tea in soft window light.",
       productAlt:
         "QiLyra bracelet of green quartz and a pavé diamond bar, resting on travertine with palm shadows.",
     },
     care: {
-      eyebrow: "When the day asks",
-      title: "Three quiet promises.",
+      eyebrow: "Day to day",
+      title: "Three quiet habits.",
       items: [
         {
-          title: "Fall alert",
-          body: "If a fall happens, QiLyra can notice the sudden change and let the people you choose know. No siren on the wrist.",
+          title: "Your cycle",
+          body: "The bracelet learns your rhythm. There is no screen on the wrist; you follow the pattern in the companion app.",
         },
         {
-          title: "Emergency auto-contact",
-          body: "The people you name, in the order you choose, can receive a clear, unhurried message when something needs attention.",
+          title: "When the pattern drifts",
+          body: "QiLyra notices when your cycle drifts from your usual pattern, and suggests checking in with a doctor. It does not diagnose.",
         },
         {
-          title: "Location, with dignity",
-          body: "For families walking with dementia: a consented thread of whereabouts. Not a leash, and not a camera.",
+          title: "A reminder to drink",
+          body: "A gentle reminder for water. Nothing on the wrist lights up, and there is no alarm there.",
         },
       ],
+      safety: {
+        title: "And a quieter kind of safety",
+        body: "Share your location with the people you choose. When something needs attention, they can be contacted in the order you set — a clear, unhurried message for the walk home, or for travelling on your own.",
+      },
       featuresCta: "Read all features",
     },
     waitlist: {
@@ -181,8 +189,8 @@ export const messages: Record<Locale, Messages> = {
       email: "Email address",
       emailPlaceholder: "you@example.com",
       age: "Age",
-      agePlaceholder: "72",
-      ageInvalid: "Please enter a valid age, such as 72.",
+      agePlaceholder: "32",
+      ageInvalid: "Please enter a valid age, such as 32.",
       gender: "Gender",
       genderPlaceholder: "Choose one",
       genderPreferNot: "Prefer not to say",
@@ -213,32 +221,32 @@ export const messages: Record<Locale, Messages> = {
         {
           question: "Will it look like jewelry, or like a gadget?",
           answer:
-            "It should look like jewelry. QiLyra is moss-green stones and a matte silver bar, with no screen competing for attention. If it looks like a medical device, we have not succeeded.",
+            "It is made to look like jewelry: moss-green stones and a matte silver bar. There is no screen on the wrist, and no siren.",
         },
         {
-          question: "Is there a screen? Will it light up or make a sound through the day?",
+          question: "How does cycle tracking work without a screen?",
           answer:
-            "No screen, and no siren on the wrist. The people you invite can receive a calm note in a companion app when something needs them, and the app stays quiet when the day is simply going on. There is no feed of surveillance. Which phones that app supports, we'll share before launch, and waitlist members hear first.",
+            "The bracelet learns your rhythm. Because there is no screen, you follow that pattern in the companion app. Which phones the app supports, we'll share before launch, and waitlist members hear first.",
         },
         {
-          question: "Can I wear it in the rain, or while I wash my hands?",
+          question: "What happens when my cycle becomes irregular?",
           answer:
-            "Washed hands, a little rain, a splash at the sink. Not for swimming or a long bath. We will share the exact rating with the first collection.",
+            "QiLyra notices when your cycle drifts from your usual pattern, and suggests checking in with a doctor. It does not diagnose a condition, and it is not a contraceptive.",
         },
         {
-          question: "Who can see where I am?",
+          question: "How do water reminders reach me?",
           answer:
-            "Only the people you choose. QiLyra can share your location with them, with your consent. It is a thread of whereabouts, not a leash and not a camera.",
+            "As a gentle reminder in the companion app. Nothing lights up on the wrist, and there is no alarm there.",
         },
         {
-          question: "If I am walking home, out for the night, or travelling on my own, how does someone hear?",
+          question: "Who can see where I am, and how does someone hear if I am walking home or travelling alone?",
           answer:
-            "You choose who is contacted, and in what order. When something needs attention, QiLyra can reach them with a clear, unhurried message — not a panic. There is no siren on the wrist, and no pendant to remember.",
+            "Only the people you choose can see your location, and only with your consent. You also choose who is contacted, and in what order, when something needs attention. They receive a clear, unhurried message — not a panic, and not a siren on the wrist. It is there for the walk home, and for travelling on your own.",
         },
         {
-          question: "What do you do with what the bracelet knows, and with my email?",
+          question: "What do you do with my email, and with what the bracelet knows?",
           answer:
-            "Heart and movement stay with you unless you decide to share them. They are not a hospital readout. Location goes only to the people you choose. If you join the waitlist, we use your email for launch notes. We do not sell the list, and we do not send advertising for anyone else. You may also share your age, your gender, and whether you would like to be a beta tester. This site does not ask for your phone's location.",
+            "Location goes only to the people you choose. Heart and movement stay with you unless you decide to share them. If you join the waitlist, we use your email for launch notes. We do not sell the list, and we do not send advertising for anyone else. You may also share your age, your gender, and whether you would like to be a beta tester. This site does not ask for your phone's location.",
         },
         {
           question: "How long does a charge last?",
@@ -252,11 +260,11 @@ export const messages: Record<Locale, Messages> = {
         },
       ],
       disclaimer:
-        "QiLyra is jewelry with a quiet layer of care. It is not a medical device, it is not a substitute for emergency services, and it is not intended to diagnose, treat, cure, or prevent any condition.",
+        "QiLyra is jewelry with a quiet layer of care. It is not a medical device, it is not a contraceptive, and it is not intended to diagnose, treat, cure, or prevent any condition.",
     },
     footer: {
       blurb:
-        "Quiet jewelry for everyday independence. A first collection for older adults and the families who love them.",
+        "Quiet jewelry for the rhythm of your days. A first collection, worn as jewelry.",
       joinWaitlist: "Join the waitlist",
       faq: "Questions",
       features: "Features",
@@ -283,53 +291,57 @@ export const messages: Record<Locale, Messages> = {
     features: {
       title: "Features",
       metaDescription:
-        "Fall detection, emergency auto-contact, location peace of mind for families walking with dementia, and everyday wellbeing — designed as jewelry.",
+        "Cycle tracking, awareness when your pattern drifts, hydration reminders, and personal safety — designed as jewelry.",
       eyebrow: "What it does",
-      heading: "Care that stays quiet until it is needed.",
+      heading: "Quiet through the day.",
       intro:
-        "QiLyra is made to be worn, not explained. The capabilities below live in the matte silver bar — for independent days, and for the people who love you.",
-      highlightsEyebrow: "When something needs you",
+        "A cycle it learns, a pattern it watches, a reminder to drink. Safety sits further down, for the people you choose.",
+      highlightsEyebrow: "In the day",
       highlights: [
         {
-          title: "Fall detection, sent with care",
-          body: "If a fall happens, QiLyra can notice the sudden change and quietly let your chosen contacts know. There is no pendant to remember, and no siren on the wrist — only a calm signal when it matters.",
+          title: "Your cycle",
+          body: "The bracelet learns your rhythm. There is no screen; you follow the pattern in the companion app.",
         },
         {
-          title: "Emergency contacts, notified automatically",
-          body: "When a fall or an unresolved stillness needs attention, QiLyra can reach the people you have named — in the order you choose. You set who hears. They receive a clear, unhurried message, not a panic.",
+          title: "When the pattern drifts",
+          body: "QiLyra notices when your cycle drifts from your usual pattern, and suggests checking in with a doctor. It does not diagnose a condition, and it is not a contraceptive.",
         },
         {
-          title: "Location peace of mind, for families walking with dementia",
-          body: "Memory can wander even when the person you love is still themselves. QiLyra can share location with the family members you choose, so if someone leaves a familiar path, you have a quiet way to find them. It is not a leash, and not a camera. It is a thread of reassurance, used with consent and dignity.",
+          title: "A reminder to drink",
+          body: "A gentle reminder for water, in the companion app. Nothing on the wrist lights up, and there is no alarm there.",
         },
       ],
-      everydayEyebrow: "Everyday living",
+      safetyEyebrow: "If you want it",
+      safetyTitle: "A quieter kind of safety.",
+      safetyBody:
+        "Share your location with the people you choose, with your consent. You also choose who is contacted, and in what order, when something needs attention. They receive a clear, unhurried message — for the walk home, or for travelling on your own. Not a siren on the wrist.",
+      everydayEyebrow: "Also",
       everydayTitle: "Made for the day you already have.",
       everyday: [
         {
-          title: "Heart and activity, kept private",
-          body: "A gentle sense of the day’s rhythm — heart and movement — stays with the wearer unless you decide to share. Not a hospital readout. A quiet companion to ordinary living.",
+          title: "Designed as jewelry",
+          body: "Moss-green stones, a matte silver curve, a clasp you already know how to use.",
         },
         {
           title: "A charge that lasts through ordinary days",
           body: "QiLyra is made for everyday wear. A long charge, and a gentle reminder when it is time to rest on the charger — never an urgent red alarm on the wrist.",
         },
         {
-          title: "Designed as jewelry",
-          body: "Moss-green stones, a matte silver curve, a clasp you already know how to use. If it looks like a medical device, we have not succeeded.",
-        },
-        {
-          title: "A companion app for the people who care",
-          body: "Family members you invite can receive calm notifications when something needs them — and stay quiet when the afternoon is simply unfolding. No feed of surveillance.",
-        },
-        {
           title: "At home in daily water",
           body: "Washed hands, a little rain, a splash at the sink. Not for swimming or a long bath. We will share the exact rating with the first collection.",
+        },
+        {
+          title: "A companion app",
+          body: "People you invite can receive a calm note when something needs them, and the app stays quiet when the day is simply going on.",
+        },
+        {
+          title: "Heart and movement, kept with you",
+          body: "A gentle sense of heart and movement stays with you, unless you decide to share it.",
         },
       ],
       waitlistTitle: "Join the first collection",
       waitlistBody:
-        "If this is the kind of care you have been looking for, we would like to write when it is ready.",
+        "If this is the bracelet you want with you, we would like to write when it is ready.",
     },
   },
   zh: {
@@ -345,40 +357,44 @@ export const messages: Record<Locale, Messages> = {
     hero: {
       eyebrow: "首批系列 · 即将推出",
       title: "一件你会真正戴上的珠宝。",
-      line: "为年长者而做的无屏手链。安静的跌倒提醒，给家人的安心，收在一件看起来就是珠宝的饰物里。",
+      line: "一条无屏手链。它记住你的周期，在节律偏离平时时轻轻留意，并提醒你喝水。它看起来像珠宝，因为它就是。",
       waitlistCta: "加入等候名单",
-      featuresCta: "了解它如何照料",
+      featuresCta: "看看它做的事",
       videoAlt:
         "QiLyra 手链静置于暖米色台面上，柔和的水波光影在石珠与银弧上轻轻流动。",
     },
     statement: {
-      lead: "照料不必先开口。",
-      rest: "腕上没有屏幕，也没有需要解释的吊坠——直到跌倒、一段静止，或熟悉的路需要一句从容的话。",
+      lead: "它不必先开口。",
+      rest: "腕上没有屏幕。你的周期、一次偏离平时的变化、一句喝水的轻提醒——若你愿意，你选定的人也可以被联系到。",
     },
     presence: {
       eyebrow: "这件饰物",
       title: "一条手链，不是一只设备。",
-      body: "石珠与银弧，为融进平常的午后而做。跌倒发生时，或亲人走出熟悉的路时，照料才从底下出现。",
+      body: "石珠与银弧，为融进平常的午后而做。周期、节律与一杯水，都收在底下。",
       wristAlt: "戴在腕上的 QiLyra 手链，靠在亚麻桌边，旁边一杯茶，窗光很柔。",
       productAlt: "绿石英与密镶钻石银弧的 QiLyra 手链，放在洞石上，棕榈叶影落在一旁。",
     },
     care: {
-      eyebrow: "日子需要的时候",
+      eyebrow: "日常",
       title: "三件安静的事。",
       items: [
         {
-          title: "跌倒提醒",
-          body: "若有跌倒，QiLyra 可以察觉那一阵忽然的变化，并告知你选定的人。腕上没有刺耳的铃声。",
+          title: "你的周期",
+          body: "手链记住你的节律。腕上没有屏幕，这段规律写在陪伴应用里。",
         },
         {
-          title: "紧急联系，自动送达",
-          body: "你写下的人，按你排定的顺序，可以在需要留意时收到清楚、不催促的告知。",
+          title: "节律偏离时",
+          body: "QiLyra 会留意周期何时偏离你平时的样子，并建议你去问问医生。它不下诊断。",
         },
         {
-          title: "位置，顾及体面",
-          body: "写给与认知障碍同行的家人：一条经同意的位置线索。不是拴绳，也不是镜头。",
+          title: "喝水的提醒",
+          body: "一句轻提醒。腕上不会亮，也没有警报。",
         },
       ],
+      safety: {
+        title: "还有，一种更安静的安心",
+        body: "把位置分享给你选定的人。若有事需要留意，可以按你排定的顺序联系他们——清楚、不催促的告知，为独自回家的路，或一个人的旅行。",
+      },
       featuresCta: "查看全部功能",
     },
     waitlist: {
@@ -393,8 +409,8 @@ export const messages: Record<Locale, Messages> = {
       email: "电子邮箱",
       emailPlaceholder: "you@example.com",
       age: "年龄",
-      agePlaceholder: "72",
-      ageInvalid: "请填写有效年龄，例如 72。",
+      agePlaceholder: "32",
+      ageInvalid: "请填写有效年龄，例如 32。",
       gender: "性别",
       genderPlaceholder: "请选择",
       genderPreferNot: "不想说明",
@@ -415,57 +431,56 @@ export const messages: Record<Locale, Messages> = {
         "谢谢{name}。首批系列准备好时，我们会写信告诉您——从容一些，也只谈 QiLyra。",
     },
     faq: {
-      eyebrow: "好問題",
-      title: "加入前的簡短回答。",
-      intro: "預留名額之前，這幾件事值得先知道。",
+      eyebrow: "好问题",
+      title: "加入前的简短回答。",
+      intro: "预留名额之前，这几件事值得先知道。",
       items: [
         {
-          question: "戴起來像珠寶，還是像一個裝置？",
+          question: "戴起来像珠宝，还是像一个装置？",
           answer:
-            "該像珠寶。QiLyra 是苔綠石珠與一條霧面銀弧，沒有螢幕來搶去目光。若看起來像醫療器械，我們便沒有做成。",
+            "该像珠宝。QiLyra 是苔绿石珠与一条雾面银弧。腕上没有屏幕，也没有警铃。",
         },
         {
-          question: "腕上有螢幕嗎？一天裡會亮、會響嗎？",
+          question: "没有屏幕，周期要怎么看？",
           answer:
-            "沒有螢幕，腕上也沒有警鈴。你邀請的人，可以在陪伴應用裡收到從容的通知——只在有事需要他們的時候；若這一天只是平常地過去，應用便保持安靜。沒有監視用的資訊流。這支應用支援哪些手機，我們會在推出前說明，等候名單上的人會先知道。",
+            "手链记住你的节律。因为腕上没有屏幕，这段规律写在陪伴应用里。它支持哪些手机，我们会在推出前说明，等候名单上的人会先知道。",
         },
         {
-          question: "下雨，或洗手的時候，可以戴著嗎？",
+          question: "周期变得不规律时，会怎样？",
           answer:
-            "洗手、一點雨水、水槽邊的濺濕，都可以。不適合游泳，也不適合長時間沐浴。精確的防水等級，會隨首批系列一起說明。",
+            "QiLyra 会留意你的周期何时偏离平时的样子，并建议你去问问医生。它不下诊断，也不是避孕手段。",
         },
         {
-          question: "誰看得到我在哪裡？",
+          question: "喝水的提醒怎么来到我这里？",
           answer:
-            "只有你選定的人。在你同意之下，QiLyra 可以把位置告訴他們。那是一條行蹤的線索，不是拴繩，也不是鏡頭。",
+            "一句轻提醒，写在陪伴应用里。腕上不会亮起屏幕，也没有警报。",
         },
         {
-          question: "晚上獨自回家、出門，或一個人旅行時，別人怎麼知道？",
+          question: "谁看得到我在哪里？独自回家或一个人旅行时，别人怎么知道？",
           answer:
-            "由你決定聯絡誰，以及先後順序。當有事需要留意，QiLyra 可以送出清楚、不催促的告知，而不是一陣驚慌。腕上沒有警鈴，也不必記得去按一個吊墜。",
+            "位置只分享给你选定的人，并且要经过你的同意。你也决定联络谁、按什么顺序。当有事需要留意，他们会收到清楚、不催促的告知，而不是惊慌，腕上也没有警铃。为的是回家的那段路，或一个人的旅行。",
         },
         {
-          question: "手鏈知道的事，還有我的信箱，你們怎麼對待？",
+          question: "我的信箱，还有手链知道的事，你们怎么对待？",
           answer:
-            "心跳與活動先留在你身邊，除非你決定分享。那不是醫院的讀數。位置只給你選定的人。若你加入等候名單，信箱只用來寄發布的消息。我們不出售這份名單，也不代他人發廣告。你也可以選填年齡、性別，以及是否希望成為測試者。這個網站不會向你的手機索取定位權限。",
+            "位置只给你选定的人。心跳与活动先留在你身边，除非你决定分享。若你加入等候名单，信箱只用来寄发布的消息。我们不出售这份名单，也不代他人发广告。你也可以选填年龄、性别，以及是否希望成为测试者。这个网站不会向你的手机索取定位权限。",
         },
         {
-          question: "一次充電可以撐多久？",
+          question: "一次充电可以撑多久？",
           answer:
-            "它為日常佩戴而做：一次充電可以用得久，該放回充電器時只會輕輕提醒，腕上不會亮起催促的紅燈。具體能用幾天，我們會在推出前說明，等候名單上的人會先知道。",
+            "它为日常佩戴而做：一次充电可以用得久，该放回充电器时只会轻轻提醒，腕上不会亮起催促的红灯。具体能用几天，我们会在推出前说明，等候名单上的人会先知道。",
         },
         {
-          question: "什麼時候能買到？等候名單和測試優惠包含什麼？",
+          question: "什么时候能买到？等候名单和测试优惠包含什么？",
           answer:
-            "還沒有。首批系列即將推出。公開的日期尚未寫下——我們會在推出前說明，等候名單上的人會先知道。加入名單，是為了私下預覽、尺寸說明，以及首批選購。我們很少寫信，只在值得告訴你的時候。你也可以表示希望成為首批測試者，並享有優惠。優惠的內容，同樣會在推出前說明。",
+            "还没有。首批系列即将推出。公开的日期尚未写下——我们会在推出前说明，等候名单上的人会先知道。加入名单，是为了私下预览、尺寸说明，以及首批选购。我们很少写信，只在值得告诉你的时候。你也可以表示希望成为首批测试者，并享有优惠。优惠的内容，同样会在推出前说明。",
         },
       ],
       disclaimer:
-        "QiLyra 是珠寶，帶著一層安靜的照料。它不是醫療器械，也不是急救的替代，無意診斷、治療、治癒或預防任何疾病。",
+        "QiLyra 是珠宝，带着一层安静的照料。它不是医疗器械，也不是避孕手段，无意诊断、治疗、治愈或预防任何状况。",
     },
     footer: {
-      blurb:
-        "安静的珠宝，日常的独立。首批系列写给年长者，以及爱他们的家人。",
+      blurb: "安静的珠宝，陪着你自己的节律。首批系列，戴起来就是珠宝。",
       joinWaitlist: "加入等候名单",
       faq: "常见问题",
       features: "功能",
@@ -492,52 +507,55 @@ export const messages: Record<Locale, Messages> = {
     features: {
       title: "功能",
       metaDescription:
-        "跌倒察觉、紧急联系人自动通知、写给与认知障碍同行之家人的位置安心，以及日常身心照料——按珠宝来设计。",
+        "周期记录、节律偏离时的留意、喝水提醒，以及个人安全——按珠宝来设计。",
       eyebrow: "它能做什么",
-      heading: "照料一直安静，直到真正需要的时候。",
-      intro:
-        "QiLyra 为佩戴而做，不必解释。下列能力收在雾面银弧里——为独立的日子，也为爱你的人。",
-      highlightsEyebrow: "当有事需要你",
+      heading: "一天里，它保持安静。",
+      intro: "它记住的周期，它留意的节律，一句喝水的提醒。安全放在后面，给你选定的人。",
+      highlightsEyebrow: "在这一天里",
       highlights: [
         {
-          title: "跌倒察觉，带着体贴送出",
-          body: "若有跌倒，QiLyra 可以察觉那一阵忽然的变化，并安静地告知你选定的人。不必记得按吊坠，腕上也没有刺耳的铃声——只在要紧时，送出一个从容的信号。",
+          title: "你的周期",
+          body: "手链记住你的节律。没有屏幕，这段规律写在陪伴应用里。",
         },
         {
-          title: "紧急联系人，自动通知",
-          body: "当跌倒，或一段没有解开的静止需要留意，QiLyra 可以按你排定的顺序，联系你写下的人。谁会收到消息，由你决定。他们收到的是清楚、不催促的告知，而不是惊慌。",
+          title: "节律偏离时",
+          body: "QiLyra 会留意周期何时偏离你平时的样子，并建议你去问问医生。它不下诊断，也不是避孕手段。",
         },
         {
-          title: "位置的安心，写给与认知障碍同行的家人",
-          body: "记忆会走神，即使亲人仍是他们自己。QiLyra 可以把位置告诉你选定的家人；若有人走出熟悉的路，你们有一条安静的方式彼此找到。这不是拴绳，也不是镜头。这是一份经同意、也顾及体面的安心。",
+          title: "喝水的提醒",
+          body: "一句轻提醒，写在陪伴应用里。腕上不会亮，也没有警报。",
         },
       ],
-      everydayEyebrow: "日常的日子",
+      safetyEyebrow: "若你愿意",
+      safetyTitle: "一种更安静的安心。",
+      safetyBody:
+        "在你同意之下，把位置分享给你选定的人。你也决定联络谁、按什么顺序。当有事需要留意，他们会收到清楚、不催促的告知——为独自回家的路，或一个人的旅行。腕上没有警铃。",
+      everydayEyebrow: "此外",
       everydayTitle: "为你本来就有的一天而做。",
       everyday: [
         {
-          title: "心跳与活动，留在私下",
-          body: "对一日节奏的轻柔感知——心跳与走动——先留在佩戴者身边，除非你决定分享。不是医院的读数，而是日常的安静伴侣。",
+          title: "按珠宝来设计",
+          body: "苔绿石珠、一条雾面银弧、你本来就会用的扣。",
         },
         {
           title: "电量陪你过完平常的日子",
           body: "QiLyra 为日常佩戴而做。一次充电用得久，该休息充电时只会轻轻提醒——腕上从不会亮起催促的红灯。",
         },
         {
-          title: "按珠宝来设计",
-          body: "苔绿石珠、一条雾面银弧、你本来就会用的扣。若看起来像医疗器械，我们便没有做成。",
-        },
-        {
-          title: "给照料者的陪伴应用",
-          body: "你邀请的家人，会在需要他们时收到从容的通知；若午后只是安静地过去，应用便保持安静。没有监视的信息流。",
-        },
-        {
           title: "日常的水，也可以",
           body: "洗手、一点雨水、水槽边的溅湿。不适合游泳或长时间沐浴。精确等级将随首批系列一并说明。",
         },
+        {
+          title: "陪伴应用",
+          body: "你邀请的人，会在需要他们时收到从容的通知；若这一天只是平常地过去，应用便保持安静。",
+        },
+        {
+          title: "心跳与活动，留在你身边",
+          body: "对心跳与走动的轻柔感知先留在你身边，除非你决定分享。",
+        },
       ],
       waitlistTitle: "加入首批系列",
-      waitlistBody: "若这正是你在寻找的照料，我们愿意在准备好时写信告诉你。",
+      waitlistBody: "若这正是你想戴在身边的手链，我们愿意在准备好时写信告诉你。",
     },
   },
 };
