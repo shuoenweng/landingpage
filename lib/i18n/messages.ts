@@ -28,7 +28,8 @@ export type Messages = {
     eyebrow: string;
     title: string;
     body: string;
-    videoAlt: string;
+    wristAlt: string;
+    productAlt: string;
   };
   care: {
     eyebrow: string;
@@ -143,8 +144,10 @@ export const messages: Record<Locale, Messages> = {
       eyebrow: "The piece",
       title: "A bracelet, not a device.",
       body: "Stones and a silver bar, made to disappear into an ordinary afternoon. The care stays underneath until a fall happens, or someone you love leaves a familiar path.",
-      videoAlt:
-        "The same QiLyra bracelet, centered on a warm beige surface, with quiet space above and below.",
+      wristAlt:
+        "QiLyra bracelet on a wrist at a linen table, beside a cup of tea in soft window light.",
+      productAlt:
+        "QiLyra bracelet of green quartz and a pavé diamond bar, resting on travertine with palm shadows.",
     },
     care: {
       eyebrow: "When the day asks",
@@ -356,7 +359,8 @@ export const messages: Record<Locale, Messages> = {
       eyebrow: "这件饰物",
       title: "一条手链，不是一只设备。",
       body: "石珠与银弧，为融进平常的午后而做。跌倒发生时，或亲人走出熟悉的路时，照料才从底下出现。",
-      videoAlt: "同一条 QiLyra 手链居中置于暖米色台面，上下留着安静的空间。",
+      wristAlt: "戴在腕上的 QiLyra 手链，靠在亚麻桌边，旁边一杯茶，窗光很柔。",
+      productAlt: "绿石英与密镶钻石银弧的 QiLyra 手链，放在洞石上，棕榈叶影落在一旁。",
     },
     care: {
       eyebrow: "日子需要的时候",

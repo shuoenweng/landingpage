@@ -112,15 +112,26 @@ html[lang="zh-CN"] .font-wordmark {
     linear-gradient(0deg, rgba(232, 214, 196, 0.9) 0%, rgba(232, 214, 196, 0.45) 14%, rgba(232, 214, 196, 0) 28%);
 }
 
-.presence-grid {
-  display: grid;
-  justify-items: center;
-  gap: 3.5rem;
-  text-align: center;
+.presence-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
 }
 
 .presence-copy {
+  max-width: 36rem;
+  margin-inline: auto;
   text-align: center;
+}
+
+.presence-wrist,
+.presence-product {
+  margin: 0;
+}
+
+.presence-product {
+  width: 86%;
+  margin-left: auto;
 }
 
 @media (min-aspect-ratio: 5/4) {
@@ -171,16 +182,24 @@ html[lang="zh-CN"] .font-wordmark {
     max-width: 28rem;
   }
 
-  .presence-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(14rem, 22rem);
-    align-items: center;
-    justify-items: stretch;
-    gap: 4.5rem;
-    text-align: left;
+  .presence-layout {
+    display: grid;
+    grid-template-columns: minmax(16rem, 18.5rem) minmax(0, 1.22fr) minmax(0, 0.92fr);
+    align-items: end;
+    gap: 0 1.75rem;
   }
 
   .presence-copy {
+    max-width: none;
+    margin-inline: 0;
+    align-self: center;
+    padding-right: 0.25rem;
     text-align: left;
+  }
+
+  .presence-product {
+    width: 100%;
+    margin-left: 0;
   }
 }
 

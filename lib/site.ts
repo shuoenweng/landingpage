@@ -12,7 +12,7 @@ export type HeroFilm = {
   height: number;
 };
 
-/** 1080p landscape. Laptops and the narrow Presence frame use this. */
+/** 1080p landscape for viewports under 1600px wide. */
 export const HERO_LANDSCAPE: HeroFilm = {
   mp4: "/video/hero-landscape.mp4",
   webm: "/video/hero-landscape.webm",
