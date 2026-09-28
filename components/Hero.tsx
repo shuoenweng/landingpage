@@ -20,6 +20,7 @@ export function Hero() {
           className="absolute inset-0"
           priority
           sizes="100vw"
+          hiRes
         />
         <FilmFrame
           clip="portrait"
