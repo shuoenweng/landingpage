@@ -365,7 +365,7 @@ export const messages: Record<Locale, Messages> = {
     },
     statement: {
       lead: "它不必先开口。",
-      rest: "腕上没有屏幕。你的周期、一次偏离平时的变化、一句喝水的轻提醒——若你愿意，你选定的人也可以被联系到。",
+      rest: "腕上没有屏幕。你的周期、一次偏离平时的变化、一句喝水的轻提醒。",
     },
     presence: {
       eyebrow: "这件饰物",
@@ -384,7 +384,7 @@ export const messages: Record<Locale, Messages> = {
         },
         {
           title: "节律偏离时",
-          body: "QiLyra 会留意周期何时偏离你平时的样子，并建议你去问问医生。它不下诊断。",
+          body: "QiLyra 会留意周期何时偏离你平时的样子。",
         },
         {
           title: "喝水的提醒",
@@ -400,7 +400,7 @@ export const messages: Record<Locale, Messages> = {
     waitlist: {
       eyebrow: "提前预览",
       title: "系列开放时，请排在前面。",
-      body: "加入等候名单，获取私密预览、尺寸说明，以及首批选购。我们很少写信，只在真正值得告诉你的时候。",
+      body: "加入等候名单，获取私密预览、尺寸说明，以及首批选购。",
       firstName: "名字",
       optional: "（选填）",
       firstNamePlaceholder: "您的名字",
@@ -438,17 +438,17 @@ export const messages: Record<Locale, Messages> = {
         {
           question: "戴起来像珠宝，还是像一个装置？",
           answer:
-            "该像珠宝。QiLyra 是苔绿石珠与一条雾面银弧。腕上没有屏幕，也没有警铃。",
+            "该像珠宝。QiLyra 是苔绿石珠与一条雾面银弧。腕上没有屏幕。",
         },
         {
-          question: "没有屏幕，周期要怎么看？",
+          question: "没有屏幕，数据要怎么看？",
           answer:
             "手链记住你的节律。因为腕上没有屏幕，这段规律写在陪伴应用里。它支持哪些手机，我们会在推出前说明，等候名单上的人会先知道。",
         },
         {
           question: "周期变得不规律时，会怎样？",
           answer:
-            "QiLyra 会留意你的周期何时偏离平时的样子，并建议你去问问医生。它不下诊断，也不是避孕手段。",
+            "QiLyra 会留意你的周期何时偏离平时的样子。",
         },
         {
           question: "喝水的提醒怎么来到我这里？",
